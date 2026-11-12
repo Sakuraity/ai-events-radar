@@ -1,4 +1,4 @@
-import { classifyEvent } from "../lib/classify.mjs";
+import { classifyEvent, relativeWhen } from "../lib/classify.mjs";
 
 const ALLOWED = {
   when: ["all", "upcoming", "past"],
@@ -22,6 +22,7 @@ function mountRadar() {
     card,
     price: card.dataset.price,
     replay: card.dataset.replay,
+    format: card.dataset.format || "",
     search: (card.dataset.search || "").toLowerCase(),
     title: card.dataset.title || "",
     schedule: JSON.parse(card.dataset.schedule),
@@ -37,7 +38,7 @@ function mountRadar() {
       return;
     }
     if (event.target.closest("#clear")) {
-      state = { when: "all", price: "all", replay: "all", q: "" };
+      state = { when: "all", price: "all", replay: "all", format: "all", q: "" };
       apply();
     }
   });
@@ -51,6 +52,7 @@ function mountRadar() {
 
   function apply() {
     const now = new Date();
+    refreshSessionBadges(now);
     const buckets = { upcoming: [], past: [] };
     for (const item of cards) {
       const classified = classifyEvent(item.schedule, now);
@@ -106,6 +108,22 @@ function mountRadar() {
   }
 }
 
+function refreshSessionBadges(now) {
+  for (const badge of document.querySelectorAll(".rel[data-date]")) {
+    const session = {
+      start: badge.dataset.start || null,
+      date: badge.dataset.date,
+      label: badge.dataset.label || null,
+    };
+    const text = relativeWhen(session, now);
+    badge.textContent = text;
+    badge.classList.toggle("is-past", text === "已结束");
+    badge.classList.toggle("is-today", text === "今天");
+    badge.classList.toggle("is-future", text.endsWith("天后"));
+    badge.closest(".session")?.classList.toggle("is-done", text === "已结束");
+  }
+}
+
 function readState() {
   const params = new URLSearchParams(location.search);
   const q = params.get("q") || "";
@@ -113,22 +131,35 @@ function readState() {
     when: pick("when", params.get("when")),
     price: pick("price", params.get("price")),
     replay: pick("replay", params.get("replay")),
+    format: pick("format", params.get("format")),
     q,
   };
 }
 
 function pick(group, value) {
-  return ALLOWED[group].includes(value) ? value : "all";
+  const allowed = group === "format" ? formatChoices() : ALLOWED[group];
+  return allowed.includes(value) ? value : "all";
+}
+
+function formatChoices() {
+  return [...document.querySelectorAll('button[data-group="format"]')].map((button) => button.dataset.value);
 }
 
 function isDefault(state) {
-  return state.when === "all" && state.price === "all" && state.replay === "all" && state.q.trim() === "";
+  return (
+    state.when === "all" &&
+    state.price === "all" &&
+    state.replay === "all" &&
+    state.format === "all" &&
+    state.q.trim() === ""
+  );
 }
 
 function isVisible(item, state) {
   if (state.when !== "all" && item.group !== state.when) return false;
   if (state.price !== "all" && item.price !== state.price) return false;
   if (state.replay !== "all" && item.replay !== state.replay) return false;
+  if (state.format !== "all" && item.format !== state.format) return false;
   const tokens = state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   return tokens.every((token) => item.search.includes(token));
 }
@@ -146,6 +177,7 @@ function writeState(state) {
   if (state.when !== "all") params.set("when", state.when);
   if (state.price !== "all") params.set("price", state.price);
   if (state.replay !== "all") params.set("replay", state.replay);
+  if (state.format !== "all") params.set("format", state.format);
   if (state.q.trim()) params.set("q", state.q.trim());
   const query = params.toString();
   const next = `${location.pathname}${query ? `?${query}` : ""}${location.hash}`;

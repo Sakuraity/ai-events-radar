@@ -1,28 +1,46 @@
 ---
 import {
+  LINK_GROUP_LABELS,
+  LINK_GROUP_ORDER,
+  REPLAY_LABELS,
+  TAG_LABELS,
+  formatLabel,
   formatPrice,
   formatSession,
-  linkLabel,
-  REPLAY_LABELS,
+  formatTiming,
+  missingLabel,
+  relativeWhen,
   searchBlob,
-  sessionFlags,
   sleepCoverage,
-  TAG_LABELS,
+  isSleepSession,
 } from "../lib/classify.mjs";
 
 const { event, now, group } = Astro.props;
 const price = formatPrice(event.price);
 const sleep = sleepCoverage(event.schedule);
-const generalLinks = event.urls.filter((url) => !event.schedule.some((session) => session.url === url));
 const scheduleData = JSON.stringify(
   event.schedule.map(({ start, date, label }) => ({ start, date, label })),
 );
+const linkUrls = new Set((event.links ?? []).map((link) => link.url));
+const replayHref =
+  event.replay.url?.startsWith("https://") && !linkUrls.has(event.replay.url) ? event.replay.url : null;
+const linkGroups = LINK_GROUP_ORDER.map((type) => ({
+  type,
+  label: LINK_GROUP_LABELS[type],
+  links: (event.links ?? []).filter((link) => link.type === type),
+})).filter((entry) => entry.links.length > 0);
 const replayClass = {
   upcoming: "upcoming",
   awaiting_replay: "awaiting",
   replay_available: "available",
   no_replay: "none",
 }[event.replay.status];
+
+function relativeClass(text) {
+  if (text === "已结束") return "is-past";
+  if (text === "今天") return "is-today";
+  return "is-future";
+}
 ---
 
 <article
@@ -31,83 +49,149 @@ const replayClass = {
   data-title={event.title}
   data-price={event.price.type}
   data-replay={event.replay.status}
+  data-format={event.format ?? ""}
   data-search={searchBlob(event).replaceAll("\n", " ")}
   data-schedule={scheduleData}
 >
-  <div class="when">
-    <ol class="sessions">
-      {
-        event.schedule.map((session) => {
-          const formatted = formatSession(session);
-          const flags = sessionFlags(session, event.schedule, now);
-          return (
-            <li class:list={["session", { "is-next": flags.isNext, "is-done": flags.past && group === "upcoming" }]}>
-              <p class="date">{formatted.dateLine}</p>
-              <p class="clock">{formatted.timeLine}</p>
-              {(flags.isNext && event.schedule.length > 1) ||
-              (flags.past && group === "upcoming") ||
-              (sleep === "some" && formatted.sleep) ||
-              session.url?.startsWith("https://") ? (
-                <p class="session-meta">
-                  {flags.isNext && event.schedule.length > 1 && <span class="mini">下一场</span>}
-                  {flags.past && group === "upcoming" && <span class="mini">已开始</span>}
-                  {sleep === "some" && formatted.sleep && (
-                    <span class="badge sleep" title="北京时间 00:00 至 08:00 之间开始（不含 08:00）">
-                      熬夜场
-                    </span>
-                  )}
-                  {session.url?.startsWith("https://") && (
-                    <a href={session.url} target="_blank" rel="noopener noreferrer">
-                      本场页面
-                      <span class="sr-only">（新窗口打开）</span>
-                    </a>
-                  )}
-                </p>
-              ) : null}
-            </li>
-          );
-        })
-      }
-    </ol>
-  </div>
-  <div class="body">
-    <div class="title-row">
-      <h3>{event.title}</h3>
-      <div class="pills">
-        <span class:list={["pill", event.price.type]}>{price.label}</span>
-        {price.note && <span class="price-note">{price.note}</span>}
-        <span class:list={["pill", replayClass]}>{REPLAY_LABELS[event.replay.status]}</span>
-        {sleep === "all" && (
-          <span class="badge sleep" title="北京时间 00:00 至 08:00 之间开始（不含 08:00）">熬夜场</span>
-        )}
-      </div>
-    </div>
-    <p class="meta">
-      {event.host && <span>{event.host}</span>}
-      {event.tags.map((tag) => <span>{TAG_LABELS[tag]}</span>)}
-      {event.schedule.length > 1 && <span>共 {event.schedule.length} 场</span>}
+  <h3>{event.title}</h3>
+  {event.tags?.length > 0 && (
+    <p class="tags">
+      {event.tags.map((tag) => (
+        <span>{TAG_LABELS[tag] ?? tag}</span>
+      ))}
     </p>
-    {(event.replay.channel || event.replay.url) && (
-      <p class="channel">
-        {event.replay.channel && <span>回放渠道：{event.replay.channel}</span>}
-        {event.replay.url?.startsWith("https://") && (
-          <a href={event.replay.url} target="_blank" rel="noopener noreferrer">
-            观看回放
-            <span class="sr-only">（新窗口打开）</span>
-          </a>
+  )}
+
+  {event.host && (
+    <div class="fact">
+      <span class="k">举办方</span>
+      <p>{event.host}</p>
+    </div>
+  )}
+
+  {event.speakers?.length > 0 && (
+    <div class="fact">
+      <span class="k">主讲人</span>
+      <ul class="people">
+        {event.speakers.map((speaker) => (
+          <li>
+            <span class="name">{speaker.name}</span>
+            {speaker.title && <span class="role">{speaker.title}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <div class="fact">
+    <span class="k">开始</span>
+    <div class="schedule-block">
+      <p class="tz">
+        <span>上海时间</span>
+        {event.schedule.length > 1 && <span>共 {event.schedule.length} 场</span>}
+        {sleep === "all" && (
+          <span class="badge sleep" title="上海时间 00:00 至 08:00 之间开始（不含 08:00）">熬夜场</span>
         )}
       </p>
-    )}
-    {event.notes && <p class="notes">{event.notes}</p>}
-    {generalLinks.length > 0 && (
-      <p class="links">
-        {generalLinks.map((url) => (
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {linkLabel(url, generalLinks.length)}
+      <ol class="sessions">
+        {event.schedule.map((session) => {
+          const formatted = formatSession(session);
+          const rel = relativeWhen(session, now);
+          const timing = formatTiming(session);
+          return (
+            <li class:list={["session", { "is-done": rel === "已结束" }]}>
+              <p class="when-line">
+                <time datetime={session.start ?? session.date}>
+                  {formatted.dateLine} {formatted.timeLine}
+                </time>
+                <span
+                  class:list={["rel", relativeClass(rel)]}
+                  data-start={session.start ?? undefined}
+                  data-date={session.date}
+                  data-label={session.label ?? undefined}
+                >
+                  {rel}
+                </span>
+                {sleep === "some" && isSleepSession(session) && (
+                  <span class="badge sleep" title="上海时间 00:00 至 08:00 之间开始（不含 08:00）">熬夜场</span>
+                )}
+              </p>
+              {session.start && session.label && <p class="subtitle">{session.label}</p>}
+              {timing && <p class="timing">时长 {timing}</p>}
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+
+  {event.format && (
+    <div class="fact">
+      <span class="k">形式</span>
+      <p>{formatLabel(event.format)}</p>
+    </div>
+  )}
+  {event.platform && (
+    <div class="fact">
+      <span class="k">平台</span>
+      <p>{event.platform}</p>
+    </div>
+  )}
+  {event.summary && (
+    <div class="fact">
+      <span class="k">简介</span>
+      <p class="blurb">{event.summary}</p>
+    </div>
+  )}
+
+  <div class="fact">
+    <span class="k">价格</span>
+    <p class="value-line">
+      <span class:list={["pill", event.price.type]}>{price.label}</span>
+      {price.note && <span class="price-note">{price.note}</span>}
+    </p>
+  </div>
+
+  <div class="fact">
+    <span class="k">回放</span>
+    <p class="value-line">
+      <span class:list={["pill", replayClass]}>{REPLAY_LABELS[event.replay.status]}</span>
+      {event.replay.channel && <span class="channel">{event.replay.channel}</span>}
+      {replayHref && (
+        <a href={replayHref} target="_blank" rel="noopener noreferrer">
+          观看回放
+          <span class="sr-only">（新窗口打开）</span>
+        </a>
+      )}
+    </p>
+  </div>
+
+  {linkGroups.map((entry) => (
+    <div class="fact">
+      <span class="k">{entry.label}</span>
+      <p class="link-row">
+        {entry.links.map((link) => (
+          <a href={link.url} target="_blank" rel="noopener noreferrer">
+            {link.label}
             <span class="sr-only">（新窗口打开）</span>
           </a>
         ))}
       </p>
-    )}
-  </div>
+    </div>
+  ))}
+
+  {event.missing?.length > 0 && (
+    <p class="missing">
+      {event.missing.map((field) => (
+        <span class="badge gap">待补：{missingLabel(field)}</span>
+      ))}
+    </p>
+  )}
+
+  {event.notes && (
+    <details class="notes">
+      <summary>备注</summary>
+      <p>{event.notes}</p>
+    </details>
+  )}
 </article>

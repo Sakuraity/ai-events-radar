@@ -2,10 +2,13 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import data from "../data/events.json" with { type: "json" };
 import {
+  formatDuration,
   formatSession,
+  formatTiming,
   groupEvents,
   isExactShanghaiIso,
   isSleepSession,
+  relativeWhen,
   sleepCoverage,
 } from "../src/lib/classify.mjs";
 
@@ -29,9 +32,44 @@ test("sleep hours are 00:00 inclusive through 08:00 exclusive", () => {
 test("fuzzy early-morning text is not rendered as an invented clock time", () => {
   const formatted = formatSession({ start: null, date: "2026-10-29", label: "凌晨" });
   assert.match(formatted.dateLine, /2026年10月29日/);
+  assert.match(formatted.dateLine, /星期/);
   assert.equal(formatted.timeLine, "凌晨");
   assert.equal(formatted.sleep, true);
   assert.equal(JSON.stringify(formatted).includes("08:00"), false);
+});
+
+test("relative labels use the Shanghai calendar", () => {
+  const past = { start: "2026-11-12T08:00:00+08:00", date: "2026-11-12", label: null };
+  const today = { start: "2026-11-12T23:00:00+08:00", date: "2026-11-12", label: null };
+  const later = { start: "2026-11-14T02:00:00+08:00", date: "2026-11-14", label: null };
+  assert.equal(relativeWhen(past, NOW), "已结束");
+  assert.equal(relativeWhen(today, NOW), "今天");
+  assert.equal(relativeWhen(later, NOW), "2 天后");
+});
+
+test("duration prefers hours and keeps an end time that crosses midnight", () => {
+  assert.equal(formatDuration(30), "30 分钟");
+  assert.equal(formatDuration(60), "1 小时");
+  assert.equal(formatDuration(90), "1 小时 30 分钟");
+  assert.equal(formatDuration(120), "2 小时");
+  assert.equal(
+    formatTiming({
+      start: "2026-11-14T02:00:00+08:00",
+      end: "2026-11-14T03:00:00+08:00",
+      duration_minutes: 60,
+      date: "2026-11-14",
+    }),
+    "1 小时 · 03:00 结束",
+  );
+  assert.equal(
+    formatTiming({
+      start: "2026-11-25T23:00:00+08:00",
+      end: "2026-11-26T00:00:00+08:00",
+      duration_minutes: 60,
+      date: "2026-11-25",
+    }),
+    "1 小时 · 11月26日 00:00 结束",
+  );
 });
 
 test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai", () => {
@@ -47,6 +85,7 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "agentic-gtm-engine-round-2",
       "the-ai-visibility-playbook",
       "claude-social-media-manager",
+      "midjourney-office-hours",
       "wellows-s4-make-ai-quote-you",
       "why-geo-why-now",
       "wellows-s5-30-day-ai-visibility-plan",
@@ -59,7 +98,6 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
     grouped.past.map((event) => event.id),
     [
       "a-mini-masterclass-for-brands-using-ai-for-content",
-      "midjourney-office-hours",
       "how-much-of-your-next-product-launch-can-ai-handle",
       "create-your-ai-growth-brief",
     ],

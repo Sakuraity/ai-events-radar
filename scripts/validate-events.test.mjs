@@ -10,82 +10,107 @@ import schema from "../data/events.schema.json" with { type: "json" };
 import { TAG_ORDER } from "../src/lib/classify.mjs";
 import {
   EVENT_KEYS,
+  LINK_KEYS,
+  LINK_TYPES,
   PRICE_KEYS,
   REPLAY_KEYS,
   REPLAY_STATUSES,
   ROOT_KEYS,
   SESSION_KEYS,
+  SPEAKER_KEYS,
   validateEvents,
 } from "./validate-events.mjs";
 
 const SEED_TITLES = [
-  "TwoSetAI Workshops",
+  "TwoSetAI Workshop Series",
   "Midjourney Office Hours（David Holz）",
-  "Figma Weave Office Hours（First take→final cut / Black Friday / Find your sound / What's new）",
-  "The AI Visibility Playbook",
-  "Building an AI-Assisted GTM Strategy（Queens Tech）",
-  "Build Your Personal Brand With AI（Willa）",
-  "Agentic GTM Engine Round 2（Metadata）",
-  "Agentic GTM Engine Round 3",
-  "Create Your Own Claude Social Media Manager（Willa）",
-  "Build your AI Content Machine（Time Rich）",
-  "Why Geo, Why Now?（Sphere Underground）",
-  "Wellows S3 Why AI Trusts Your Competitors",
-  "Wellows S4 Make AI Quote You",
-  "Wellows S5 30-Day AI Visibility Plan",
-  "Stop Being the Middleman（Corey Haines × Livestorm）",
-  "Create Your AI Growth Brief（Willa）",
-  "How Much of Your Next Product Launch Can AI Handle?",
+  "Figma Weave Office Hours",
+  "The AI Visibility Playbook: 4 Experts, 4 Strategies, One Goal",
+  "Building an AI-Assisted GTM Strategy for Smarter, Faster Acquisition",
+  "Build Your Personal Brand With AI in One Hour",
+  "Building an Agentic GTM Engine Workshop - Round 2",
+  "Building an Agentic GTM Engine Workshop - Round 3",
+  "Create Your Own Claude Social Media Manager",
+  "Build your AI Content Machine + Q&A",
+  "Why Geo, Why Now?",
+  "Wellows Webinar, Session 3: Why AI Trusts Your Competitors",
+  "Wellows Webinar, Session 4: Make AI Quote You",
+  "Wellows Webinar, Session 5: Your 30-Day AI Visibility Plan, Built Live",
+  "Stop Being the Middleman: Become the Marketer-in-the-Loop.",
+  "Create Your AI Growth Brief: Get People to Find and Use What You Built",
+  "How Much of Your Next Product Launch Can AI Actually Handle?",
   "A Mini-Masterclass for Brands Using AI for Content",
 ];
 
 function sample() {
   return {
-    schema_version: 1,
+    schema_version: 2,
     timezone: "Asia/Shanghai",
-    last_updated: "2026-11-12T19:30:00+08:00",
+    last_updated: "2026-11-12T21:30:00+08:00",
     events: [
       {
         id: "sample-event",
         title: "Sample Event",
+        summary: "一场示例活动。",
         host: "Sample Host",
+        speakers: [{ name: "Ada Example", title: "Host" }],
+        format: "Workshop",
+        platform: "Zoom",
         schedule: [
-          { start: "2026-12-01T02:00:00+08:00", date: "2026-12-01", label: null, url: null },
+          {
+            start: "2026-12-01T02:00:00+08:00",
+            end: "2026-12-01T03:00:00+08:00",
+            duration_minutes: 60,
+            date: "2026-12-01",
+            label: "Opening session",
+            url: "https://example.com/event",
+          },
         ],
-        urls: ["https://example.com/event"],
+        links: [{ type: "event", label: "活动页", url: "https://example.com/event" }],
         price: { type: "free", amount: null, currency: null, note: null },
         replay: { channel: "Example", status: "upcoming", url: null },
         tags: ["growth"],
         notes: null,
-        last_updated: "2026-11-12T19:30:00+08:00",
+        missing: [],
+        last_updated: "2026-11-12T21:30:00+08:00",
       },
     ],
   };
 }
 
 test("schema keys stay aligned with the validator", () => {
+  assert.equal(schema.properties.schema_version.const, 2);
   assert.deepEqual(schema.required, ROOT_KEYS);
   assert.deepEqual(Object.keys(schema.properties), ROOT_KEYS);
   assert.deepEqual(schema.$defs.event.required, EVENT_KEYS);
   assert.deepEqual(Object.keys(schema.$defs.event.properties), EVENT_KEYS);
   assert.deepEqual(schema.$defs.session.required, SESSION_KEYS);
+  assert.deepEqual(Object.keys(schema.$defs.session.properties), SESSION_KEYS);
+  assert.deepEqual(schema.$defs.speaker.required, SPEAKER_KEYS);
+  assert.deepEqual(Object.keys(schema.$defs.speaker.properties), SPEAKER_KEYS);
+  assert.deepEqual(schema.$defs.link.required, LINK_KEYS);
+  assert.deepEqual(Object.keys(schema.$defs.link.properties), LINK_KEYS);
+  assert.deepEqual(schema.$defs.linkType.enum, LINK_TYPES);
   assert.deepEqual(schema.$defs.price.required, PRICE_KEYS);
   assert.deepEqual(schema.$defs.replay.required, REPLAY_KEYS);
   assert.deepEqual(schema.$defs.tag.enum, TAG_ORDER);
   assert.deepEqual(schema.$defs.replayStatus.enum, REPLAY_STATUSES);
   assert.equal(schema.$defs.event.additionalProperties, false);
+  assert.equal(EVENT_KEYS.includes("urls"), false);
 });
 
-test("seed file is public-safe and matches the 18 source titles", () => {
+test("seed file is public-safe schema v2 and matches the 18 source titles", () => {
   assert.deepEqual(validateEvents(data), []);
+  assert.equal(data.schema_version, 2);
   assert.equal(data.events.length, 18);
   assert.deepEqual(
     data.events.map((event) => event.title).sort(),
     [...SEED_TITLES].sort(),
   );
   const raw = JSON.stringify(data);
+  assert.equal(raw.includes('"urls"'), false);
   assert.doesNotMatch(raw, /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
-  assert.doesNotMatch(raw, /邮件|密码|用户决定|会员库|mailto:/i);
+  assert.doesNotMatch(raw, /密码|用户决定|会员库|mailto:|\bpassword\b/i);
 });
 
 test("rejects an email address", () => {
@@ -94,27 +119,52 @@ test("rejects an email address", () => {
   assert.match(validateEvents(data).join("\n"), /邮箱/);
 });
 
+test("rejects the word password and 密码", () => {
+  const english = sample();
+  english.events[0].notes = "the password is on the form";
+  assert.match(validateEvents(english).join("\n"), /密码/);
+
+  const chinese = sample();
+  chinese.events[0].summary = "报名时不要填写密码";
+  assert.match(validateEvents(chinese).join("\n"), /密码/);
+});
+
 test("rejects a sensitive field name", () => {
   const data = sample();
   data.events[0].password = "nope";
   assert.match(validateEvents(data).join("\n"), /不允许的字段名|多余字段/);
 });
 
+test("rejects the retired urls field", () => {
+  const data = sample();
+  data.events[0].urls = ["https://example.com/event"];
+  assert.match(validateEvents(data).join("\n"), /多余字段 urls/);
+});
+
 test("rejects a fuzzy time with an invented clock time", () => {
   const data = sample();
   data.events[0].schedule[0] = {
     start: "2026-12-01T00:00:00+08:00",
+    end: "2026-12-01T01:00:00+08:00",
+    duration_minutes: 60,
     date: "2026-12-01",
     label: "凌晨",
-    url: null,
+    url: "https://example.com/event",
   };
   assert.match(validateEvents(data).join("\n"), /label/);
+});
+
+test("allows a session subtitle next to an exact start", () => {
+  const data = sample();
+  assert.deepEqual(validateEvents(data), []);
 });
 
 test("rejects a missing fuzzy label", () => {
   const data = sample();
   data.events[0].schedule[0] = {
     start: null,
+    end: null,
+    duration_minutes: null,
     date: "2026-12-01",
     label: null,
     url: null,
@@ -126,6 +176,13 @@ test("rejects an offset other than +08:00", () => {
   const data = sample();
   data.events[0].schedule[0].start = "2026-12-01T02:00:00Z";
   assert.match(validateEvents(data).join("\n"), /ISO 8601/);
+});
+
+test("rejects a non-https link", () => {
+  const data = sample();
+  data.events[0].links[0].url = "http://example.com/event";
+  data.events[0].schedule[0].url = null;
+  assert.match(validateEvents(data).join("\n"), /https/);
 });
 
 test("rejects paid events without an amount and free events with one", () => {
@@ -145,6 +202,7 @@ test("rejects replay urls unless the replay is published", () => {
 
   const published = sample();
   published.events[0].schedule[0].start = "2026-11-01T02:00:00+08:00";
+  published.events[0].schedule[0].end = "2026-11-01T03:00:00+08:00";
   published.events[0].schedule[0].date = "2026-11-01";
   published.events[0].replay = {
     channel: "YouTube",
@@ -157,6 +215,7 @@ test("rejects replay urls unless the replay is published", () => {
 test("rejects upcoming status after every session has started", () => {
   const data = sample();
   data.events[0].schedule[0].start = "2026-11-01T02:00:00+08:00";
+  data.events[0].schedule[0].end = "2026-11-01T03:00:00+08:00";
   data.events[0].schedule[0].date = "2026-11-01";
   assert.match(validateEvents(data).join("\n"), /不能再标为 upcoming/);
 });
