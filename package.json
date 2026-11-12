@@ -1,0 +1,20 @@
+{
+  "name": "ai-events-radar",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev --host 0.0.0.0",
+    "validate": "node scripts/validate-events.mjs",
+    "test": "node --test scripts/validate-events.test.mjs scripts/classify.test.mjs",
+    "build": "node scripts/validate-events.mjs && ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/copy-data.mjs && node scripts/check-dist.mjs",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 0.0.0.0 --port 4321"
+  },
+  "dependencies": {
+    "astro": "^5.16.0"
+  }
+}

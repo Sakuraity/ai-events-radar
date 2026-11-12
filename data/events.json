@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "timezone": "Asia/Shanghai",
+  "last_updated": "2026-11-12T19:30:00+08:00",
+  "events": [
+    {
+      "id": "twosetai-workshops",
+      "title": "TwoSetAI Workshops",
+      "host": "TwoSetAI",
+      "schedule": [
+        {
+          "start": "2026-11-14T02:00:00+08:00",
+          "date": "2026-11-14",
+          "label": null,
+          "url": null
+        },
+        {
+          "start": "2026-12-05T02:00:00+08:00",
+          "date": "2026-12-05",
+          "label": null,
+          "url": null
+        },
+        {
+          "start": "2026-12-12T02:00:00+08:00",
+          "date": "2026-12-12",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://twosetai.com/lab/workshops/"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": {
+        "channel": "官网标注 Recorded；YouTube @TwoSetAI",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": ["aigc", "workshop"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "midjourney-office-hours",
+      "title": "Midjourney Office Hours（David Holz）",
+      "host": "Midjourney",
+      "schedule": [
+        {
+          "start": null,
+          "date": "2026-10-29",
+          "label": "凌晨",
+          "url": null
+        },
+        {
+          "start": null,
+          "date": "2026-11-05",
+          "label": "凌晨",
+          "url": null
+        },
+        {
+          "start": null,
+          "date": "2026-11-12",
+          "label": "凌晨",
+          "url": null
+        }
+      ],
+      "urls": ["https://x.com/midjourney"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "X Space", "status": "no_replay", "url": null },
+      "tags": ["aigc"],
+      "notes": "三场都已结束，未见公开录屏。开始时间只写到「凌晨」，没有精确钟点。",
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "figma-weave-office-hours",
+      "title": "Figma Weave Office Hours（First take→final cut / Black Friday / Find your sound / What's new）",
+      "host": "Figma Weave",
+      "schedule": [
+        {
+          "start": "2026-11-13T00:00:00+08:00",
+          "date": "2026-11-13",
+          "label": null,
+          "url": "https://luma.com/4vqekg35"
+        },
+        {
+          "start": "2026-11-20T00:00:00+08:00",
+          "date": "2026-11-20",
+          "label": null,
+          "url": "https://luma.com/wm8kwc6u"
+        },
+        {
+          "start": "2026-11-27T00:00:00+08:00",
+          "date": "2026-11-27",
+          "label": null,
+          "url": "https://luma.com/sycjrtbd"
+        },
+        {
+          "start": "2026-12-04T00:00:00+08:00",
+          "date": "2026-12-04",
+          "label": null,
+          "url": "https://luma.com/2qwkv339"
+        }
+      ],
+      "urls": [
+        "https://luma.com/4vqekg35",
+        "https://luma.com/wm8kwc6u",
+        "https://luma.com/sycjrtbd",
+        "https://luma.com/2qwkv339"
+      ],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "YouTube @figmaweave", "status": "upcoming", "url": null },
+      "tags": ["aigc"],
+      "notes": "四个链接按日期先后对应四场。Halloween 场次的回放已另行通知，这里不收录该场。",
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "the-ai-visibility-playbook",
+      "title": "The AI Visibility Playbook",
+      "host": null,
+      "schedule": [
+        {
+          "start": "2026-11-18T02:00:00+08:00",
+          "date": "2026-11-18",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/hofuddqs"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "Luma 活动页", "status": "upcoming", "url": null },
+      "tags": ["growth", "visibility"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "building-an-ai-assisted-gtm-strategy",
+      "title": "Building an AI-Assisted GTM Strategy（Queens Tech）",
+      "host": "Queens Tech",
+      "schedule": [
+        {
+          "start": "2026-12-03T02:00:00+08:00",
+          "date": "2026-12-03",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/o8t7dxsv"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "Luma 活动页", "status": "upcoming", "url": null },
+      "tags": ["growth", "gtm"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "build-your-personal-brand-with-ai",
+      "title": "Build Your Personal Brand With AI（Willa）",
+      "host": "Willa",
+      "schedule": [
+        {
+          "start": "2027-01-16T03:00:00+08:00",
+          "date": "2027-01-16",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/ai-personal-brand"],
+      "price": { "type": "paid", "amount": 59, "currency": "USD", "note": null },
+      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
+      "tags": ["brand", "aigc"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "agentic-gtm-engine-round-2",
+      "title": "Agentic GTM Engine Round 2（Metadata）",
+      "host": "Metadata",
+      "schedule": [
+        {
+          "start": "2026-11-18T00:00:00+08:00",
+          "date": "2026-11-18",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/agentic_gtm_round2", "https://workshop.metadata.io"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": "需主办方审批" },
+      "replay": {
+        "channel": "workshop.metadata.io（仅报名者）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": ["gtm"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "agentic-gtm-engine-round-3",
+      "title": "Agentic GTM Engine Round 3",
+      "host": null,
+      "schedule": [
+        {
+          "start": "2026-12-09T02:00:00+08:00",
+          "date": "2026-12-09",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/agentic_gtm_round3", "https://workshop.metadata.io"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": "需主办方审批" },
+      "replay": {
+        "channel": "workshop.metadata.io（仅报名者）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": ["gtm"],
+      "notes": "回放渠道与 Round 2 相同。标题里没有主办方，因此 host 留空。",
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "claude-social-media-manager",
+      "title": "Create Your Own Claude Social Media Manager（Willa）",
+      "host": "Willa",
+      "schedule": [
+        {
+          "start": "2026-11-19T02:00:00+08:00",
+          "date": "2026-11-19",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/claude-social-media-manager"],
+      "price": { "type": "paid", "amount": 59, "currency": "USD", "note": null },
+      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
+      "tags": ["brand", "aigc", "content"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "build-your-ai-content-machine",
+      "title": "Build your AI Content Machine（Time Rich）",
+      "host": "Time Rich",
+      "schedule": [
+        {
+          "start": "2026-11-14T01:00:00+08:00",
+          "date": "2026-11-14",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/vymtv0pb"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "Luma 活动页", "status": "upcoming", "url": null },
+      "tags": ["aigc", "content"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "why-geo-why-now",
+      "title": "Why Geo, Why Now?（Sphere Underground）",
+      "host": "Sphere Underground",
+      "schedule": [
+        {
+          "start": "2026-11-25T23:00:00+08:00",
+          "date": "2026-11-25",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/ni4xk1ja"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": null, "status": "upcoming", "url": null },
+      "tags": ["visibility"],
+      "notes": "公开回放的可能性较低。",
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "wellows-s3-why-ai-trusts-your-competitors",
+      "title": "Wellows S3 Why AI Trusts Your Competitors",
+      "host": "Wellows",
+      "schedule": [
+        {
+          "start": "2026-11-13T00:00:00+08:00",
+          "date": "2026-11-13",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://wellows.com/webinars/how-to-sell-ai-visibility-for-agencies/"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
+      "tags": ["gtm", "visibility"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "wellows-s4-make-ai-quote-you",
+      "title": "Wellows S4 Make AI Quote You",
+      "host": "Wellows",
+      "schedule": [
+        {
+          "start": "2026-11-20T00:00:00+08:00",
+          "date": "2026-11-20",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/qrv3kql9"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
+      "tags": ["content", "visibility"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "wellows-s5-30-day-ai-visibility-plan",
+      "title": "Wellows S5 30-Day AI Visibility Plan",
+      "host": "Wellows",
+      "schedule": [
+        {
+          "start": "2026-11-27T00:00:00+08:00",
+          "date": "2026-11-27",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/ojdo9nr5"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
+      "tags": ["growth", "visibility"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "stop-being-the-middleman",
+      "title": "Stop Being the Middleman（Corey Haines × Livestorm）",
+      "host": "Corey Haines × Livestorm",
+      "schedule": [
+        {
+          "start": "2026-11-13T00:30:00+08:00",
+          "date": "2026-11-13",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": [
+        "https://app.livestorm.co/livestorm-marketing/stop-being-the-middleman-become-the-marketer-in-the-loop"
+      ],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": "Livestorm 活动页", "status": "upcoming", "url": null },
+      "tags": ["gtm"],
+      "notes": null,
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "create-your-ai-growth-brief",
+      "title": "Create Your AI Growth Brief（Willa）",
+      "host": "Willa",
+      "schedule": [
+        {
+          "start": "2026-11-11T02:00:00+08:00",
+          "date": "2026-11-11",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/create-ai-growth-brief"],
+      "price": { "type": "paid", "amount": 59, "currency": "USD", "note": null },
+      "replay": { "channel": null, "status": "no_replay", "url": null },
+      "tags": ["growth"],
+      "notes": "已结束，确认没有公开回放。",
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "how-much-of-your-next-product-launch-can-ai-handle",
+      "title": "How Much of Your Next Product Launch Can AI Handle?",
+      "host": null,
+      "schedule": [
+        {
+          "start": "2026-11-11T10:30:00+08:00",
+          "date": "2026-11-11",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/a0sfrkgz"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": null, "status": "awaiting_replay", "url": null },
+      "tags": ["growth", "gtm"],
+      "notes": "已结束，主办方没有说明回放。",
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    },
+    {
+      "id": "a-mini-masterclass-for-brands-using-ai-for-content",
+      "title": "A Mini-Masterclass for Brands Using AI for Content",
+      "host": null,
+      "schedule": [
+        {
+          "start": "2026-11-12T08:00:00+08:00",
+          "date": "2026-11-12",
+          "label": null,
+          "url": null
+        }
+      ],
+      "urls": ["https://luma.com/oy3qy8y1"],
+      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "replay": { "channel": null, "status": "awaiting_replay", "url": null },
+      "tags": ["brand", "aigc", "content"],
+      "notes": "已结束，页面没有提到回放。",
+      "last_updated": "2026-11-12T19:30:00+08:00"
+    }
+  ]
+}
