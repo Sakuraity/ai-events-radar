@@ -14,13 +14,17 @@ export const EVENT_KEYS = schema.$defs.event.required;
 export const SESSION_KEYS = schema.$defs.session.required;
 export const PRICE_KEYS = schema.$defs.price.required;
 export const REPLAY_KEYS = schema.$defs.replay.required;
+export const SPEAKER_KEYS = schema.$defs.speaker.required;
+export const LINK_KEYS = schema.$defs.link.required;
 export const ROOT_KEYS = schema.required;
 export const REPLAY_STATUSES = schema.$defs.replayStatus.enum;
 export const PRICE_TYPES = schema.$defs.priceType.enum;
+export const LINK_TYPES = schema.$defs.linkType.enum;
 
 const EMAIL = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i;
 const FORBIDDEN_KEY = /(email|e-mail|password|passwd|secret|token|phone|mobile)/i;
 const ID_PATTERN = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/;
+const FUZZY_ONLY = /^(凌晨|清晨|半夜|午夜|通宵)$/;
 
 export function validateEvents(data) {
   const errors = [];
@@ -34,7 +38,7 @@ export function validateEvents(data) {
   checkKeys(data, ROOT_KEYS, "根节点", fail);
 
   if (data.schema_version !== schema.properties.schema_version.const) {
-    fail("schema_version", "必须是 1");
+    fail("schema_version", `必须是 ${schema.properties.schema_version.const}`);
   }
   if (data.timezone !== "Asia/Shanghai") {
     fail("timezone", "必须是 Asia/Shanghai");
@@ -72,7 +76,10 @@ function validateEvent(event, path, rootUpdated, seenIds, fail) {
   }
 
   checkPlainText(event.title, `${path}.title`, fail, { min: 1, max: 180 });
+  if (event.summary !== null) checkPlainText(event.summary, `${path}.summary`, fail, { min: 1, max: 800 });
   if (event.host !== null) checkPlainText(event.host, `${path}.host`, fail, { min: 1, max: 80 });
+  if (event.format !== null) checkPlainText(event.format, `${path}.format`, fail, { min: 1, max: 40 });
+  if (event.platform !== null) checkPlainText(event.platform, `${path}.platform`, fail, { min: 1, max: 40 });
   if (event.notes !== null) checkPlainText(event.notes, `${path}.notes`, fail, { min: 1, max: 400 });
   checkTimestamp(event.last_updated, `${path}.last_updated`, fail);
   if (isExactShanghaiIso(event.last_updated) && isExactShanghaiIso(rootUpdated)) {
@@ -81,11 +88,32 @@ function validateEvent(event, path, rootUpdated, seenIds, fail) {
     }
   }
 
+  validateSpeakers(event.speakers, `${path}.speakers`, fail);
   validateSchedule(event, path, fail);
-  validateUrls(event, path, fail);
+  validateLinks(event.links, `${path}.links`, fail);
   validatePrice(event.price, `${path}.price`, fail);
   validateReplay(event, path, fail);
   validateTags(event.tags, `${path}.tags`, fail);
+  validateMissing(event.missing, `${path}.missing`, fail);
+}
+
+function validateSpeakers(speakers, path, fail) {
+  if (speakers === null) return;
+  if (!Array.isArray(speakers) || speakers.length > 12) {
+    fail(path, "必须是 null，或不超过 12 人的数组");
+    return;
+  }
+  for (let index = 0; index < speakers.length; index += 1) {
+    const speaker = speakers[index];
+    const speakerPath = `${path}[${index}]`;
+    if (!speaker || typeof speaker !== "object" || Array.isArray(speaker)) {
+      fail(speakerPath, "必须是对象");
+      continue;
+    }
+    checkKeys(speaker, SPEAKER_KEYS, speakerPath, fail);
+    checkPlainText(speaker.name, `${speakerPath}.name`, fail, { min: 1, max: 80 });
+    if (speaker.title !== null) checkPlainText(speaker.title, `${speakerPath}.title`, fail, { min: 1, max: 80 });
+  }
 }
 
 function validateSchedule(event, path, fail) {
@@ -94,6 +122,9 @@ function validateSchedule(event, path, fail) {
     return;
   }
 
+  const linkUrls = new Set(
+    Array.isArray(event.links) ? event.links.flatMap((link) => (link && link.url ? [link.url] : [])) : [],
+  );
   let previousKey = Number.NEGATIVE_INFINITY;
   for (let index = 0; index < event.schedule.length; index += 1) {
     const session = event.schedule[index];
@@ -109,22 +140,46 @@ function validateSchedule(event, path, fail) {
       if (!isExactShanghaiIso(session.start)) {
         fail(`${sessionPath}.start`, "必须是 Asia/Shanghai 的 ISO 8601（+08:00），或在时间模糊时为 null");
       } else if (session.date !== shanghaiDateString(session.start)) {
-        fail(`${sessionPath}.date`, "必须与 start 的北京时间日期一致");
+        fail(`${sessionPath}.date`, "必须与 start 的上海时间日期一致");
       }
       if (session.label !== null) {
-        fail(`${sessionPath}.label`, "已有精确 start 时必须为 null");
+        if (typeof session.label === "string" && FUZZY_ONLY.test(session.label)) {
+          fail(`${sessionPath}.label`, "已有精确 start 时，label 应是副标题，不能只写模糊时间");
+        } else {
+          checkPlainText(session.label, `${sessionPath}.label`, fail, { min: 1, max: 160 });
+        }
       }
     } else {
       if (!isRealDate(session.date)) {
         fail(`${sessionPath}.date`, "模糊时间必须提供真实的 YYYY-MM-DD 日期");
       }
-      checkPlainText(session.label, `${sessionPath}.label`, fail, { min: 1, max: 40 });
+      checkPlainText(session.label, `${sessionPath}.label`, fail, { min: 1, max: 160 });
       if (session.label === null || session.label === "") {
         fail(`${sessionPath}.label`, "不能确定钟点时必须把原文写进 label，不能编造 start");
       }
     }
 
+    if (session.end !== null && !isExactShanghaiIso(session.end)) {
+      fail(`${sessionPath}.end`, "必须是 Asia/Shanghai 的 ISO 8601（+08:00），或为 null");
+    }
+    if (session.duration_minutes !== null) {
+      if (!Number.isInteger(session.duration_minutes) || session.duration_minutes <= 0 || session.duration_minutes > 1440) {
+        fail(`${sessionPath}.duration_minutes`, "必须是 1 到 1440 的整数分钟，或为 null");
+      }
+    }
+    if (isExactShanghaiIso(session.start) && isExactShanghaiIso(session.end)) {
+      const minutes = (Date.parse(session.end) - Date.parse(session.start)) / 60000;
+      if (minutes <= 0) {
+        fail(`${sessionPath}.end`, "结束时间必须晚于开始时间");
+      } else if (Number.isInteger(session.duration_minutes) && minutes !== session.duration_minutes) {
+        fail(`${sessionPath}.duration_minutes`, "必须等于结束时间与开始时间的分钟差");
+      }
+    }
+
     if (session.url !== null) checkHttpsUrl(session.url, `${sessionPath}.url`, fail);
+    if (session.url && !linkUrls.has(session.url)) {
+      fail(`${sessionPath}.url`, "场次链接必须同时出现在 links 里");
+    }
 
     if ((hasStart && isExactShanghaiIso(session.start)) || (!hasStart && isRealDate(session.date))) {
       const key = sessionStartKey(session);
@@ -136,25 +191,42 @@ function validateSchedule(event, path, fail) {
   }
 }
 
-function validateUrls(event, path, fail) {
-  if (!Array.isArray(event.urls) || event.urls.length < 1 || event.urls.length > 8) {
-    fail(`${path}.urls`, "必须是 1 到 8 条公开 https 链接");
+function validateLinks(links, path, fail) {
+  if (links === null) return;
+  if (!Array.isArray(links) || links.length > 24) {
+    fail(path, "必须是 null，或不超过 24 条的数组");
     return;
   }
   const seen = new Set();
-  for (let index = 0; index < event.urls.length; index += 1) {
-    const url = event.urls[index];
-    checkHttpsUrl(url, `${path}.urls[${index}]`, fail);
-    if (seen.has(url)) fail(`${path}.urls[${index}]`, "链接重复");
-    seen.add(url);
-  }
-  if (Array.isArray(event.schedule)) {
-    for (let index = 0; index < event.schedule.length; index += 1) {
-      const url = event.schedule[index]?.url;
-      if (url && !seen.has(url)) {
-        fail(`${path}.schedule[${index}].url`, "场次链接必须同时出现在 urls 里");
-      }
+  for (let index = 0; index < links.length; index += 1) {
+    const link = links[index];
+    const linkPath = `${path}[${index}]`;
+    if (!link || typeof link !== "object" || Array.isArray(link)) {
+      fail(linkPath, "必须是对象");
+      continue;
     }
+    checkKeys(link, LINK_KEYS, linkPath, fail);
+    if (!LINK_TYPES.includes(link.type)) {
+      fail(`${linkPath}.type`, "必须是 event、register、replay、host 或 other");
+    }
+    checkPlainText(link.label, `${linkPath}.label`, fail, { min: 1, max: 80 });
+    checkHttpsUrl(link.url, `${linkPath}.url`, fail);
+    if (seen.has(link.url)) fail(`${linkPath}.url`, "链接重复");
+    seen.add(link.url);
+  }
+}
+
+function validateMissing(missing, path, fail) {
+  if (missing === null) return;
+  if (!Array.isArray(missing)) {
+    fail(path, "必须是字符串数组或 null");
+    return;
+  }
+  const seen = new Set();
+  for (let index = 0; index < missing.length; index += 1) {
+    checkPlainText(missing[index], `${path}[${index}]`, fail, { min: 1, max: 80 });
+    if (seen.has(missing[index])) fail(`${path}[${index}]`, "缺项重复");
+    seen.add(missing[index]);
   }
 }
 

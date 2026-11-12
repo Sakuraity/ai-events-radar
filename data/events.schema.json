@@ -2,14 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Sakuraity/ai-events-radar/blob/main/data/events.schema.json",
   "title": "AI Events Radar 数据文件",
-  "description": "每日机器人只应修改 data/events.json。强制校验在 scripts/validate-events.mjs，本文件描述同一份契约。所有可空字段必须出现并设为 null，不要省略。不要写入邮箱、密码、报名步骤或任何个人信息。",
+  "description": "每日机器人只应修改 data/events.json。强制校验在 scripts/validate-events.mjs，本文件描述同一份契约。字段都要出现；没有内容时，字符串写 null，列表写 [] 或 null。不要写入邮箱、密码、报名步骤或任何个人信息。不再使用 urls。",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "timezone", "last_updated", "events"],
   "properties": {
     "schema_version": {
-      "const": 1,
-      "description": "契约版本。当前只能是 1。"
+      "const": 2,
+      "description": "契约版本。当前只能是 2。"
     },
     "timezone": {
       "const": "Asia/Shanghai",
@@ -55,29 +55,82 @@
       "type": "string",
       "enum": ["free", "paid"]
     },
+    "linkType": {
+      "type": "string",
+      "enum": ["event", "register", "replay", "host", "other"],
+      "description": "event 活动页，register 报名，replay 回放，host 举办方，other 其他公开链接。"
+    },
+    "speaker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "title"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "主讲人姓名，保留原文。"
+        },
+        "title": {
+          "type": ["string", "null"],
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "头衔或职务。不知道就写 null，并在 missing 里记下 speakers.title。"
+        }
+      }
+    },
     "session": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["start", "date", "label", "url"],
+      "required": ["start", "end", "duration_minutes", "date", "label", "url"],
       "properties": {
         "start": {
           "type": ["string", "null"],
           "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+08:00$",
-          "description": "精确开始时间。不能确定钟点时为 null，并把原文写进 label。不要猜测凌晨的具体小时。"
+          "description": "精确开始时间，必须是 +08:00。不能确定钟点时为 null，并把原文写进 label。不要猜测凌晨的具体小时。"
+        },
+        "end": {
+          "type": ["string", "null"],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+08:00$",
+          "description": "精确结束时间，必须是 +08:00，且晚于 start。不知道则 null。"
+        },
+        "duration_minutes": {
+          "type": ["integer", "null"],
+          "exclusiveMinimum": 0,
+          "maximum": 1440,
+          "description": "时长（分钟）。start 和 end 都有值时必须等于两者的分钟差。不知道则 null。"
         },
         "date": {
           "$ref": "#/$defs/date",
-          "description": "北京时间的日期。start 有值时必须与 start 的北京时间日期相同。"
+          "description": "开始时间的上海时间日期。start 有值时必须与 start 的日期相同。"
         },
         "label": {
           "type": ["string", "null"],
           "minLength": 1,
-          "maxLength": 40,
-          "description": "模糊时间的原文，例如「凌晨」。start 有值时必须为 null。"
+          "maxLength": 160,
+          "description": "这一场的副标题。没有则 null。start 为 null 时必须写模糊时间原文。已有精确 start 时，不要只写「凌晨」这类模糊时间。"
         },
         "url": {
           "type": ["string", "null"],
-          "description": "这一场专属的公开页面。有值时必须同时出现在活动的 urls 里。没有则 null。"
+          "description": "这一场专属的公开页面。有值时必须同时出现在 links 里。没有则 null。"
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "label", "url"],
+      "properties": {
+        "type": { "$ref": "#/$defs/linkType" },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "按钮上的文字，例如「11/14 活动页」。"
+        },
+        "url": {
+          "$ref": "#/$defs/httpsUrl",
+          "description": "公开 https 链接。同一场活动里不能重复。"
         }
       }
     },
@@ -114,7 +167,7 @@
           "type": ["string", "null"],
           "minLength": 1,
           "maxLength": 120,
-          "description": "公开回放渠道的名称，例如 YouTube @figmaweave。没有则 null。不要写邮箱。"
+          "description": "公开回放渠道的名称。没有则 null，并在 missing 里记下 replay.channel。不要写邮箱。"
         },
         "status": { "$ref": "#/$defs/replayStatus" },
         "url": {
@@ -129,13 +182,18 @@
       "required": [
         "id",
         "title",
+        "summary",
         "host",
+        "speakers",
+        "format",
+        "platform",
         "schedule",
-        "urls",
+        "links",
         "price",
         "replay",
         "tags",
         "notes",
+        "missing",
         "last_updated"
       ],
       "properties": {
@@ -152,25 +210,48 @@
           "maxLength": 180,
           "description": "活动标题，保留原文（通常是英文），不要翻译。"
         },
+        "summary": {
+          "type": ["string", "null"],
+          "minLength": 1,
+          "maxLength": 800,
+          "description": "给读者的中文简介。纯文本。没有则 null。"
+        },
         "host": {
           "type": ["string", "null"],
           "minLength": 1,
           "maxLength": 80,
-          "description": "能从标题或公开页面确定时填写，否则 null。不要猜测。"
+          "description": "举办方。能从标题或公开页面确定时填写，否则 null。不要猜测。"
+        },
+        "speakers": {
+          "type": ["array", "null"],
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/speaker" },
+          "description": "主讲人。没有则 null 或 []。"
+        },
+        "format": {
+          "type": ["string", "null"],
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "形式，例如 Workshop、Office Hours、Webinar、Roundtable、Masterclass。没有则 null。"
+        },
+        "platform": {
+          "type": ["string", "null"],
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "平台，例如 Zoom、YouTube Live、Discord。没有则 null。"
         },
         "schedule": {
           "type": "array",
           "minItems": 1,
           "maxItems": 12,
           "items": { "$ref": "#/$defs/session" },
-          "description": "一场或多场开始时间，必须按时间严格递增。"
+          "description": "一场或多场时间，必须按开始时间严格递增。"
         },
-        "urls": {
-          "type": "array",
-          "minItems": 1,
-          "maxItems": 8,
-          "items": { "$ref": "#/$defs/httpsUrl" },
-          "description": "公开活动页面，至少一条。不要放报名表单里的个人预填链接。"
+        "links": {
+          "type": ["array", "null"],
+          "maxItems": 24,
+          "items": { "$ref": "#/$defs/link" },
+          "description": "公开链接。页面按 type 分成活动页、报名、回放、举办方、其他。没有则 null 或 []。"
         },
         "price": { "$ref": "#/$defs/price" },
         "replay": { "$ref": "#/$defs/replay" },
@@ -184,7 +265,16 @@
           "type": ["string", "null"],
           "minLength": 1,
           "maxLength": 400,
-          "description": "给读者的公开备注。纯文本。"
+          "description": "给读者的公开备注。页面放在默认折叠的「备注」里。纯文本。"
+        },
+        "missing": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "description": "还缺的字段路径，例如 speakers.title、replay.channel。没有缺口则 []。"
         },
         "last_updated": {
           "$ref": "#/$defs/shanghaiDateTime",

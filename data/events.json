@@ -1,410 +1,1327 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-12T19:30:00+08:00",
+  "last_updated": "2026-11-12T21:30:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
-      "title": "TwoSetAI Workshops",
+      "title": "TwoSetAI Workshop Series",
+      "summary": "TwoSetAI 的线上 Workshop 系列，面向已经把智能体做上线、却在可靠性、成本和治理上碰到问题的工程师、产品经理和创始人。每一场由正在搭建智能体基础设施的工程师或创始人主讲，把可落地的生产级做法和现场问答放在一起。接下来三场分别是：11/14 Brad Cypert（Speakeasy）讲如何盘点和监控公司里的 AI 智能体；12/5 Deirdre Mahon 讲早期创始人如何让对的买家看见并理解自己的产品；12/12 Daniel Davis（TrustGraph）讲如何在智能体真正采取行动前，做出可重复的允许、暂停或拒绝判断。每场 60 分钟，在 YouTube 直播，往期回放已在 TwoSetAI 的 YouTube 频道公开。",
       "host": "TwoSetAI",
+      "speakers": [
+        {
+          "name": "Angelina Yang",
+          "title": "Host of TwoSetAI"
+        },
+        {
+          "name": "Brad Cypert",
+          "title": "Engineering team lead, Speakeasy"
+        },
+        {
+          "name": "Deirdre Mahon",
+          "title": "B2B marketing and go-to-market executive"
+        },
+        {
+          "name": "Daniel Davis",
+          "title": "Co-founder, TrustGraph"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "YouTube Live",
       "schedule": [
         {
           "start": "2026-11-14T02:00:00+08:00",
+          "end": "2026-11-14T03:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-14",
-          "label": null,
-          "url": null
+          "label": "How Many AI Agents Are Running in Your Company?（Speakeasy × Brad Cypert）",
+          "url": "https://luma.com/ygnflj3y"
         },
         {
           "start": "2026-12-05T02:00:00+08:00",
+          "end": "2026-12-05T03:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-12-05",
-          "label": null,
-          "url": null
+          "label": "Anyone Can Build. Not Everyone Gets Heard.（Deirdre Mahon）",
+          "url": "https://luma.com/gwimq0yh"
         },
         {
           "start": "2026-12-12T02:00:00+08:00",
+          "end": "2026-12-12T03:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-12-12",
-          "label": null,
-          "url": null
+          "label": "Your AI Agent Is Probabilistic. Its Decisions Don't Have to Be.（TrustGraph × Daniel Davis）",
+          "url": "https://luma.com/ddk6krfb"
         }
       ],
-      "urls": ["https://twosetai.com/lab/workshops/"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
+      "links": [
+        {
+          "type": "host",
+          "label": "系列官网",
+          "url": "https://www.twosetai.com/lab/workshops/"
+        },
+        {
+          "type": "event",
+          "label": "11/14 活动页",
+          "url": "https://luma.com/ygnflj3y"
+        },
+        {
+          "type": "other",
+          "label": "11/14 YouTube 直播",
+          "url": "https://www.youtube.com/live/e8Gqg3lFVrg"
+        },
+        {
+          "type": "event",
+          "label": "12/5 活动页",
+          "url": "https://luma.com/gwimq0yh"
+        },
+        {
+          "type": "other",
+          "label": "12/5 YouTube 直播",
+          "url": "https://www.youtube.com/live/0fGIgfzgn5U"
+        },
+        {
+          "type": "event",
+          "label": "12/12 活动页",
+          "url": "https://luma.com/ddk6krfb"
+        },
+        {
+          "type": "other",
+          "label": "12/12 YouTube 直播",
+          "url": "https://www.youtube.com/live/PRzOLP6sOBs"
+        },
+        {
+          "type": "host",
+          "label": "TwoSetAI 官网",
+          "url": "https://www.twosetai.com/"
+        },
+        {
+          "type": "replay",
+          "label": "YouTube 频道",
+          "url": "https://www.youtube.com/TwoSetAI"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
       "replay": {
-        "channel": "官网标注 Recorded；YouTube @TwoSetAI",
+        "channel": "YouTube（TwoSetAI 频道，往期已公开）",
         "status": "upcoming",
         "url": null
       },
-      "tags": ["aigc", "workshop"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "tags": [
+        "aigc",
+        "workshop"
+      ],
+      "notes": "官网与 Luma 均写明每场 60 分钟、在 YouTube 直播；往期场次已有公开回放。开始时间与原表一致（周五 10am PT，对应上海次日 02:00）。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "midjourney-office-hours",
       "title": "Midjourney Office Hours（David Holz）",
+      "summary": "Midjourney 由创始人兼 CEO David Holz 主持的每周 Office Hours，在 Discord 进行，同时也可以在 X 上参加。这是向官方直接提问的轻松开放问答，内容从技术细节到 AI 艺术的方向都可能涉及。每场约 1 小时，官方报名在 Luma「Midjourney Events」日历，时间为芝加哥时间下午 2 点（夏令时对应上海时间次日 03:00，冬令时为 04:00）。已结束场次目前未见公开录屏。",
       "host": "Midjourney",
-      "schedule": [
+      "speakers": [
         {
-          "start": null,
-          "date": "2026-10-29",
-          "label": "凌晨",
-          "url": null
-        },
-        {
-          "start": null,
-          "date": "2026-11-05",
-          "label": "凌晨",
-          "url": null
-        },
-        {
-          "start": null,
-          "date": "2026-11-12",
-          "label": "凌晨",
-          "url": null
+          "name": "David Holz",
+          "title": "Founder and CEO"
         }
       ],
-      "urls": ["https://x.com/midjourney"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "X Space", "status": "no_replay", "url": null },
-      "tags": ["aigc"],
-      "notes": "三场都已结束，未见公开录屏。开始时间只写到「凌晨」，没有精确钟点。",
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "format": "Office Hours",
+      "platform": "Discord",
+      "schedule": [
+        {
+          "start": "2026-10-29T03:00:00+08:00",
+          "end": "2026-10-29T04:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-10-29",
+          "label": "已结束 · 10/28 芝加哥 14:00",
+          "url": "https://luma.com/z08hwbnx"
+        },
+        {
+          "start": "2026-11-05T04:00:00+08:00",
+          "end": "2026-11-05T05:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-11-05",
+          "label": "已结束 · 11/4 芝加哥 14:00",
+          "url": "https://luma.com/e3kx297z"
+        },
+        {
+          "start": "2026-11-12T04:00:00+08:00",
+          "end": "2026-11-12T05:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-11-12",
+          "label": "已结束 · 11/11 芝加哥 14:00",
+          "url": "https://luma.com/r56w9ytq"
+        },
+        {
+          "start": "2026-11-19T04:00:00+08:00",
+          "end": "2026-11-19T05:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-11-19",
+          "label": "11/18 芝加哥 14:00",
+          "url": "https://luma.com/t4qoz1pc"
+        },
+        {
+          "start": "2026-11-26T04:00:00+08:00",
+          "end": "2026-11-26T05:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-11-26",
+          "label": "11/25 芝加哥 14:00",
+          "url": "https://luma.com/cv5cwvd1"
+        },
+        {
+          "start": "2026-12-03T04:00:00+08:00",
+          "end": "2026-12-03T05:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-03",
+          "label": "12/2 芝加哥 14:00",
+          "url": "https://luma.com/oly566wz"
+        },
+        {
+          "start": "2026-12-10T04:00:00+08:00",
+          "end": "2026-12-10T05:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-10",
+          "label": "12/9 芝加哥 14:00",
+          "url": "https://luma.com/midjou-kvsn"
+        },
+        {
+          "start": "2026-12-17T04:00:00+08:00",
+          "end": "2026-12-17T05:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-17",
+          "label": "12/16 芝加哥 14:00",
+          "url": "https://luma.com/midjou-qv77"
+        },
+        {
+          "start": "2026-12-24T04:00:00+08:00",
+          "end": "2026-12-24T05:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-24",
+          "label": "12/23 芝加哥 14:00",
+          "url": "https://luma.com/midjou-dsm1"
+        }
+      ],
+      "links": [
+        {
+          "type": "host",
+          "label": "系列日历",
+          "url": "https://luma.com/midjourney"
+        },
+        {
+          "type": "host",
+          "label": "Midjourney 官网",
+          "url": "https://www.midjourney.com"
+        },
+        {
+          "type": "other",
+          "label": "X 账号",
+          "url": "https://x.com/midjourney"
+        },
+        {
+          "type": "event",
+          "label": "10/28 活动页",
+          "url": "https://luma.com/z08hwbnx"
+        },
+        {
+          "type": "event",
+          "label": "11/4 活动页",
+          "url": "https://luma.com/e3kx297z"
+        },
+        {
+          "type": "other",
+          "label": "11/4 X Space",
+          "url": "https://x.com/i/spaces/1POMjpEybryQLj"
+        },
+        {
+          "type": "event",
+          "label": "11/11 活动页",
+          "url": "https://luma.com/r56w9ytq"
+        },
+        {
+          "type": "other",
+          "label": "11/11 X Space",
+          "url": "https://x.com/i/spaces/1XybPrglrpkQKB"
+        },
+        {
+          "type": "event",
+          "label": "11/18 活动页",
+          "url": "https://luma.com/t4qoz1pc"
+        },
+        {
+          "type": "event",
+          "label": "11/25 活动页",
+          "url": "https://luma.com/cv5cwvd1"
+        },
+        {
+          "type": "event",
+          "label": "12/2 活动页",
+          "url": "https://luma.com/oly566wz"
+        },
+        {
+          "type": "event",
+          "label": "12/9 活动页",
+          "url": "https://luma.com/midjou-kvsn"
+        },
+        {
+          "type": "event",
+          "label": "12/16 活动页",
+          "url": "https://luma.com/midjou-qv77"
+        },
+        {
+          "type": "event",
+          "label": "12/23 活动页",
+          "url": "https://luma.com/midjou-dsm1"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "X Space / Discord（已结束场次未见公开录屏）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "aigc"
+      ],
+      "notes": "原表只写到「凌晨」、日期用的是上海日期。已按官方 Luma 日历校正：每周三芝加哥时间 14:00 开始、时长 1 小时；夏令时（11/1 前）对应上海次日 03:00，冬令时对应 04:00。原表中的 10/29、11/5、11/12 分别对应 10/28、11/4、11/11 的官方场次。后续场次已从官方日历补到 12/23。平台以 Luma 标注的 Discord 为准，部分场次同时有 X Space。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "figma-weave-office-hours",
-      "title": "Figma Weave Office Hours（First take→final cut / Black Friday / Find your sound / What's new）",
-      "host": "Figma Weave",
+      "title": "Figma Weave Office Hours",
+      "summary": "Figma Weave 团队的线上 Office Hours，由 Mara Dilts 主持，用现场演示和问答讲解 Weave 里的创作工作流。接下来四场分别是：用绿幕素材和 Seedance 2.5 做视频提示与后期；在 Weave 里搭建可复用的黑五营销物料流程；用 AI 做配音、配乐和口型同步；以及每月一次的功能更新速览。每场 1 小时，免费，可在 Luma 报名。",
+      "host": "Figma Weave Office Hours",
+      "speakers": [
+        {
+          "name": "Mara Dilts",
+          "title": null
+        }
+      ],
+      "format": "Office Hours",
+      "platform": "Luma",
       "schedule": [
         {
           "start": "2026-11-13T00:00:00+08:00",
+          "end": "2026-11-13T01:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-13",
-          "label": null,
+          "label": "From first take to final cut in Figma Weave",
           "url": "https://luma.com/4vqekg35"
         },
         {
           "start": "2026-11-20T00:00:00+08:00",
+          "end": "2026-11-20T01:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-20",
-          "label": null,
+          "label": "Build your Black Friday campaign in Figma Weave",
           "url": "https://luma.com/wm8kwc6u"
         },
         {
           "start": "2026-11-27T00:00:00+08:00",
+          "end": "2026-11-27T01:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-27",
-          "label": null,
+          "label": "Find your sound in Figma Weave",
           "url": "https://luma.com/sycjrtbd"
         },
         {
           "start": "2026-12-04T00:00:00+08:00",
+          "end": "2026-12-04T01:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-12-04",
-          "label": null,
+          "label": "What's new in Figma Weave",
           "url": "https://luma.com/2qwkv339"
         }
       ],
-      "urls": [
-        "https://luma.com/4vqekg35",
-        "https://luma.com/wm8kwc6u",
-        "https://luma.com/sycjrtbd",
-        "https://luma.com/2qwkv339"
+      "links": [
+        {
+          "type": "host",
+          "label": "系列日历",
+          "url": "https://luma.com/figma-weave-live-events"
+        },
+        {
+          "type": "host",
+          "label": "Figma Weave 官网",
+          "url": "https://weave.figma.com/"
+        },
+        {
+          "type": "event",
+          "label": "11/13 活动页",
+          "url": "https://luma.com/4vqekg35"
+        },
+        {
+          "type": "event",
+          "label": "11/20 活动页",
+          "url": "https://luma.com/wm8kwc6u"
+        },
+        {
+          "type": "event",
+          "label": "11/27 活动页",
+          "url": "https://luma.com/sycjrtbd"
+        },
+        {
+          "type": "other",
+          "label": "11/27 直播入口",
+          "url": "https://fig-events.figma.com/oh-find-your-sound"
+        },
+        {
+          "type": "event",
+          "label": "12/4 活动页",
+          "url": "https://luma.com/2qwkv339"
+        },
+        {
+          "type": "other",
+          "label": "YouTube 频道",
+          "url": "https://www.youtube.com/figmaweave"
+        }
       ],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "YouTube @figmaweave", "status": "upcoming", "url": null },
-      "tags": ["aigc"],
-      "notes": "四个链接按日期先后对应四场。Halloween 场次的回放已另行通知，这里不收录该场。",
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "YouTube（Figma Weave 频道）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "aigc"
+      ],
+      "notes": "开始时间与原表一致（美东 11:00，对应上海次日 00:00），已补结束时间（每场 1 小时）。11/27「Find your sound」的 Luma 地点写的是 Figma Events 链接，不是线下场地。Halloween 场次回放已另行通知，这里不收录该场。Mara Dilts 的职务页面未写明。",
+      "missing": [
+        "speakers.title"
+      ],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "the-ai-visibility-playbook",
-      "title": "The AI Visibility Playbook",
-      "host": null,
+      "title": "The AI Visibility Playbook: 4 Experts, 4 Strategies, One Goal",
+      "summary": "这场由 Cassie Egli、Lauren Cockerell、Dustin Riechmann 和 Scott Voelker 一起主讲的线上分享，讨论如何让企业更容易被 AI 推荐。内容会把 AI 可见度、YouTube、播客嘉宾和公关放在一起看，强调被找到只是一半，AI 还会判断该信任谁。活动在 Zoom 进行，时长 1 小时，免费。",
+      "host": "Cassie Egli",
+      "speakers": [
+        {
+          "name": "Cassie Egli",
+          "title": null
+        },
+        {
+          "name": "Lauren Cockerell",
+          "title": null
+        },
+        {
+          "name": "Dustin Riechmann",
+          "title": null
+        },
+        {
+          "name": "Scott Voelker",
+          "title": null
+        }
+      ],
+      "format": "Webinar",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-18T02:00:00+08:00",
+          "end": "2026-11-18T03:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-18",
           "label": null,
-          "url": null
+          "url": "https://luma.com/hofuddqs"
         }
       ],
-      "urls": ["https://luma.com/hofuddqs"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "Luma 活动页", "status": "upcoming", "url": null },
-      "tags": ["growth", "visibility"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/hofuddqs"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "Luma 活动页",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth",
+        "visibility"
+      ],
+      "notes": "开始时间与原表一致。活动页未写明四位主讲人的职务，也没有单独的主办机构站点；Luma 日历登记在 Cassie Egli 名下。页面未承诺公开回放。",
+      "missing": [
+        "speakers.title"
+      ],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "building-an-ai-assisted-gtm-strategy",
-      "title": "Building an AI-Assisted GTM Strategy（Queens Tech）",
-      "host": "Queens Tech",
+      "title": "Building an AI-Assisted GTM Strategy for Smarter, Faster Acquisition",
+      "summary": "这场是 2027 Queens Tech + Innovation Challenge 线上工作坊系列之一，由独立营销顾问 Emily Singer 主讲，面向小企业和创业公司。课程会带着学员用 AI 做更聚焦的 GTM 策略：明确受众、验证假设、形成人设和价值主张，并练习更好的 AI 调研提问方式。活动在 Zoom 进行，时长 1 小时，免费。参与该挑战还有机会申请最高 2 万美元创业资助，申请截止 2027 年 3 月 1 日。",
+      "host": "Queens Tech + Innovation Challenge",
+      "speakers": [
+        {
+          "name": "Emily Singer",
+          "title": "Independent marketing consultant"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-12-03T02:00:00+08:00",
+          "end": "2026-12-03T03:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-12-03",
           "label": null,
-          "url": null
+          "url": "https://luma.com/o8t7dxsv"
         }
       ],
-      "urls": ["https://luma.com/o8t7dxsv"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "Luma 活动页", "status": "upcoming", "url": null },
-      "tags": ["growth", "gtm"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/o8t7dxsv"
+        },
+        {
+          "type": "host",
+          "label": "挑战官网",
+          "url": "https://queensstartup.org/"
+        },
+        {
+          "type": "other",
+          "label": "主讲人站点",
+          "url": "https://emily-singer.com"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "Luma 活动页",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth",
+        "gtm"
+      ],
+      "notes": "开始时间与原表一致。官方主办名称是 Queens Tech + Innovation Challenge。页面未承诺公开回放。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "build-your-personal-brand-with-ai",
-      "title": "Build Your Personal Brand With AI（Willa）",
+      "title": "Build Your Personal Brand With AI in One Hour",
+      "summary": "Willa 主办的 1 小时线上工作坊，由连续创业者 Divya Gugnani 逐步讲解她用来经营个人品牌的 AI 系统，并分享自己账号上的实际数据。学员会现场做出理想受众画像、竞品内容拆解、简介、品牌系统和 30 天内容选题，结束后可拿到提示词和品牌入门包。活动在 Zoom 进行，票价 59 美元，Willa 会员免费；回放仅向报名者提供。",
       "host": "Willa",
+      "speakers": [
+        {
+          "name": "Divya Gugnani",
+          "title": "Serial entrepreneur"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2027-01-16T03:00:00+08:00",
+          "end": "2027-01-16T04:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2027-01-16",
           "label": null,
-          "url": null
+          "url": "https://luma.com/ai-personal-brand"
         }
       ],
-      "urls": ["https://luma.com/ai-personal-brand"],
-      "price": { "type": "paid", "amount": 59, "currency": "USD", "note": null },
-      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
-      "tags": ["brand", "aigc"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/ai-personal-brand"
+        },
+        {
+          "type": "host",
+          "label": "Willa 官网",
+          "url": "https://www.joinwilla.com"
+        },
+        {
+          "type": "other",
+          "label": "主讲人介绍",
+          "url": "https://divyagugnani.com/about"
+        }
+      ],
+      "price": {
+        "type": "paid",
+        "amount": 59,
+        "currency": "USD",
+        "note": "Willa 会员免费"
+      },
+      "replay": {
+        "channel": "报名者可见",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "aigc"
+      ],
+      "notes": "开始时间与原表一致，已补结束时间（1 小时）。官方完整标题带 in One Hour。页面写明会录制并提供给报名者，不公开。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "agentic-gtm-engine-round-2",
-      "title": "Agentic GTM Engine Round 2（Metadata）",
+      "title": "Building an Agentic GTM Engine Workshop - Round 2",
+      "summary": "这是面向 B2B 科技公司 CMO 和营销副总裁的第二场工作坊，Gil Allouche 会分享他在 Metadata 搭建的智能体 GTM 引擎。内容覆盖出站邮件和 LinkedIn 智能体、付费广告智能体、ABM 落地页、企业礼品，以及把这些渠道串起来的编排层，也会直接讲失败案例。时长 2 小时，在 Zoom 直播，结束后留问答；免费但需主办方审批，回放仅向报名者开放。",
       "host": "Metadata",
+      "speakers": [
+        {
+          "name": "Gil Allouche",
+          "title": null
+        },
+        {
+          "name": "Noa Gani",
+          "title": "Strategy & Operations"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-18T00:00:00+08:00",
+          "end": "2026-11-18T02:00:00+08:00",
+          "duration_minutes": 120,
           "date": "2026-11-18",
           "label": null,
-          "url": null
+          "url": "https://luma.com/agentic_gtm_round2"
         }
       ],
-      "urls": ["https://luma.com/agentic_gtm_round2", "https://workshop.metadata.io"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": "需主办方审批" },
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/agentic_gtm_round2"
+        },
+        {
+          "type": "other",
+          "label": "工作坊门户",
+          "url": "https://workshop.metadata.io"
+        },
+        {
+          "type": "other",
+          "label": "Gil Allouche 站点",
+          "url": "https://www.gilallouche.com"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": "需主办方审批"
+      },
       "replay": {
-        "channel": "workshop.metadata.io（仅报名者）",
+        "channel": "报名者可见",
         "status": "upcoming",
         "url": null
       },
-      "tags": ["gtm"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "tags": [
+        "gtm"
+      ],
+      "notes": "开始时间与原表一致，已补结束时间（页面写明 Two hours）。Gil Allouche 的职务在活动页只有简介，没有正式头衔。工作坊门户需登录，不是公开回放页。",
+      "missing": [
+        "speakers.title"
+      ],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "agentic-gtm-engine-round-3",
-      "title": "Agentic GTM Engine Round 3",
-      "host": null,
+      "title": "Building an Agentic GTM Engine Workshop - Round 3",
+      "summary": "这是面向 B2B 科技公司 CMO 和营销副总裁的第三场工作坊，内容与 Round 2 相同：Gil Allouche 会分享他在 Metadata 搭建的智能体 GTM 引擎，覆盖出站邮件、LinkedIn、付费广告、ABM 落地页和企业礼品，以及把这些渠道串起来的编排层，并直接讲失败案例。时长 2 小时，在 Zoom 直播，结束后留问答；免费但需主办方审批，回放仅向报名者开放。",
+      "host": "Metadata",
+      "speakers": [
+        {
+          "name": "Gil Allouche",
+          "title": null
+        },
+        {
+          "name": "Noa Gani",
+          "title": "Strategy & Operations"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-12-09T02:00:00+08:00",
+          "end": "2026-12-09T04:00:00+08:00",
+          "duration_minutes": 120,
           "date": "2026-12-09",
           "label": null,
-          "url": null
+          "url": "https://luma.com/agentic_gtm_round3"
         }
       ],
-      "urls": ["https://luma.com/agentic_gtm_round3", "https://workshop.metadata.io"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": "需主办方审批" },
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/agentic_gtm_round3"
+        },
+        {
+          "type": "other",
+          "label": "工作坊门户",
+          "url": "https://workshop.metadata.io"
+        },
+        {
+          "type": "other",
+          "label": "Gil Allouche 站点",
+          "url": "https://www.gilallouche.com"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": "需主办方审批"
+      },
       "replay": {
-        "channel": "workshop.metadata.io（仅报名者）",
+        "channel": "报名者可见",
         "status": "upcoming",
         "url": null
       },
-      "tags": ["gtm"],
-      "notes": "回放渠道与 Round 2 相同。标题里没有主办方，因此 host 留空。",
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "tags": [
+        "gtm"
+      ],
+      "notes": "开始时间与原表一致，已补结束时间（2 小时）。主办方与 Round 2 相同，活动页现已写明。Gil Allouche 的正式职务页面未写。",
+      "missing": [
+        "speakers.title"
+      ],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "claude-social-media-manager",
-      "title": "Create Your Own Claude Social Media Manager（Willa）",
+      "title": "Create Your Own Claude Social Media Manager",
+      "summary": "Willa 与 MKTG WMN 合作的动手工作坊，由 AI 顾问、前端工程师 Caitlyn Feletar 讲解她为小企业客户搭建的 Claude 社交媒体助手。学员会在自己的电脑上完成配置，并做出第一组 Instagram 轮播图；需预先安装 Claude 桌面应用，并准备品牌照片或参考图。活动在 Zoom 进行，时长 1 小时，票价 59 美元，Willa 及合作社区成员可免费参加；回放仅向报名者提供。",
       "host": "Willa",
+      "speakers": [
+        {
+          "name": "Caitlyn Feletar",
+          "title": "Senior frontend engineer and AI consultant"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-19T02:00:00+08:00",
+          "end": "2026-11-19T03:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-19",
           "label": null,
-          "url": null
+          "url": "https://luma.com/claude-social-media-manager"
         }
       ],
-      "urls": ["https://luma.com/claude-social-media-manager"],
-      "price": { "type": "paid", "amount": 59, "currency": "USD", "note": null },
-      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
-      "tags": ["brand", "aigc", "content"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/claude-social-media-manager"
+        },
+        {
+          "type": "host",
+          "label": "Willa 官网",
+          "url": "https://www.joinwilla.com"
+        },
+        {
+          "type": "other",
+          "label": "合作方 MKTG WMN",
+          "url": "https://mktgwmn.com"
+        },
+        {
+          "type": "other",
+          "label": "主讲人 LinkedIn",
+          "url": "https://www.linkedin.com/in/caitlynfeletar/"
+        }
+      ],
+      "price": {
+        "type": "paid",
+        "amount": 59,
+        "currency": "USD",
+        "note": "Willa 会员及合作社区成员免费"
+      },
+      "replay": {
+        "channel": "报名者可见",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "aigc",
+        "content"
+      ],
+      "notes": "开始时间与原表一致，已补结束时间（1 小时）。页面写明会录制并提供给报名者。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "build-your-ai-content-machine",
-      "title": "Build your AI Content Machine（Time Rich）",
+      "title": "Build your AI Content Machine + Q&A",
+      "summary": "Time Rich 主办的动手工作坊，由 Ella Molony Cook 带领学员现场把定位写入 AI 智能体、搭建更像自己的 LinkedIn 写作技能，并用 Reach、Trust、Proof 三支柱排出一周帖子。前 50 分钟一起动手，随后 30 分钟分组，最后 10 分钟每人分享本周要发出的一条内容。面向重视 LinkedIn 却总被内容工作拖住的创始人、创作者和运营者，在 Zoom 进行，共 90 分钟，免费。页面未说明是否提供公开回放。",
       "host": "Time Rich",
+      "speakers": [
+        {
+          "name": "Ella Molony Cook",
+          "title": "4x Founder | Investor"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-14T01:00:00+08:00",
+          "end": "2026-11-14T02:30:00+08:00",
+          "duration_minutes": 90,
           "date": "2026-11-14",
           "label": null,
-          "url": null
+          "url": "https://luma.com/vymtv0pb"
         }
       ],
-      "urls": ["https://luma.com/vymtv0pb"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "Luma 活动页", "status": "upcoming", "url": null },
-      "tags": ["aigc", "content"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/vymtv0pb"
+        },
+        {
+          "type": "host",
+          "label": "Time Rich",
+          "url": "https://timerich.ai/accelerator"
+        },
+        {
+          "type": "other",
+          "label": "主持人站点",
+          "url": "https://timerich.ai/brand"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "Luma 活动页",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "aigc",
+        "content"
+      ],
+      "notes": "开始时间与原表一致，已补结束时间（50+30+10 分钟，共 90 分钟）。官方标题带 + Q&A。页面未承诺回放。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "why-geo-why-now",
-      "title": "Why Geo, Why Now?（Sphere Underground）",
-      "host": "Sphere Underground",
+      "title": "Why Geo, Why Now?",
+      "summary": "Sphere - Underground Sessions 的线上圆桌，由 Destiny Gillbee 和 Paula Elliott 主持，讨论品牌如何出现在 AI 生成的答案里，以及这对 B2B 采购的意义。内容包括购买行为从搜索转向提问、生成式 AI 如何决定引用谁、自有、赢得和第三方内容的作用，以及 GEO 审计如何变成可执行计划。时长 1 小时，免费但需主办方审批。日历说明这是私人线上圆桌，页面没有承诺公开回放。",
+      "host": "Sphere - Underground Sessions",
+      "speakers": [
+        {
+          "name": "Destiny Gillbee",
+          "title": null
+        },
+        {
+          "name": "Paula Elliott",
+          "title": null
+        }
+      ],
+      "format": "Roundtable",
+      "platform": "Luma",
       "schedule": [
         {
           "start": "2026-11-25T23:00:00+08:00",
+          "end": "2026-11-26T00:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-25",
           "label": null,
-          "url": null
+          "url": "https://luma.com/ni4xk1ja"
         }
       ],
-      "urls": ["https://luma.com/ni4xk1ja"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": null, "status": "upcoming", "url": null },
-      "tags": ["visibility"],
-      "notes": "公开回放的可能性较低。",
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/ni4xk1ja"
+        },
+        {
+          "type": "host",
+          "label": "Sphere 官网",
+          "url": "https://the-sphere.network"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": "需主办方审批"
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "visibility"
+      ],
+      "notes": "开始时间与原表一致，已补结束时间（1 小时，跨到上海时间 11/26 00:00）。官方主办名称是 Sphere - Underground Sessions。两位主持的职务页面未写。Luma 未标明具体会议软件，平台记为 Luma。",
+      "missing": [
+        "speakers.title"
+      ],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "wellows-s3-why-ai-trusts-your-competitors",
-      "title": "Wellows S3 Why AI Trusts Your Competitors",
+      "title": "Wellows Webinar, Session 3: Why AI Trusts Your Competitors",
+      "summary": "Wellows 创始人 Masab Gadit 主持的免费系列直播第三场，面向品牌主、市场和 SEO 负责人以及代理公司创始人。这一场会讲解 AI 的推荐其实来自评测站、Reddit 和「最佳」榜单等它读过的来源，并演示如何找出自己品类里 AI 信任的网站，以及怎样让品牌出现在这些地方。周四 11:00 AM ET 在 Zoom 进行，时长 1 小时；报名者可在结束后 24 小时内获得回放。",
       "host": "Wellows",
+      "speakers": [
+        {
+          "name": "Masab Gadit",
+          "title": "Founder, Wellows"
+        }
+      ],
+      "format": "Webinar",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-13T00:00:00+08:00",
+          "end": "2026-11-13T01:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-13",
           "label": null,
-          "url": null
+          "url": "https://luma.com/5gvy9c70"
         }
       ],
-      "urls": ["https://wellows.com/webinars/how-to-sell-ai-visibility-for-agencies/"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
-      "tags": ["gtm", "visibility"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/5gvy9c70"
+        },
+        {
+          "type": "register",
+          "label": "系列报名页",
+          "url": "https://wellows.com/webinars/how-to-sell-ai-visibility-for-agencies/"
+        },
+        {
+          "type": "host",
+          "label": "Wellows 官网",
+          "url": "https://wellows.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "报名者可见（结束后 24 小时内）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "gtm",
+        "visibility"
+      ],
+      "notes": "开始时间与原表一致，已从 Luma 活动页补上结束时间（1 小时）。系列报名页和单独的 Luma 页（5gvy9c70）都可以报名。FAQ 写明每场免费，回放也免费，但只发给报名者。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "wellows-s4-make-ai-quote-you",
-      "title": "Wellows S4 Make AI Quote You",
+      "title": "Wellows Webinar, Session 4: Make AI Quote You",
+      "summary": "Wellows 创始人 Masab Gadit 主持的免费系列直播第四场。这一场关注 AI 可能已经在使用你的网站内容、却不提及品牌名，并演示怎样用小的页面改动让 AI 引用你、署上你的名字并推荐你，以及如何验证是否生效。周四 11:00 AM ET 在 Zoom 进行，时长 1 小时；报名者可在结束后 24 小时内获得回放。",
       "host": "Wellows",
+      "speakers": [
+        {
+          "name": "Masab Gadit",
+          "title": "Founder, Wellows"
+        }
+      ],
+      "format": "Webinar",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-20T00:00:00+08:00",
+          "end": "2026-11-20T01:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-20",
           "label": null,
-          "url": null
+          "url": "https://luma.com/qrv3kql9"
         }
       ],
-      "urls": ["https://luma.com/qrv3kql9"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
-      "tags": ["content", "visibility"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/qrv3kql9"
+        },
+        {
+          "type": "register",
+          "label": "系列报名页",
+          "url": "https://wellows.com/webinars/how-to-sell-ai-visibility-for-agencies/"
+        },
+        {
+          "type": "host",
+          "label": "Wellows 官网",
+          "url": "https://wellows.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "报名者可见（结束后 24 小时内）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "content",
+        "visibility"
+      ],
+      "notes": "开始时间与原表一致，已补结束时间（1 小时）。回放政策见系列页 FAQ。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "wellows-s5-30-day-ai-visibility-plan",
-      "title": "Wellows S5 30-Day AI Visibility Plan",
+      "title": "Wellows Webinar, Session 5: Your 30-Day AI Visibility Plan, Built Live",
+      "summary": "Wellows 创始人 Masab Gadit 主持的免费系列直播第五场，也是收官场。这一场会选一个真实品牌，现场搭建 30 天 AI 可见度计划：该创作什么、该修什么、该去哪里获得提及，并让听众带走同样可套用到自己品牌上的计划。周四 11:00 AM ET 在 Zoom 进行，时长 1 小时；报名者可在结束后 24 小时内获得回放。",
       "host": "Wellows",
+      "speakers": [
+        {
+          "name": "Masab Gadit",
+          "title": "Founder, Wellows"
+        }
+      ],
+      "format": "Webinar",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-27T00:00:00+08:00",
+          "end": "2026-11-27T01:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-27",
           "label": null,
-          "url": null
+          "url": "https://luma.com/ojdo9nr5"
         }
       ],
-      "urls": ["https://luma.com/ojdo9nr5"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "仅向报名者提供", "status": "upcoming", "url": null },
-      "tags": ["growth", "visibility"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/ojdo9nr5"
+        },
+        {
+          "type": "register",
+          "label": "系列报名页",
+          "url": "https://wellows.com/webinars/how-to-sell-ai-visibility-for-agencies/"
+        },
+        {
+          "type": "host",
+          "label": "Wellows 官网",
+          "url": "https://wellows.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "报名者可见（结束后 24 小时内）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth",
+        "visibility"
+      ],
+      "notes": "开始时间与原表一致，已补结束时间（1 小时）。Luma 与系列报名表的标题是 Your 30-Day AI Visibility Plan, Built Live；系列页场次列表里另有一处把本场写作 Content that gets cited。回放政策见系列页 FAQ。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "stop-being-the-middleman",
-      "title": "Stop Being the Middleman（Corey Haines × Livestorm）",
-      "host": "Corey Haines × Livestorm",
+      "title": "Stop Being the Middleman: Become the Marketer-in-the-Loop.",
+      "summary": "Livestorm 主办的线上分享，由 Swipe Files 创始人 Corey Haines 与 Livestorm 增长负责人 Benoit Leggieri 一起讲解，如何从自己在工具和 AI 之间搬运数据，变成由 AI 负责流程、人只在需要判断的地方介入。内容包括营销团队使用 AI 的现状、marketer-in-the-loop 框架，以及用一场 webinar 的全流程对比三种做法。约 30 分钟，在 Livestorm 上进行，免费。",
+      "host": "Livestorm",
+      "speakers": [
+        {
+          "name": "Corey Haines",
+          "title": "Founder @ Swipe Files"
+        },
+        {
+          "name": "Benoit Leggieri",
+          "title": "Head of Growth @ Livestorm"
+        }
+      ],
+      "format": "Webinar",
+      "platform": "Livestorm",
       "schedule": [
         {
           "start": "2026-11-13T00:30:00+08:00",
+          "end": "2026-11-13T01:00:00+08:00",
+          "duration_minutes": 30,
           "date": "2026-11-13",
           "label": null,
-          "url": null
+          "url": "https://app.livestorm.co/livestorm-marketing/stop-being-the-middleman-become-the-marketer-in-the-loop"
         }
       ],
-      "urls": [
-        "https://app.livestorm.co/livestorm-marketing/stop-being-the-middleman-become-the-marketer-in-the-loop"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://app.livestorm.co/livestorm-marketing/stop-being-the-middleman-become-the-marketer-in-the-loop"
+        },
+        {
+          "type": "host",
+          "label": "Livestorm 官网",
+          "url": "https://livestorm.co"
+        },
+        {
+          "type": "other",
+          "label": "Corey Haines LinkedIn",
+          "url": "https://www.linkedin.com/in/corey-haines/"
+        },
+        {
+          "type": "other",
+          "label": "Benoit Leggieri LinkedIn",
+          "url": "https://www.linkedin.com/in/benoitleggieri/"
+        }
       ],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": "Livestorm 活动页", "status": "upcoming", "url": null },
-      "tags": ["gtm"],
-      "notes": null,
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "Livestorm 活动页",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "gtm"
+      ],
+      "notes": "开始时间与原表一致（11/12 17:30 CET），已按页面「About 30 minutes」补结束时间。正文里写的是 Corey Haines（Marketing Skills）和 Ben Leggieri，主持卡上的正式职务是 Founder @ Swipe Files 与 Head of Growth @ Livestorm。页面未承诺公开回放。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "create-your-ai-growth-brief",
-      "title": "Create Your AI Growth Brief（Willa）",
+      "title": "Create Your AI Growth Brief: Get People to Find and Use What You Built",
+      "summary": "Willa 主办的 1 小时工作坊，由增长与产品负责人 Rachel DeJulio（GrowthLever 创始人）展示一份完整的 AI Growth Brief，并倒推她如何给 AI 足够的客户、产品和业务上下文。适合创始人、营销和产品负责人，以及希望让作品被找到、被理解和被使用的人。活动已于上海时间 11 月 11 日 02:00 结束；页面写明会录制并提供给报名者，目前没有公开回放。",
       "host": "Willa",
+      "speakers": [
+        {
+          "name": "Rachel DeJulio",
+          "title": "Founder, GrowthLever"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-11T02:00:00+08:00",
+          "end": "2026-11-11T03:00:00+08:00",
+          "duration_minutes": 60,
           "date": "2026-11-11",
           "label": null,
-          "url": null
+          "url": "https://luma.com/create-ai-growth-brief"
         }
       ],
-      "urls": ["https://luma.com/create-ai-growth-brief"],
-      "price": { "type": "paid", "amount": 59, "currency": "USD", "note": null },
-      "replay": { "channel": null, "status": "no_replay", "url": null },
-      "tags": ["growth"],
-      "notes": "已结束，确认没有公开回放。",
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/create-ai-growth-brief"
+        },
+        {
+          "type": "host",
+          "label": "Willa 官网",
+          "url": "https://www.joinwilla.com"
+        },
+        {
+          "type": "other",
+          "label": "主讲人 LinkedIn",
+          "url": "https://www.linkedin.com/in/rachel-dejulio/"
+        },
+        {
+          "type": "other",
+          "label": "合作方 Her Tech Community",
+          "url": "https://hertechcommunity.com/"
+        }
+      ],
+      "price": {
+        "type": "paid",
+        "amount": 59,
+        "currency": "USD",
+        "note": "Willa 会员及合作社区成员免费"
+      },
+      "replay": {
+        "channel": "报名者可见",
+        "status": "no_replay",
+        "url": null
+      },
+      "tags": [
+        "growth"
+      ],
+      "notes": "已结束。开始时间与原表一致，已补结束时间（1 小时）。确认没有公开回放；页面写明回放只提供给报名者。",
+      "missing": [],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "how-much-of-your-next-product-launch-can-ai-handle",
-      "title": "How Much of Your Next Product Launch Can AI Handle?",
-      "host": null,
+      "title": "How Much of Your Next Product Launch Can AI Actually Handle?",
+      "summary": "INTRO Marketing（湾区以色列科技社区 INTRO 下的营销专业小组）邀请 10XGTM 联合创始人 Hila Lauterbach 和 Renat Gersch，讲解 AI 在产品定位、GTM 和发布执行中真正能做和不能做的事，包括他们如何把十多个 AI GTM 工具收束到两个。课程按 30 分钟讲解加 15 分钟问答安排，在 Google Meet 进行，免费但需审批。活动已于上海时间 11 月 11 日 10:30 结束，主办方未说明是否提供回放。",
+      "host": "INTRO Marketing",
+      "speakers": [
+        {
+          "name": "Hila Lauterbach",
+          "title": "Co-Founder, 10XGTM"
+        },
+        {
+          "name": "Renat Gersch",
+          "title": "Co-Founder, 10XGTM"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Google Meet",
       "schedule": [
         {
           "start": "2026-11-11T10:30:00+08:00",
+          "end": "2026-11-11T11:45:00+08:00",
+          "duration_minutes": 75,
           "date": "2026-11-11",
           "label": null,
-          "url": null
+          "url": "https://luma.com/a0sfrkgz"
         }
       ],
-      "urls": ["https://luma.com/a0sfrkgz"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": null, "status": "awaiting_replay", "url": null },
-      "tags": ["growth", "gtm"],
-      "notes": "已结束，主办方没有说明回放。",
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/a0sfrkgz"
+        },
+        {
+          "type": "host",
+          "label": "INTRO 社区",
+          "url": "https://introus.org/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": "需主办方审批"
+      },
+      "replay": {
+        "channel": null,
+        "status": "awaiting_replay",
+        "url": null
+      },
+      "tags": [
+        "growth",
+        "gtm"
+      ],
+      "notes": "已结束。开始时间与原表一致，已补结束时间（75 分钟）。官方标题含 Actually。Luma 报名页登记在 Avia Haimovich 名下，正文主办方是 INTRO Marketing。页面未提及回放。",
+      "missing": [
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     },
     {
       "id": "a-mini-masterclass-for-brands-using-ai-for-content",
       "title": "A Mini-Masterclass for Brands Using AI for Content",
-      "host": null,
+      "summary": "Learn with Shemia（Shemia Williams，Borderless Creative Group）的 30 分钟迷你大师课，讨论品牌和传播策略为什么必须放在把内容交给 AI 之前，以及怎样让社交、邮件、海报和视频真正带动品牌、受众和业务增长。面向品牌建设者、创业者和内容团队成员，尤其是设计、营销或品牌并非本职背景的人。活动已于上海时间 11 月 12 日 08:00 在 Zoom 结束，页面未提及回放。",
+      "host": "Learn with Shemia",
+      "speakers": [
+        {
+          "name": "Shemia Williams",
+          "title": null
+        }
+      ],
+      "format": "Masterclass",
+      "platform": "Zoom",
       "schedule": [
         {
           "start": "2026-11-12T08:00:00+08:00",
+          "end": "2026-11-12T08:30:00+08:00",
+          "duration_minutes": 30,
           "date": "2026-11-12",
           "label": null,
-          "url": null
+          "url": "https://luma.com/oy3qy8y1"
         }
       ],
-      "urls": ["https://luma.com/oy3qy8y1"],
-      "price": { "type": "free", "amount": null, "currency": null, "note": null },
-      "replay": { "channel": null, "status": "awaiting_replay", "url": null },
-      "tags": ["brand", "aigc", "content"],
-      "notes": "已结束，页面没有提到回放。",
-      "last_updated": "2026-11-12T19:30:00+08:00"
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/oy3qy8y1"
+        },
+        {
+          "type": "host",
+          "label": "Borderless Creative Group",
+          "url": "https://borderlesscreativegroup.com"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": null,
+        "status": "awaiting_replay",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "aigc",
+        "content"
+      ],
+      "notes": "已结束。开始时间与原表一致，已补结束时间（30 分钟）。主办日历名称是 Learn with Shemia。Shemia Williams 的正式职务页面未单列。页面未提及回放。",
+      "missing": [
+        "speakers.title",
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-12T21:30:00+08:00"
     }
   ]
 }
