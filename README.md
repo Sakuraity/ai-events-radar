@@ -162,23 +162,20 @@ npm run preview
 
 ## 部署到 Cloudflare Pages
 
-这个仓库按 **Cloudflare Pages 的 Git 集成** 部署，不需要 Wrangler，也不需要 API token 或构建密钥。
+这个仓库已接到 Cloudflare Pages 的 **Git 集成**，项目名是 `ai-events-radar`。
 
-所有者需要做的事：
+正式地址：https://ai-events-radar.pages.dev/
 
-1. 打开 Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**。
-2. 授权 GitHub，选择 `Sakuraity/ai-events-radar`。
-3. Production branch 填 `main`。
-4. Framework preset 选 Astro。如果列表里没有，选 None，然后手动填下面两项。
-5. Build command：`npm run build`
-6. Build output directory：`dist`
-7. 在 **Settings → Environment variables** 里，给 Production 和 Preview 都加上 `NODE_VERSION` = `22`。Pages 构建机认这个变量。仓库里的 `.node-version` 只服务本地和 GitHub Actions。
-8. 不要改默认的安装命令。依赖写在 `dependencies` 里，按 lockfile 安装即可。
-9. 保存并部署。第一次成功后，推到 `main` 的提交（包括只改 `data/events.json`）都会自动重新构建。
-10. 站点需要保持公开。不要在前面加 Cloudflare Access。
-11. 可选：在该 Pages 项目里绑定自定义域名。
+当前配置：
 
-构建命令里已经包含数据校验。畸形数据会让这次部署失败，上一份成功的站点继续对外。
+- Production branch：`main`
+- Build command：`npm run build`
+- Build output directory：`dist`
+- 环境变量：Production / Preview 都有 `NODE_VERSION=22`
+
+推到 `main` 的提交（包括只改 `data/events.json`）会自动重新构建。其他分支会生成预览部署。构建命令里已经包含数据校验；畸形数据会让这次部署失败，上一份成功的站点继续对外。
+
+站点保持公开，不要在前面加 Cloudflare Access。需要的话，可在该 Pages 项目里绑定自定义域名。
 
 ## 许可证
 
