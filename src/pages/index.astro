@@ -1,0 +1,123 @@
+---
+import "../styles/global.css";
+import EventCard from "../components/EventCard.astro";
+import data from "../../data/events.json";
+import { formatUpdated, groupEvents } from "../lib/classify.mjs";
+
+const now = new Date();
+const grouped = groupEvents(data.events, now);
+const updated = formatUpdated(data.last_updated);
+const description =
+  "海外线上 AI 活动雷达：增长策略、品牌叙事、GTM，以及少量 AIGC / 创作。时间均为北京时间，并标明回放状态。";
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Events Radar · 海外线上 AI 活动</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#14382c" />
+    <meta property="og:title" content="AI Events Radar" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip" href="#groups">跳到活动列表</a>
+    <header class="site">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+          <circle cx="24" cy="24" r="10" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+          <circle cx="24" cy="24" r="2.2" fill="currentColor"></circle>
+          <path d="M24 24 L36.5 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+        <div>
+          <p class="kicker">海外线上 · 北京时间</p>
+          <h1>AI Events Radar</h1>
+        </div>
+      </div>
+      <p class="lede">
+        跟踪海外线上活动：AI 公司的增长策略、品牌叙事、GTM，以及少量 AIGC / 创作。标题保留英文，时间全部换算成北京时间。
+      </p>
+      <p class="updated">数据更新于 <time datetime={data.last_updated}>{updated}</time></p>
+    </header>
+
+    <main>
+      <div class="toolbar">
+        <label class="search">
+          <span>搜索</span>
+          <input id="q" type="search" placeholder="标题、主办方或主题" autocomplete="off" enterkeyhint="search" />
+        </label>
+        <div class="filter-row">
+          <fieldset>
+            <legend>时间</legend>
+            <div class="choices">
+              <button type="button" data-group="when" data-value="all" aria-pressed="true">全部</button>
+              <button type="button" data-group="when" data-value="upcoming" aria-pressed="false">即将开始</button>
+              <button type="button" data-group="when" data-value="past" aria-pressed="false">已结束</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>价格</legend>
+            <div class="choices">
+              <button type="button" data-group="price" data-value="all" aria-pressed="true">全部</button>
+              <button type="button" data-group="price" data-value="free" aria-pressed="false">免费</button>
+              <button type="button" data-group="price" data-value="paid" aria-pressed="false">付费</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>回放</legend>
+            <div class="choices">
+              <button type="button" data-group="replay" data-value="all" aria-pressed="true">全部</button>
+              <button type="button" data-group="replay" data-value="upcoming" aria-pressed="false">尚未开始</button>
+              <button type="button" data-group="replay" data-value="awaiting_replay" aria-pressed="false">等待回放</button>
+              <button type="button" data-group="replay" data-value="replay_available" aria-pressed="false">已有回放</button>
+              <button type="button" data-group="replay" data-value="no_replay" aria-pressed="false">无回放</button>
+            </div>
+          </fieldset>
+          <button type="button" id="clear" hidden>清除筛选</button>
+        </div>
+      </div>
+
+      <p id="summary" aria-live="polite">
+        共 {data.events.length} 场 · 即将开始 {grouped.upcoming.length} · 已结束 {grouped.past.length}
+      </p>
+      <noscript>
+        <p class="noscript">筛选需要 JavaScript。下面仍按即将开始、已结束列出全部活动，分类取自本次构建的时刻。</p>
+      </noscript>
+
+      <div id="groups">
+        <section id="upcoming">
+          <h2>即将开始 <span class="count" id="upcoming-count">{grouped.upcoming.length}</span></h2>
+          <div class="cards" id="upcoming-list">
+            {grouped.upcoming.map((event) => <EventCard event={event} now={now} group="upcoming" />)}
+          </div>
+        </section>
+        <section id="past">
+          <h2>已结束 <span class="count" id="past-count">{grouped.past.length}</span></h2>
+          <div class="cards" id="past-list">
+            {grouped.past.map((event) => <EventCard event={event} now={now} group="past" />)}
+          </div>
+        </section>
+        <p id="empty" hidden>没有符合条件的活动。</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>本站只收录公开活动信息，不收录邮箱、密码或报名资料。北京时间 00:00 至 08:00 开始的场次会标成熬夜场，08:00 整点不算。</p>
+      <p class="footer-links">
+        <a href="https://github.com/Sakuraity/ai-events-radar">源代码</a>
+        <a href="/events.json">事件数据</a>
+        <span>MIT</span>
+      </p>
+    </footer>
+    <script>
+      import { initRadar } from "../scripts/radar.mjs";
+      initRadar();
+    </script>
+  </body>
+</html>

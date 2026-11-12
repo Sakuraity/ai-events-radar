@@ -1,0 +1,113 @@
+---
+import {
+  formatPrice,
+  formatSession,
+  linkLabel,
+  REPLAY_LABELS,
+  searchBlob,
+  sessionFlags,
+  sleepCoverage,
+  TAG_LABELS,
+} from "../lib/classify.mjs";
+
+const { event, now, group } = Astro.props;
+const price = formatPrice(event.price);
+const sleep = sleepCoverage(event.schedule);
+const generalLinks = event.urls.filter((url) => !event.schedule.some((session) => session.url === url));
+const scheduleData = JSON.stringify(
+  event.schedule.map(({ start, date, label }) => ({ start, date, label })),
+);
+const replayClass = {
+  upcoming: "upcoming",
+  awaiting_replay: "awaiting",
+  replay_available: "available",
+  no_replay: "none",
+}[event.replay.status];
+---
+
+<article
+  id={event.id}
+  class:list={["card", group === "upcoming" ? "is-upcoming" : "is-past"]}
+  data-title={event.title}
+  data-price={event.price.type}
+  data-replay={event.replay.status}
+  data-search={searchBlob(event).replaceAll("\n", " ")}
+  data-schedule={scheduleData}
+>
+  <div class="when">
+    <ol class="sessions">
+      {
+        event.schedule.map((session) => {
+          const formatted = formatSession(session);
+          const flags = sessionFlags(session, event.schedule, now);
+          return (
+            <li class:list={["session", { "is-next": flags.isNext, "is-done": flags.past && group === "upcoming" }]}>
+              <p class="date">{formatted.dateLine}</p>
+              <p class="clock">{formatted.timeLine}</p>
+              {(flags.isNext && event.schedule.length > 1) ||
+              (flags.past && group === "upcoming") ||
+              (sleep === "some" && formatted.sleep) ||
+              session.url?.startsWith("https://") ? (
+                <p class="session-meta">
+                  {flags.isNext && event.schedule.length > 1 && <span class="mini">下一场</span>}
+                  {flags.past && group === "upcoming" && <span class="mini">已开始</span>}
+                  {sleep === "some" && formatted.sleep && (
+                    <span class="badge sleep" title="北京时间 00:00 至 08:00 之间开始（不含 08:00）">
+                      熬夜场
+                    </span>
+                  )}
+                  {session.url?.startsWith("https://") && (
+                    <a href={session.url} target="_blank" rel="noopener noreferrer">
+                      本场页面
+                      <span class="sr-only">（新窗口打开）</span>
+                    </a>
+                  )}
+                </p>
+              ) : null}
+            </li>
+          );
+        })
+      }
+    </ol>
+  </div>
+  <div class="body">
+    <div class="title-row">
+      <h3>{event.title}</h3>
+      <div class="pills">
+        <span class:list={["pill", event.price.type]}>{price.label}</span>
+        {price.note && <span class="price-note">{price.note}</span>}
+        <span class:list={["pill", replayClass]}>{REPLAY_LABELS[event.replay.status]}</span>
+        {sleep === "all" && (
+          <span class="badge sleep" title="北京时间 00:00 至 08:00 之间开始（不含 08:00）">熬夜场</span>
+        )}
+      </div>
+    </div>
+    <p class="meta">
+      {event.host && <span>{event.host}</span>}
+      {event.tags.map((tag) => <span>{TAG_LABELS[tag]}</span>)}
+      {event.schedule.length > 1 && <span>共 {event.schedule.length} 场</span>}
+    </p>
+    {(event.replay.channel || event.replay.url) && (
+      <p class="channel">
+        {event.replay.channel && <span>回放渠道：{event.replay.channel}</span>}
+        {event.replay.url?.startsWith("https://") && (
+          <a href={event.replay.url} target="_blank" rel="noopener noreferrer">
+            观看回放
+            <span class="sr-only">（新窗口打开）</span>
+          </a>
+        )}
+      </p>
+    )}
+    {event.notes && <p class="notes">{event.notes}</p>}
+    {generalLinks.length > 0 && (
+      <p class="links">
+        {generalLinks.map((url) => (
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            {linkLabel(url, generalLinks.length)}
+            <span class="sr-only">（新窗口打开）</span>
+          </a>
+        ))}
+      </p>
+    )}
+  </div>
+</article>
