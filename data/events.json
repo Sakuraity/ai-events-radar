@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-12T21:30:00+08:00",
+  "last_updated": "2026-11-13T11:00:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -946,7 +946,7 @@
       },
       "replay": {
         "channel": "报名者可见（结束后 24 小时内）",
-        "status": "upcoming",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
@@ -955,7 +955,7 @@
       ],
       "notes": "开始时间与原表一致，已从 Luma 活动页补上结束时间（1 小时）。系列报名页和单独的 Luma 页（5gvy9c70）都可以报名。FAQ 写明每场免费，回放也免费，但只发给报名者。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-13T11:00:00+08:00"
     },
     {
       "id": "wellows-s4-make-ai-quote-you",
@@ -1131,16 +1131,16 @@
         "note": null
       },
       "replay": {
-        "channel": "Livestorm 活动页",
-        "status": "upcoming",
+        "channel": "报名者可见（Livestorm 会后邮件）",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
         "gtm"
       ],
-      "notes": "开始时间与原表一致（11/12 17:30 CET），已按页面「About 30 minutes」补结束时间。正文里写的是 Corey Haines（Marketing Skills）和 Ben Leggieri，主持卡上的正式职务是 Founder @ Swipe Files 与 Head of Growth @ Livestorm。页面未承诺公开回放。",
+      "notes": "开始时间与原表一致（11/12 17:30 CET），已按页面「About 30 minutes」补结束时间。正文里写的是 Corey Haines（Marketing Skills）和 Ben Leggieri，主持卡上的正式职务是 Founder @ Swipe Files 与 Head of Growth @ Livestorm。页面未承诺公开回放。 活动已结束，Livestorm 会后向报名者发送个人回放入口，暂无公开回放地址。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-13T11:00:00+08:00"
     },
     {
       "id": "create-your-ai-growth-brief",
@@ -1322,6 +1322,68 @@
         "replay.channel"
       ],
       "last_updated": "2026-11-12T21:30:00+08:00"
+    },
+    {
+      "id": "go-to-market-in-the-ai-era",
+      "title": "Go-to-Market in the AI Era: How to Stand Out When Anyone Can Build",
+      "summary": "Founder Institute DC 的线上分享，由品牌策略师 Daniel Francavilla 讲解在人人都能快速做出产品的 AI 时代，创始人如何靠 go-to-market 拉开差距：把目标客户定义得足够具体、把专业积累变成建立品牌的内容、用 AI 加速调研和内容但不千篇一律，以及先挑一两个渠道小步测试发布。适合早期创始人和做增长、品牌的人，含现场问答，免费。",
+      "host": "Founder Institute（DC Startup Founder 101）",
+      "speakers": [
+        {
+          "name": "Daniel Francavilla",
+          "title": "Founder & Strategist @ Clarity Content"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-11-25T01:00:00+08:00",
+          "end": "2026-11-25T02:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-11-25",
+          "label": null,
+          "url": "https://fi.co/e/409002"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://fi.co/e/409002"
+        },
+        {
+          "type": "other",
+          "label": "Meetup 页面",
+          "url": "https://www.meetup.com/dc-startup-founder-101/events/317386010/"
+        },
+        {
+          "type": "host",
+          "label": "Founder Institute 官网",
+          "url": "https://fi.co"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "gtm"
+      ],
+      "notes": "美东时间 11/24 12:00 PM 开始，Founder Institute 页面写 1 小时。页面未写直播平台，也未提回放。",
+      "missing": [
+        "platform",
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-13T11:00:00+08:00"
     }
   ]
 }
