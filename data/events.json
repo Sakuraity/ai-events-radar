@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-13T11:00:00+08:00",
+  "last_updated": "2026-11-16T11:45:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -66,9 +66,9 @@
           "url": "https://luma.com/ygnflj3y"
         },
         {
-          "type": "other",
-          "label": "11/14 YouTube 直播",
-          "url": "https://www.youtube.com/live/e8Gqg3lFVrg"
+          "type": "replay",
+          "label": "11/14 回放（YouTube）",
+          "url": "https://www.youtube.com/watch?v=e8Gqg3lFVrg"
         },
         {
           "type": "event",
@@ -116,9 +116,9 @@
         "aigc",
         "workshop"
       ],
-      "notes": "官网与 Luma 均写明每场 60 分钟、在 YouTube 直播；往期场次已有公开回放。开始时间与原表一致（周五 10am PT，对应上海次日 02:00）。",
+      "notes": "官网与 Luma 均写明每场 60 分钟、在 YouTube 直播；往期场次已有公开回放。开始时间与原表一致（周五 10am PT，对应上海次日 02:00）。 11/14 场回放已在 YouTube 公开。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-16T11:45:00+08:00"
     },
     {
       "id": "midjourney-office-hours",
@@ -828,7 +828,7 @@
       },
       "replay": {
         "channel": "Luma 活动页",
-        "status": "upcoming",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
@@ -837,7 +837,7 @@
       ],
       "notes": "开始时间与原表一致，已补结束时间（50+30+10 分钟，共 90 分钟）。官方标题带 + Q&A。页面未承诺回放。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-16T11:45:00+08:00"
     },
     {
       "id": "why-geo-why-now",
@@ -936,6 +936,11 @@
           "type": "host",
           "label": "Wellows 官网",
           "url": "https://wellows.com/"
+        },
+        {
+          "type": "replay",
+          "label": "回放",
+          "url": "https://wellows.com/webinars/why-ai-trusts-your-competitors/"
         }
       ],
       "price": {
@@ -945,17 +950,17 @@
         "note": null
       },
       "replay": {
-        "channel": "报名者可见（结束后 24 小时内）",
-        "status": "awaiting_replay",
-        "url": null
+        "channel": "Wellows 官网（公开回放，免费观看）",
+        "status": "replay_available",
+        "url": "https://wellows.com/webinars/why-ai-trusts-your-competitors/"
       },
       "tags": [
         "gtm",
         "visibility"
       ],
-      "notes": "开始时间与原表一致，已从 Luma 活动页补上结束时间（1 小时）。系列报名页和单独的 Luma 页（5gvy9c70）都可以报名。FAQ 写明每场免费，回放也免费，但只发给报名者。",
+      "notes": "Wellows 官网的本场页面已放出完整录像，免费观看，填邮箱为可选。",
       "missing": [],
-      "last_updated": "2026-11-13T11:00:00+08:00"
+      "last_updated": "2026-11-16T11:45:00+08:00"
     },
     {
       "id": "wellows-s4-make-ai-quote-you",
@@ -1384,6 +1389,71 @@
         "replay.channel"
       ],
       "last_updated": "2026-11-13T11:00:00+08:00"
+    },
+    {
+      "id": "new-playbook-ama-gtm-marketing-ai-era",
+      "title": "The New Playbook AMA: Go-to-Market & Marketing in the AI Era",
+      "summary": "MESA、Minnestar 和 MN Cup 联合举办的创始人 AMA 系列第三场，主题是 AI 时代的 go-to-market 与市场营销：过去要花几年建立的分发优势现在几周就能拼出来，真正的护城河变成判断把工具用在哪里。由 MESA 导师 Jeff Eckerle、Tim Bates 现场答疑，MN Cup 负责人 Kailin Oliver 主持，适合早期创始人带着 GTM 问题来提问。免费线上参加，页面写明会录像，结束后即可在同一观看链接回看。",
+      "host": "MESA, Minnestar & MN Cup",
+      "speakers": [
+        {
+          "name": "Jeff Eckerle",
+          "title": "MESA Mentor"
+        },
+        {
+          "name": "Tim Bates",
+          "title": "MESA Mentor"
+        },
+        {
+          "name": "Kailin Oliver",
+          "title": "Director of the MN Cup（Host/Emcee）"
+        }
+      ],
+      "format": "AMA",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-04T03:00:00+08:00",
+          "end": null,
+          "duration_minutes": null,
+          "date": "2026-12-04",
+          "label": null,
+          "url": "https://luma.com/p4dkaw1p"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/p4dkaw1p"
+        },
+        {
+          "type": "host",
+          "label": "系列日历",
+          "url": "https://luma.com/thenewplaybookama"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "会后录像，在报名者的同一观看链接开放",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth",
+        "gtm"
+      ],
+      "notes": "美国中部时间 12/3 1:00 PM 开始。观看链接在活动前一天发给报名者。页面未写结束时间和直播平台。",
+      "missing": [
+        "schedule.end",
+        "platform"
+      ],
+      "last_updated": "2026-11-16T11:45:00+08:00"
     }
   ]
 }
