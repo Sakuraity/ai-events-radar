@@ -93,6 +93,7 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "building-an-ai-assisted-gtm-strategy",
       "new-playbook-ama-gtm-marketing-ai-era",
       "agentic-gtm-engine-round-3",
+      "geo-for-b2b-saas-whats-working-now",
       "build-your-personal-brand-with-ai",
     ],
   );
@@ -106,13 +107,14 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
   );
 });
 
-test("only the three daytime-or-evening seed events skip the sleep badge", () => {
+test("only the four daytime-or-evening seed events skip the sleep badge", () => {
   const awake = data.events
     .filter((event) => sleepCoverage(event.schedule) === "none")
     .map((event) => event.id)
     .sort();
   assert.deepEqual(awake, [
     "a-mini-masterclass-for-brands-using-ai-for-content",
+    "geo-for-b2b-saas-whats-working-now",
     "how-much-of-your-next-product-launch-can-ai-handle",
     "why-geo-why-now",
   ]);
