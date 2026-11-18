@@ -43,6 +43,8 @@ const SEED_TITLES = [
   "Go-to-Market in the AI Era: How to Stand Out When Anyone Can Build",
   "The New Playbook AMA: Go-to-Market & Marketing in the AI Era",
   "GEO for B2B SaaS: What's working now",
+  "How to Develop A Content Strategy You Can Sustain (and Where AI Can Actually Help You)",
+  "Deepline Deepdives: GTM + AI Office Hours",
 ];
 
 function sample() {
@@ -102,10 +104,10 @@ test("schema keys stay aligned with the validator", () => {
   assert.equal(EVENT_KEYS.includes("urls"), false);
 });
 
-test("seed file is public-safe schema v2 and matches the 21 source titles", () => {
+test("seed file is public-safe schema v2 and matches the 23 source titles", () => {
   assert.deepEqual(validateEvents(data), []);
   assert.equal(data.schema_version, 2);
-  assert.equal(data.events.length, 21);
+  assert.equal(data.events.length, 23);
   assert.deepEqual(
     data.events.map((event) => event.title).sort(),
     [...SEED_TITLES].sort(),

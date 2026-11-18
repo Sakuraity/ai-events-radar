@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-17T11:45:00+08:00",
+  "last_updated": "2026-11-18T11:45:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -456,7 +456,7 @@
       },
       "replay": {
         "channel": "Luma 活动页",
-        "status": "upcoming",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
@@ -467,7 +467,7 @@
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-18T11:45:00+08:00"
     },
     {
       "id": "building-an-ai-assisted-gtm-strategy",
@@ -639,7 +639,7 @@
       },
       "replay": {
         "channel": "报名者可见",
-        "status": "upcoming",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
@@ -649,7 +649,7 @@
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-18T11:45:00+08:00"
     },
     {
       "id": "agentic-gtm-engine-round-3",
@@ -1517,6 +1517,113 @@
       "notes": "新西兰时间 12/10 14:00–14:45（美东 12/9 20:00）。Zoom 链接会前 48 小时发给报名者。",
       "missing": [],
       "last_updated": "2026-11-17T11:45:00+08:00"
+    },
+    {
+      "id": "content-strategy-you-can-sustain-ai",
+      "title": "How to Develop A Content Strategy You Can Sustain (and Where AI Can Actually Help You)",
+      "summary": "Queens Tech + Innovation Challenge 线上动手工作坊，讲怎么搭一套自己能长期坚持的内容策略：选对渠道和形式、从自身专长里找选题，以及用 AI 头脑风暴、理清思路、突破写作卡壳，同时保留自己的视角。适合想做品牌内容的早期创始人和营销人。",
+      "host": "Queens Tech + Innovation Challenge",
+      "speakers": [
+        {
+          "name": "Emily Singer",
+          "title": "Independent marketing consultant"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
+      "schedule": [
+        {
+          "start": "2026-12-10T02:00:00+08:00",
+          "end": "2026-12-10T03:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-10",
+          "label": null,
+          "url": "https://luma.com/1wg0w8zm"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页（Luma）",
+          "url": "https://luma.com/1wg0w8zm"
+        },
+        {
+          "type": "host",
+          "label": "Queens Tech + Innovation Challenge",
+          "url": "https://queensstartup.org/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "页面未提回放",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "content"
+      ],
+      "notes": "美东 12/9 13:00–14:00。属于 2027 Queens Tech + Innovation Challenge 线上工作坊系列。",
+      "missing": [],
+      "last_updated": "2026-11-18T11:45:00+08:00"
+    },
+    {
+      "id": "deepline-deepdives-gtm-ai-office-hours",
+      "title": "Deepline Deepdives: GTM + AI Office Hours",
+      "summary": "Deepline 每两周一次的 GTM + AI 线上 office hours，不放幻灯片，现场拆解参会者带来的实际问题，比如外呼与冷邮件、数据补全、信号发现与 ICP 定义、创始人主导销售，以及从 Clay 迁到 agent 工作流。适合做 B2B 增长、销售运营的创始人和 GTM 团队。",
+      "host": "Deepline",
+      "speakers": [],
+      "format": "Office Hours",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-09T01:00:00+08:00",
+          "end": null,
+          "duration_minutes": null,
+          "date": "2026-12-09",
+          "label": null,
+          "url": "https://deepline.com/office-hours"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://deepline.com/office-hours"
+        },
+        {
+          "type": "host",
+          "label": "Deepline",
+          "url": "https://deepline.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "官网与 YouTube 公开录像（附摘要和要点）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth",
+        "gtm"
+      ],
+      "notes": "美东 12/8 12:00 PM。之后每两周周二一场（1/5、1/19、2/2…）。结束时间与平台页面未写。",
+      "missing": [
+        "speakers",
+        "platform",
+        "end"
+      ],
+      "last_updated": "2026-11-18T11:45:00+08:00"
     }
   ]
 }
