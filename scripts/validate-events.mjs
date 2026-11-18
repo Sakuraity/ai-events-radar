@@ -3,6 +3,7 @@ import { pathToFileURL } from "node:url";
 import schema from "../data/events.schema.json" with { type: "json" };
 import {
   TAG_ORDER,
+  TOPIC_ORDER,
   isExactShanghaiIso,
   isRealDate,
   isSessionPast,
@@ -94,6 +95,7 @@ function validateEvent(event, path, rootUpdated, seenIds, fail) {
   validatePrice(event.price, `${path}.price`, fail);
   validateReplay(event, path, fail);
   validateTags(event.tags, `${path}.tags`, fail);
+  validateTopics(event.topics, `${path}.topics`, fail);
   validateMissing(event.missing, `${path}.missing`, fail);
 }
 
@@ -285,6 +287,23 @@ function validateReplay(event, path, fail) {
   }
   if (!anyFuture && replay.status === "upcoming") {
     fail(`${replayPath}.status`, "场次都已开始时，不能再标为 upcoming");
+  }
+}
+
+function validateTopics(topics, path, fail) {
+  if (!Array.isArray(topics) || topics.length < 1 || topics.length > 3) {
+    fail(path, "必须是 1 到 3 个内容标签");
+    return;
+  }
+  const seen = new Set();
+  for (let index = 0; index < topics.length; index += 1) {
+    const topic = topics[index];
+    if (typeof topic !== "string" || !TOPIC_ORDER.includes(topic)) {
+      fail(`${path}[${index}]`, `内容标签不在允许列表：${topic}`);
+      continue;
+    }
+    if (seen.has(topic)) fail(`${path}[${index}]`, "内容标签不能重复");
+    seen.add(topic);
   }
 }
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-18T11:45:00+08:00",
+  "last_updated": "2026-11-18T15:00:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -118,7 +118,11 @@
       ],
       "notes": "官网与 Luma 均写明每场 60 分钟、在 YouTube 直播；往期场次已有公开回放。开始时间与原表一致（周五 10am PT，对应上海次日 02:00）。 11/14 场回放已在 YouTube 公开。",
       "missing": [],
-      "last_updated": "2026-11-16T11:45:00+08:00"
+      "last_updated": "2026-11-16T11:45:00+08:00",
+      "topics": [
+        "AI 工作流与智能体",
+        "增长与 GTM"
+      ]
     },
     {
       "id": "midjourney-office-hours",
@@ -295,7 +299,10 @@
       ],
       "notes": "原表只写到「凌晨」、日期用的是上海日期。已按官方 Luma 日历校正：每周三芝加哥时间 14:00 开始、时长 1 小时；夏令时（11/1 前）对应上海次日 03:00，冬令时对应 04:00。原表中的 10/29、11/5、11/12 分别对应 10/28、11/4、11/11 的官方场次。后续场次已从官方日历补到 12/23。平台以 Luma 标注的 Discord 为准，部分场次同时有 X Space。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "视觉与视频制作"
+      ]
     },
     {
       "id": "figma-weave-office-hours",
@@ -404,7 +411,11 @@
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "视觉与视频制作",
+        "AI 工作流与智能体"
+      ]
     },
     {
       "id": "the-ai-visibility-playbook",
@@ -467,7 +478,11 @@
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-18T11:45:00+08:00"
+      "last_updated": "2026-11-18T11:45:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "品牌叙事"
+      ]
     },
     {
       "id": "building-an-ai-assisted-gtm-strategy",
@@ -526,7 +541,10 @@
       ],
       "notes": "开始时间与原表一致。官方主办名称是 Queens Tech + Innovation Challenge。页面未承诺公开回放。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "增长与 GTM"
+      ]
     },
     {
       "id": "build-your-personal-brand-with-ai",
@@ -585,7 +603,11 @@
       ],
       "notes": "开始时间与原表一致，已补结束时间（1 小时）。官方完整标题带 in One Hour。页面写明会录制并提供给报名者，不公开。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "个人品牌",
+        "内容策略"
+      ]
     },
     {
       "id": "agentic-gtm-engine-round-2",
@@ -649,7 +671,11 @@
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-18T11:45:00+08:00"
+      "last_updated": "2026-11-18T11:45:00+08:00",
+      "topics": [
+        "AI 工作流与智能体",
+        "销售获客"
+      ]
     },
     {
       "id": "agentic-gtm-engine-round-3",
@@ -713,7 +739,11 @@
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "AI 工作流与智能体",
+        "销售获客"
+      ]
     },
     {
       "id": "claude-social-media-manager",
@@ -778,7 +808,11 @@
       ],
       "notes": "开始时间与原表一致，已补结束时间（1 小时）。页面写明会录制并提供给报名者。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "社媒运营",
+        "视觉与视频制作"
+      ]
     },
     {
       "id": "build-your-ai-content-machine",
@@ -837,7 +871,12 @@
       ],
       "notes": "开始时间与原表一致，已补结束时间（50+30+10 分钟，共 90 分钟）。官方标题带 + Q&A。页面未承诺回放。",
       "missing": [],
-      "last_updated": "2026-11-16T11:45:00+08:00"
+      "last_updated": "2026-11-16T11:45:00+08:00",
+      "topics": [
+        "个人品牌",
+        "社媒运营",
+        "内容策略"
+      ]
     },
     {
       "id": "why-geo-why-now",
@@ -896,7 +935,10 @@
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "AI 搜索可见度"
+      ]
     },
     {
       "id": "wellows-s3-why-ai-trusts-your-competitors",
@@ -960,7 +1002,10 @@
       ],
       "notes": "Wellows 官网的本场页面已放出完整录像，免费观看，填邮箱为可选。",
       "missing": [],
-      "last_updated": "2026-11-16T11:45:00+08:00"
+      "last_updated": "2026-11-16T11:45:00+08:00",
+      "topics": [
+        "AI 搜索可见度"
+      ]
     },
     {
       "id": "wellows-s4-make-ai-quote-you",
@@ -1019,7 +1064,11 @@
       ],
       "notes": "开始时间与原表一致，已补结束时间（1 小时）。回放政策见系列页 FAQ。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "内容策略"
+      ]
     },
     {
       "id": "wellows-s5-30-day-ai-visibility-plan",
@@ -1078,7 +1127,10 @@
       ],
       "notes": "开始时间与原表一致，已补结束时间（1 小时）。Luma 与系列报名表的标题是 Your 30-Day AI Visibility Plan, Built Live；系列页场次列表里另有一处把本场写作 Content that gets cited。回放政策见系列页 FAQ。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "AI 搜索可见度"
+      ]
     },
     {
       "id": "stop-being-the-middleman",
@@ -1145,7 +1197,10 @@
       ],
       "notes": "开始时间与原表一致（11/12 17:30 CET），已按页面「About 30 minutes」补结束时间。正文里写的是 Corey Haines（Marketing Skills）和 Ben Leggieri，主持卡上的正式职务是 Founder @ Swipe Files 与 Head of Growth @ Livestorm。页面未承诺公开回放。 活动已结束，Livestorm 会后向报名者发送个人回放入口，暂无公开回放地址。",
       "missing": [],
-      "last_updated": "2026-11-13T11:00:00+08:00"
+      "last_updated": "2026-11-13T11:00:00+08:00",
+      "topics": [
+        "AI 工作流与智能体"
+      ]
     },
     {
       "id": "create-your-ai-growth-brief",
@@ -1208,7 +1263,10 @@
       ],
       "notes": "已结束。开始时间与原表一致，已补结束时间（1 小时）。确认没有公开回放；页面写明回放只提供给报名者。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "增长与 GTM"
+      ]
     },
     {
       "id": "how-much-of-your-next-product-launch-can-ai-handle",
@@ -1268,7 +1326,11 @@
       "missing": [
         "replay.channel"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "增长与 GTM",
+        "AI 工作流与智能体"
+      ]
     },
     {
       "id": "a-mini-masterclass-for-brands-using-ai-for-content",
@@ -1326,7 +1388,11 @@
         "speakers.title",
         "replay.channel"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00"
+      "last_updated": "2026-11-12T21:30:00+08:00",
+      "topics": [
+        "品牌叙事",
+        "内容策略"
+      ]
     },
     {
       "id": "go-to-market-in-the-ai-era",
@@ -1388,7 +1454,12 @@
         "platform",
         "replay.channel"
       ],
-      "last_updated": "2026-11-13T11:00:00+08:00"
+      "last_updated": "2026-11-13T11:00:00+08:00",
+      "topics": [
+        "增长与 GTM",
+        "品牌叙事",
+        "内容策略"
+      ]
     },
     {
       "id": "new-playbook-ama-gtm-marketing-ai-era",
@@ -1453,7 +1524,10 @@
         "schedule.end",
         "platform"
       ],
-      "last_updated": "2026-11-16T11:45:00+08:00"
+      "last_updated": "2026-11-16T11:45:00+08:00",
+      "topics": [
+        "增长与 GTM"
+      ]
     },
     {
       "id": "geo-for-b2b-saas-whats-working-now",
@@ -1516,7 +1590,10 @@
       ],
       "notes": "新西兰时间 12/10 14:00–14:45（美东 12/9 20:00）。Zoom 链接会前 48 小时发给报名者。",
       "missing": [],
-      "last_updated": "2026-11-17T11:45:00+08:00"
+      "last_updated": "2026-11-17T11:45:00+08:00",
+      "topics": [
+        "AI 搜索可见度"
+      ]
     },
     {
       "id": "content-strategy-you-can-sustain-ai",
@@ -1570,7 +1647,10 @@
       ],
       "notes": "美东 12/9 13:00–14:00。属于 2027 Queens Tech + Innovation Challenge 线上工作坊系列。",
       "missing": [],
-      "last_updated": "2026-11-18T11:45:00+08:00"
+      "last_updated": "2026-11-18T11:45:00+08:00",
+      "topics": [
+        "内容策略"
+      ]
     },
     {
       "id": "deepline-deepdives-gtm-ai-office-hours",
@@ -1623,7 +1703,11 @@
         "platform",
         "end"
       ],
-      "last_updated": "2026-11-18T11:45:00+08:00"
+      "last_updated": "2026-11-18T11:45:00+08:00",
+      "topics": [
+        "销售获客",
+        "AI 工作流与智能体"
+      ]
     }
   ]
 }

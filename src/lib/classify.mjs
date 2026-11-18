@@ -24,6 +24,19 @@ export const TAG_LABELS = {
   workshop: "研讨",
 };
 
+/** 内容标签词表。筛选条按这个顺序展示；一场活动里的 topics 不要求按此排序。 */
+export const TOPIC_ORDER = [
+  "内容策略",
+  "社媒运营",
+  "个人品牌",
+  "品牌叙事",
+  "增长与 GTM",
+  "AI 搜索可见度",
+  "AI 工作流与智能体",
+  "销售获客",
+  "视觉与视频制作",
+];
+
 export const FORMAT_LABELS = {
   Workshop: "工作坊",
   "Office Hours": "在线答疑",
@@ -285,6 +298,62 @@ export function formatPrice(price) {
   };
 }
 
+/** 丢掉词表以外的值，去重，并按词表顺序排好，方便写进 URL。 */
+export function selectedTopics(values) {
+  const picked = new Set(Array.isArray(values) ? values : []);
+  return TOPIC_ORDER.filter((topic) => picked.has(topic));
+}
+
+/** 点「全部」清空；点已选标签则取消，否则加入。 */
+export function toggleTopic(selected, value) {
+  if (value === "all") return [];
+  const current = selectedTopics(selected);
+  if (!TOPIC_ORDER.includes(value)) return current;
+  if (current.includes(value)) return current.filter((topic) => topic !== value);
+  return selectedTopics([...current, value]);
+}
+
+/** 没选标签时全部可见；多选时命中任一所选标签即可。 */
+export function matchesTopics(eventTopics, selected) {
+  const wanted = selectedTopics(selected);
+  if (wanted.length === 0) return true;
+  if (!Array.isArray(eventTopics)) return false;
+  return wanted.some((topic) => eventTopics.includes(topic));
+}
+
+export function countByTopic(events) {
+  const counts = Object.fromEntries(TOPIC_ORDER.map((topic) => [topic, 0]));
+  for (const event of events) {
+    if (!Array.isArray(event?.topics)) continue;
+    const seen = new Set();
+    for (const topic of event.topics) {
+      if (!Object.hasOwn(counts, topic) || seen.has(topic)) continue;
+      seen.add(topic);
+      counts[topic] += 1;
+    }
+  }
+  return counts;
+}
+
+export function writeTopicParams(params, topics) {
+  for (const topic of selectedTopics(topics)) params.append("topic", topic);
+}
+
+/** 内容标签与时间、价格、回放、形式、搜索同时生效。标签之间是「或」。 */
+export function matchesFilters(item, state) {
+  if (state.when !== "all" && item.group !== state.when) return false;
+  if (state.price !== "all" && item.price !== state.price) return false;
+  if (state.replay !== "all" && item.replay !== state.replay) return false;
+  if (state.format !== "all" && item.format !== state.format) return false;
+  if (!matchesTopics(item.topics, state.topics)) return false;
+  const tokens = String(state.q ?? "")
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+  return tokens.every((token) => String(item.search ?? "").includes(token));
+}
+
 export function searchBlob(event) {
   const price = formatPrice(event.price);
   const bits = [
@@ -300,6 +369,7 @@ export function searchBlob(event) {
     price.note,
     REPLAY_LABELS[event.replay?.status],
     ...(event.tags ?? []).flatMap((tag) => [tag, TAG_LABELS[tag] ?? ""]),
+    ...(event.topics ?? []),
     ...(event.speakers ?? []).flatMap((speaker) => [speaker?.name, speaker?.title]),
     ...(event.links ?? []).flatMap((link) => [link?.label, LINK_GROUP_LABELS[link?.type]]),
     ...(event.missing ?? []).flatMap((field) => [field, missingLabel(field), "待补"]),

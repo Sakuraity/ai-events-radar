@@ -209,6 +209,22 @@ fieldset {
   font-weight: 700;
 }
 
+.topic-filter {
+  width: 100%;
+}
+
+.choice-count {
+  margin-left: 0.35em;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.choices button[aria-pressed="true"] .choice-count {
+  color: var(--green-ink);
+}
+
 #clear {
   color: var(--green-ink);
 }
@@ -272,6 +288,27 @@ section[hidden],
   color: var(--muted);
   font-size: 0.82rem;
   font-weight: 700;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: -6px;
+}
+
+.topics span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 1px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f6f1e6;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .fact {

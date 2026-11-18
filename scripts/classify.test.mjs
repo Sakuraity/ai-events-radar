@@ -2,14 +2,21 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import data from "../data/events.json" with { type: "json" };
 import {
+  classifyEvent,
+  countByTopic,
   formatDuration,
   formatSession,
   formatTiming,
   groupEvents,
   isExactShanghaiIso,
   isSleepSession,
+  matchesFilters,
   relativeWhen,
+  searchBlob,
+  selectedTopics,
   sleepCoverage,
+  toggleTopic,
+  writeTopicParams,
 } from "../src/lib/classify.mjs";
 
 const NOW = new Date("2026-11-12T11:26:00Z");
@@ -107,6 +114,79 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "create-your-ai-growth-brief",
     ],
   );
+});
+
+test("topic selection keeps vocabulary order and drops unknown values", () => {
+  assert.deepEqual(
+    selectedTopics(["销售获客", "不存在", "内容策略", "内容策略"]),
+    ["内容策略", "销售获客"],
+  );
+  assert.deepEqual(selectedTopics([]), []);
+  assert.deepEqual(selectedTopics("内容策略"), []);
+  assert.deepEqual(toggleTopic(["内容策略"], "社媒运营"), ["内容策略", "社媒运营"]);
+  assert.deepEqual(toggleTopic(["社媒运营"], "内容策略"), ["内容策略", "社媒运营"]);
+  assert.deepEqual(toggleTopic(["内容策略", "社媒运营"], "内容策略"), ["社媒运营"]);
+  assert.deepEqual(toggleTopic(["内容策略"], "all"), []);
+
+  const params = new URLSearchParams();
+  writeTopicParams(params, ["销售获客", "增长与 GTM", "内容策略"]);
+  assert.equal(params.getAll("topic").join("|"), "内容策略|增长与 GTM|销售获客");
+  assert.deepEqual(selectedTopics(params.getAll("topic")), ["内容策略", "增长与 GTM", "销售获客"]);
+  assert.equal(new URLSearchParams("topic=内容策略").get("topic"), "内容策略");
+});
+
+test("topic counts use the fixed vocabulary", () => {
+  assert.deepEqual(countByTopic(data.events), {
+    内容策略: 6,
+    社媒运营: 2,
+    个人品牌: 2,
+    品牌叙事: 3,
+    "增长与 GTM": 6,
+    "AI 搜索可见度": 6,
+    "AI 工作流与智能体": 7,
+    销售获客: 3,
+    视觉与视频制作: 3,
+  });
+});
+
+test("content topic filter is any-match and combines with the other filters", () => {
+  const items = data.events.map((event) => ({
+    id: event.id,
+    group: classifyEvent(event.schedule, NOW).group,
+    price: event.price.type,
+    replay: event.replay.status,
+    format: event.format ?? "",
+    topics: event.topics,
+    search: searchBlob(event),
+  }));
+  const ids = (state) =>
+    items
+      .filter((item) => matchesFilters(item, state))
+      .map((item) => item.id)
+      .sort();
+  const base = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
+
+  assert.equal(ids(base).length, 23);
+  assert.deepEqual(ids({ ...base, topics: ["内容策略", "社媒运营"] }), [
+    "a-mini-masterclass-for-brands-using-ai-for-content",
+    "build-your-ai-content-machine",
+    "build-your-personal-brand-with-ai",
+    "claude-social-media-manager",
+    "content-strategy-you-can-sustain-ai",
+    "go-to-market-in-the-ai-era",
+    "wellows-s4-make-ai-quote-you",
+  ]);
+  assert.deepEqual(ids({ ...base, when: "upcoming", price: "free", topics: ["内容策略", "社媒运营"] }), [
+    "build-your-ai-content-machine",
+    "content-strategy-you-can-sustain-ai",
+    "go-to-market-in-the-ai-era",
+    "wellows-s4-make-ai-quote-you",
+  ]);
+  assert.deepEqual(ids({ ...base, topics: ["内容策略"], q: "wellows" }), ["wellows-s4-make-ai-quote-you"]);
+  assert.deepEqual(ids({ ...base, topics: ["视觉与视频制作"], format: "Office Hours" }), [
+    "figma-weave-office-hours",
+    "midjourney-office-hours",
+  ]);
 });
 
 test("only the four daytime-or-evening seed events skip the sleep badge", () => {

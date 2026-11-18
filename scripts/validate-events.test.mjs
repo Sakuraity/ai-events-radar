@@ -7,7 +7,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 import data from "../data/events.json" with { type: "json" };
 import schema from "../data/events.schema.json" with { type: "json" };
-import { TAG_ORDER } from "../src/lib/classify.mjs";
+import { TAG_ORDER, TOPIC_ORDER } from "../src/lib/classify.mjs";
 import {
   EVENT_KEYS,
   LINK_KEYS,
@@ -75,6 +75,7 @@ function sample() {
         price: { type: "free", amount: null, currency: null, note: null },
         replay: { channel: "Example", status: "upcoming", url: null },
         tags: ["growth"],
+        topics: ["内容策略"],
         notes: null,
         missing: [],
         last_updated: "2026-11-12T21:30:00+08:00",
@@ -99,6 +100,12 @@ test("schema keys stay aligned with the validator", () => {
   assert.deepEqual(schema.$defs.price.required, PRICE_KEYS);
   assert.deepEqual(schema.$defs.replay.required, REPLAY_KEYS);
   assert.deepEqual(schema.$defs.tag.enum, TAG_ORDER);
+  assert.deepEqual(schema.$defs.topic.enum, TOPIC_ORDER);
+  assert.equal(schema.$defs.event.properties.topics.minItems, 1);
+  assert.equal(schema.$defs.event.properties.topics.maxItems, 3);
+  assert.equal(schema.$defs.event.properties.topics.uniqueItems, true);
+  assert.equal(EVENT_KEYS.at(-1), "topics");
+  assert.equal(EVENT_KEYS.includes("tags"), true);
   assert.deepEqual(schema.$defs.replayStatus.enum, REPLAY_STATUSES);
   assert.equal(schema.$defs.event.additionalProperties, false);
   assert.equal(EVENT_KEYS.includes("urls"), false);
@@ -112,6 +119,7 @@ test("seed file is public-safe schema v2 and matches the 23 source titles", () =
     data.events.map((event) => event.title).sort(),
     [...SEED_TITLES].sort(),
   );
+  assert.ok(data.events.every((event) => event.tags.length >= 1 && event.topics.length >= 1 && event.topics.length <= 3));
   const raw = JSON.stringify(data);
   assert.equal(raw.includes('"urls"'), false);
   assert.doesNotMatch(raw, /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
@@ -223,6 +231,49 @@ test("rejects upcoming status after every session has started", () => {
   data.events[0].schedule[0].end = "2026-11-01T03:00:00+08:00";
   data.events[0].schedule[0].date = "2026-11-01";
   assert.match(validateEvents(data).join("\n"), /不能再标为 upcoming/);
+});
+
+test("topics are required, unique, and limited to the vocabulary", () => {
+  const missing = sample();
+  delete missing.events[0].topics;
+  assert.match(validateEvents(missing).join("\n"), /缺少字段 topics/);
+
+  const empty = sample();
+  empty.events[0].topics = [];
+  assert.match(validateEvents(empty).join("\n"), /1 到 3 个内容标签/);
+
+  const none = sample();
+  none.events[0].topics = null;
+  assert.match(validateEvents(none).join("\n"), /1 到 3 个内容标签/);
+
+  const four = sample();
+  four.events[0].topics = ["内容策略", "社媒运营", "个人品牌", "品牌叙事"];
+  assert.match(validateEvents(four).join("\n"), /1 到 3 个内容标签/);
+
+  const duplicate = sample();
+  duplicate.events[0].topics = ["内容策略", "内容策略"];
+  assert.match(validateEvents(duplicate).join("\n"), /内容标签不能重复/);
+
+  const unknown = sample();
+  unknown.events[0].topics = ["增长"];
+  assert.match(validateEvents(unknown).join("\n"), /内容标签不在允许列表/);
+
+  const englishTag = sample();
+  englishTag.events[0].topics = ["growth"];
+  assert.match(validateEvents(englishTag).join("\n"), /内容标签不在允许列表/);
+
+  const unordered = sample();
+  unordered.events[0].topics = ["视觉与视频制作", "内容策略", "销售获客"];
+  assert.deepEqual(validateEvents(unordered), []);
+});
+
+test("english tags stay on their own vocabulary", () => {
+  const data = sample();
+  data.events[0].tags = ["内容策略"];
+  assert.match(validateEvents(data).join("\n"), /标签不在允许列表/);
+  data.events[0].tags = ["growth"];
+  data.events[0].topics = ["内容策略"];
+  assert.deepEqual(validateEvents(data), []);
 });
 
 test("sample event and the cli both follow the contract", () => {

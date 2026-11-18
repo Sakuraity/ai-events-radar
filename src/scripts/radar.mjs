@@ -1,4 +1,11 @@
-import { classifyEvent, relativeWhen } from "../lib/classify.mjs";
+import {
+  classifyEvent,
+  matchesFilters,
+  relativeWhen,
+  selectedTopics,
+  toggleTopic,
+  writeTopicParams,
+} from "../lib/classify.mjs";
 
 const ALLOWED = {
   when: ["all", "upcoming", "past"],
@@ -23,6 +30,7 @@ function mountRadar() {
     price: card.dataset.price,
     replay: card.dataset.replay,
     format: card.dataset.format || "",
+    topics: JSON.parse(card.dataset.topics || "[]"),
     search: (card.dataset.search || "").toLowerCase(),
     title: card.dataset.title || "",
     schedule: JSON.parse(card.dataset.schedule),
@@ -33,12 +41,14 @@ function mountRadar() {
   document.querySelector(".toolbar")?.addEventListener("click", (event) => {
     const choice = event.target.closest("button[data-group]");
     if (choice) {
-      state = { ...state, [choice.dataset.group]: choice.dataset.value };
+      state = choice.dataset.group === "topic"
+        ? { ...state, topics: toggleTopic(state.topics, choice.dataset.value) }
+        : { ...state, [choice.dataset.group]: choice.dataset.value };
       apply();
       return;
     }
     if (event.target.closest("#clear")) {
-      state = { when: "all", price: "all", replay: "all", format: "all", q: "" };
+      state = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
       apply();
     }
   });
@@ -98,7 +108,12 @@ function mountRadar() {
     }
 
     for (const button of document.querySelectorAll("button[data-group]")) {
-      button.setAttribute("aria-pressed", state[button.dataset.group] === button.dataset.value ? "true" : "false");
+      const pressed = button.dataset.group === "topic"
+        ? button.dataset.value === "all"
+          ? state.topics.length === 0
+          : state.topics.includes(button.dataset.value)
+        : state[button.dataset.group] === button.dataset.value;
+      button.setAttribute("aria-pressed", pressed ? "true" : "false");
     }
     const input = document.querySelector("#q");
     if (input && input.value !== state.q) input.value = state.q;
@@ -126,13 +141,13 @@ function refreshSessionBadges(now) {
 
 function readState() {
   const params = new URLSearchParams(location.search);
-  const q = params.get("q") || "";
   return {
     when: pick("when", params.get("when")),
     price: pick("price", params.get("price")),
     replay: pick("replay", params.get("replay")),
     format: pick("format", params.get("format")),
-    q,
+    topics: selectedTopics(params.getAll("topic")),
+    q: params.get("q") || "",
   };
 }
 
@@ -151,17 +166,13 @@ function isDefault(state) {
     state.price === "all" &&
     state.replay === "all" &&
     state.format === "all" &&
+    state.topics.length === 0 &&
     state.q.trim() === ""
   );
 }
 
 function isVisible(item, state) {
-  if (state.when !== "all" && item.group !== state.when) return false;
-  if (state.price !== "all" && item.price !== state.price) return false;
-  if (state.replay !== "all" && item.replay !== state.replay) return false;
-  if (state.format !== "all" && item.format !== state.format) return false;
-  const tokens = state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  return tokens.every((token) => item.search.includes(token));
+  return matchesFilters(item, state);
 }
 
 function compareUpcoming(a, b) {
@@ -178,6 +189,7 @@ function writeState(state) {
   if (state.price !== "all") params.set("price", state.price);
   if (state.replay !== "all") params.set("replay", state.replay);
   if (state.format !== "all") params.set("format", state.format);
+  writeTopicParams(params, state.topics);
   if (state.q.trim()) params.set("q", state.q.trim());
   const query = params.toString();
   const next = `${location.pathname}${query ? `?${query}` : ""}${location.hash}`;

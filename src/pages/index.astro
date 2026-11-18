@@ -2,11 +2,12 @@
 import "../styles/global.css";
 import EventCard from "../components/EventCard.astro";
 import data from "../../data/events.json";
-import { FORMAT_LABELS, formatUpdated, groupEvents } from "../lib/classify.mjs";
+import { FORMAT_LABELS, TOPIC_ORDER, countByTopic, formatUpdated, groupEvents } from "../lib/classify.mjs";
 
 const now = new Date();
 const grouped = groupEvents(data.events, now);
 const updated = formatUpdated(data.last_updated);
+const topicCounts = countByTopic(data.events);
 const formatOrder = ["Workshop", "Office Hours", "Webinar", "Roundtable", "Masterclass"];
 const formats = [...new Set(data.events.map((event) => event.format).filter(Boolean))];
 formats.sort((a, b) => {
@@ -57,7 +58,7 @@ const description =
       <div class="toolbar">
         <label class="search">
           <span>搜索</span>
-          <input id="q" type="search" placeholder="标题、举办方、主讲人或简介" autocomplete="off" enterkeyhint="search" />
+          <input id="q" type="search" placeholder="标题、内容标签、举办方、主讲人或简介" autocomplete="off" enterkeyhint="search" />
         </label>
         <div class="filter-row">
           <fieldset>
@@ -99,6 +100,18 @@ const description =
           </fieldset>
           <button type="button" id="clear" hidden>清除筛选</button>
         </div>
+        <fieldset class="topic-filter">
+          <legend>内容标签</legend>
+          <div class="choices">
+            <button type="button" data-group="topic" data-value="all" aria-pressed="true">全部</button>
+            {TOPIC_ORDER.map((topic) => (
+              <button type="button" data-group="topic" data-value={topic} aria-pressed="false">
+                {topic}
+                <span class="choice-count">{topicCounts[topic]}</span>
+              </button>
+            ))}
+          </div>
+        </fieldset>
       </div>
 
       <p id="summary" aria-live="polite">

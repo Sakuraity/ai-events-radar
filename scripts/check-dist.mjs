@@ -22,6 +22,9 @@ assert.match(html, /已有回放/);
 assert.match(html, /无回放/);
 assert.match(html, /活动页/);
 assert.match(html, /举办方/);
+assert.match(html, /内容标签/);
+assert.match(published, /"topics"/);
+assert.equal((html.match(/data-group="topic"/g) ?? []).length, 10);
 assert.doesNotMatch(html, /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
 assert.doesNotMatch(html, /用户决定|会员库|mailto:/);
 
@@ -40,6 +43,10 @@ for (const event of data.events) {
   assert.ok(decoded.includes(event.title), `missing title: ${event.title}`);
   assert.ok(html.includes(`id="${event.id}"`), `missing id: ${event.id}`);
   if (event.summary) assert.ok(decoded.includes(event.summary), `missing summary: ${event.id}`);
+  for (const topic of event.topics) {
+    assert.ok(decoded.includes(topic), `missing topic ${topic} on ${event.id}`);
+  }
+  assert.ok(decoded.includes(JSON.stringify(event.topics)), `missing topics data: ${event.id}`);
 }
 
 const articles = html.match(/<article\b/g) ?? [];

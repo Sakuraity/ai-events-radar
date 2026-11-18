@@ -50,10 +50,18 @@ function relativeClass(text) {
   data-price={event.price.type}
   data-replay={event.replay.status}
   data-format={event.format ?? ""}
+  data-topics={JSON.stringify(event.topics ?? [])}
   data-search={searchBlob(event).replaceAll("\n", " ")}
   data-schedule={scheduleData}
 >
   <h3>{event.title}</h3>
+  {event.topics?.length > 0 && (
+    <p class="topics">
+      {event.topics.map((topic) => (
+        <span>{topic}</span>
+      ))}
+    </p>
+  )}
   {event.tags?.length > 0 && (
     <p class="tags">
       {event.tags.map((tag) => (
