@@ -94,6 +94,7 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "claude-social-media-manager",
       "midjourney-office-hours",
       "wellows-s4-make-ai-quote-you",
+      "building-your-marketing-ai-operating-system",
       "go-to-market-in-the-ai-era",
       "why-geo-why-now",
       "wellows-s5-30-day-ai-visibility-plan",
@@ -103,6 +104,7 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "agentic-gtm-engine-round-3",
       "content-strategy-you-can-sustain-ai",
       "geo-for-b2b-saas-whats-working-now",
+      "stand-out-on-linkedin-personal-branding-ai",
       "build-your-personal-brand-with-ai",
     ],
   );
@@ -137,13 +139,13 @@ test("topic selection keeps vocabulary order and drops unknown values", () => {
 
 test("topic counts use the fixed vocabulary", () => {
   assert.deepEqual(countByTopic(data.events), {
-    内容策略: 6,
-    社媒运营: 2,
-    个人品牌: 2,
+    内容策略: 7,
+    社媒运营: 3,
+    个人品牌: 3,
     品牌叙事: 3,
-    "增长与 GTM": 6,
+    "增长与 GTM": 7,
     "AI 搜索可见度": 6,
-    "AI 工作流与智能体": 7,
+    "AI 工作流与智能体": 8,
     销售获客: 3,
     视觉与视频制作: 3,
   });
@@ -166,7 +168,7 @@ test("content topic filter is any-match and combines with the other filters", ()
       .sort();
   const base = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
 
-  assert.equal(ids(base).length, 23);
+  assert.equal(ids(base).length, 25);
   assert.deepEqual(ids({ ...base, topics: ["内容策略", "社媒运营"] }), [
     "a-mini-masterclass-for-brands-using-ai-for-content",
     "build-your-ai-content-machine",
@@ -174,12 +176,14 @@ test("content topic filter is any-match and combines with the other filters", ()
     "claude-social-media-manager",
     "content-strategy-you-can-sustain-ai",
     "go-to-market-in-the-ai-era",
+    "stand-out-on-linkedin-personal-branding-ai",
     "wellows-s4-make-ai-quote-you",
   ]);
   assert.deepEqual(ids({ ...base, when: "upcoming", price: "free", topics: ["内容策略", "社媒运营"] }), [
     "build-your-ai-content-machine",
     "content-strategy-you-can-sustain-ai",
     "go-to-market-in-the-ai-era",
+    "stand-out-on-linkedin-personal-branding-ai",
     "wellows-s4-make-ai-quote-you",
   ]);
   assert.deepEqual(ids({ ...base, topics: ["内容策略"], q: "wellows" }), ["wellows-s4-make-ai-quote-you"]);

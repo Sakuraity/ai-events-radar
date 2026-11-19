@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-18T15:00:00+08:00",
+  "last_updated": "2026-11-19T12:00:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -167,7 +167,7 @@
           "end": "2026-11-19T05:00:00+08:00",
           "duration_minutes": 60,
           "date": "2026-11-19",
-          "label": "11/18 芝加哥 14:00",
+          "label": "已结束 · 11/18 芝加哥 14:00",
           "url": "https://luma.com/t4qoz1pc"
         },
         {
@@ -297,9 +297,9 @@
       "tags": [
         "aigc"
       ],
-      "notes": "原表只写到「凌晨」、日期用的是上海日期。已按官方 Luma 日历校正：每周三芝加哥时间 14:00 开始、时长 1 小时；夏令时（11/1 前）对应上海次日 03:00，冬令时对应 04:00。原表中的 10/29、11/5、11/12 分别对应 10/28、11/4、11/11 的官方场次。后续场次已从官方日历补到 12/23。平台以 Luma 标注的 Discord 为准，部分场次同时有 X Space。",
+      "notes": "原表只写到「凌晨」、日期用的是上海日期。已按官方 Luma 日历校正：每周三芝加哥时间 14:00 开始、时长 1 小时；夏令时（11/1 前）对应上海次日 03:00，冬令时对应 04:00。原表中的 10/29、11/5、11/12 分别对应 10/28、11/4、11/11 的官方场次。后续场次已从官方日历补到 12/23。平台以 Luma 标注的 Discord 为准，部分场次同时有 X Space。 10/28、11/4 场已过约两周仍未见公开录屏，记为无法获取回放。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00",
+      "last_updated": "2026-11-19T12:00:00+08:00",
       "topics": [
         "视觉与视频制作"
       ]
@@ -323,7 +323,7 @@
           "end": "2026-11-13T01:00:00+08:00",
           "duration_minutes": 60,
           "date": "2026-11-13",
-          "label": "From first take to final cut in Figma Weave",
+          "label": "已结束 · From first take to final cut in Figma Weave",
           "url": "https://luma.com/4vqekg35"
         },
         {
@@ -368,6 +368,11 @@
           "url": "https://luma.com/4vqekg35"
         },
         {
+          "type": "replay",
+          "label": "11/13 回放（YouTube）",
+          "url": "https://www.youtube.com/watch?v=LwfYl46EFRQ"
+        },
+        {
           "type": "event",
           "label": "11/20 活动页",
           "url": "https://luma.com/wm8kwc6u"
@@ -407,11 +412,11 @@
       "tags": [
         "aigc"
       ],
-      "notes": "开始时间与原表一致（美东 11:00，对应上海次日 00:00），已补结束时间（每场 1 小时）。11/27「Find your sound」的 Luma 地点写的是 Figma Events 链接，不是线下场地。Halloween 场次回放已另行通知，这里不收录该场。Mara Dilts 的职务页面未写明。",
+      "notes": "开始时间与原表一致（美东 11:00，对应上海次日 00:00），已补结束时间（每场 1 小时）。11/27「Find your sound」的 Luma 地点写的是 Figma Events 链接，不是线下场地。Halloween 场次回放已另行通知，这里不收录该场。Mara Dilts 的职务页面未写明。 11/13 场回放已在 YouTube 公开（视频标题为 Figma Weave Office Hours: From First Cut to Final Take）。",
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00",
+      "last_updated": "2026-11-19T12:00:00+08:00",
       "topics": [
         "视觉与视频制作",
         "AI 工作流与智能体"
@@ -474,11 +479,11 @@
         "growth",
         "visibility"
       ],
-      "notes": "开始时间与原表一致。活动页未写明四位主讲人的职务，也没有单独的主办机构站点；Luma 日历登记在 Cassie Egli 名下。页面未承诺公开回放。",
+      "notes": "开始时间与原表一致。活动页未写明四位主讲人的职务，也没有单独的主办机构站点；Luma 日历登记在 Cassie Egli 名下。页面未承诺公开回放。 活动结束后 Luma 地点一栏显示为 YouTube，但目前未找到公开录像。",
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-18T11:45:00+08:00",
+      "last_updated": "2026-11-19T12:00:00+08:00",
       "topics": [
         "AI 搜索可见度",
         "品牌叙事"
@@ -798,7 +803,7 @@
       },
       "replay": {
         "channel": "报名者可见",
-        "status": "upcoming",
+        "status": "no_replay",
         "url": null
       },
       "tags": [
@@ -806,9 +811,9 @@
         "aigc",
         "content"
       ],
-      "notes": "开始时间与原表一致，已补结束时间（1 小时）。页面写明会录制并提供给报名者。",
+      "notes": "已结束（上海时间 11/19 03:00）。开始时间与原表一致，已补结束时间（1 小时）。页面写明会录制，但回放只提供给报名者，没有公开回放。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00",
+      "last_updated": "2026-11-19T12:00:00+08:00",
       "topics": [
         "社媒运营",
         "视觉与视频制作"
@@ -1707,6 +1712,126 @@
       "topics": [
         "销售获客",
         "AI 工作流与智能体"
+      ]
+    },
+    {
+      "id": "building-your-marketing-ai-operating-system",
+      "title": "Building Your Marketing AI Operating System",
+      "summary": "DataXGrowth「Marketing AI Ops」月度系列的第一场，面向 CMO、营销副总裁、增长与需求生成负责人和营销运营负责人。开场用五道题现场给团队打 AI 成熟度分，然后讲 AI 该如何接入 CRM、分析、CMS 和广告数据，并现场把一份手工周报做成可重复的工作流，再给出「绿/黄/红」的 AI 权限规则和 30/60/90 天落地计划。免费，60 分钟；页面写明报名者会在会后一小时内通过邮件收到录像和一份两页清单。",
+      "host": "DataXGrowth",
+      "speakers": [
+        {
+          "name": "Mike Schmutz",
+          "title": "Founder & CEO, DataXGrowth"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-11-20T02:00:00+08:00",
+          "end": "2026-11-20T03:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-11-20",
+          "label": null,
+          "url": "https://dataxgrowth.com/webinars/marketing-ai-operating-system/"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://dataxgrowth.com/webinars/marketing-ai-operating-system/"
+        },
+        {
+          "type": "host",
+          "label": "DataXGrowth 官网",
+          "url": "https://dataxgrowth.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "会后通过邮件发给报名者",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth"
+      ],
+      "notes": "美国山地时间 11/19 11:00 AM（美东 1:00 PM）开始，60 分钟。是 12 场月度系列的第一场。页面未写直播平台。",
+      "missing": [
+        "platform"
+      ],
+      "last_updated": "2026-11-19T12:00:00+08:00",
+      "topics": [
+        "AI 工作流与智能体",
+        "增长与 GTM"
+      ]
+    },
+    {
+      "id": "stand-out-on-linkedin-personal-branding-ai",
+      "title": "Stand out on LinkedIn: Personal branding in the age of AI",
+      "summary": "MNG Summit 的线上动手工作坊。Google Cloud 生成式媒体模型产品营销经理 Khulan Davaajav 主讲：人人都能用 AI 做产品时，分发才是真正的优势。她会分享自己在全职工作之外经营 LinkedIn 受众和每周 newsletter 的方法（15 个月从 3.3K 涨到 26K 关注），带大家打磨定位、搭一套保留个人语气的 AI 辅助内容工作流，并定下能坚持的发布节奏。",
+      "host": "MNG Summit Event",
+      "speakers": [
+        {
+          "name": "Khulan Davaajav（Khulan Dav）",
+          "title": "Product Marketing Manager, generative media models, Google Cloud"
+        },
+        {
+          "name": "Yanjaa Munkhbat",
+          "title": null
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Google Meet",
+      "schedule": [
+        {
+          "start": "2026-12-15T07:00:00+08:00",
+          "end": "2026-12-15T08:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-15",
+          "label": null,
+          "url": "https://luma.com/r0yrir43"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/r0yrir43"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": "报名需主办方审批"
+      },
+      "replay": {
+        "channel": "页面未提回放",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "content"
+      ],
+      "notes": "美东 12/14 6:00 PM 开始，1 小时。Luma 报名需审批。页面未提回放，也未给出主办方主页。",
+      "missing": [
+        "links.host",
+        "speakers.title"
+      ],
+      "last_updated": "2026-11-19T12:00:00+08:00",
+      "topics": [
+        "个人品牌",
+        "社媒运营",
+        "内容策略"
       ]
     }
   ]
