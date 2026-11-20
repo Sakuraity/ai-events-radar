@@ -47,6 +47,7 @@ const SEED_TITLES = [
   "Deepline Deepdives: GTM + AI Office Hours",
   "Building Your Marketing AI Operating System",
   "Stand out on LinkedIn: Personal branding in the age of AI",
+  "Building an AI Workflow - Live Session",
 ];
 
 function sample() {
@@ -113,10 +114,10 @@ test("schema keys stay aligned with the validator", () => {
   assert.equal(EVENT_KEYS.includes("urls"), false);
 });
 
-test("seed file is public-safe schema v2 and matches the 25 source titles", () => {
+test("seed file is public-safe schema v2 and matches the 26 source titles", () => {
   assert.deepEqual(validateEvents(data), []);
   assert.equal(data.schema_version, 2);
-  assert.equal(data.events.length, 25);
+  assert.equal(data.events.length, 26);
   assert.deepEqual(
     data.events.map((event) => event.title).sort(),
     [...SEED_TITLES].sort(),

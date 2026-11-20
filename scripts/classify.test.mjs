@@ -105,6 +105,7 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "content-strategy-you-can-sustain-ai",
       "geo-for-b2b-saas-whats-working-now",
       "stand-out-on-linkedin-personal-branding-ai",
+      "dataxgrowth-building-an-ai-workflow-live",
       "build-your-personal-brand-with-ai",
     ],
   );
@@ -143,9 +144,9 @@ test("topic counts use the fixed vocabulary", () => {
     社媒运营: 3,
     个人品牌: 3,
     品牌叙事: 3,
-    "增长与 GTM": 7,
+    "增长与 GTM": 8,
     "AI 搜索可见度": 6,
-    "AI 工作流与智能体": 8,
+    "AI 工作流与智能体": 9,
     销售获客: 3,
     视觉与视频制作: 3,
   });
@@ -168,7 +169,7 @@ test("content topic filter is any-match and combines with the other filters", ()
       .sort();
   const base = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
 
-  assert.equal(ids(base).length, 25);
+  assert.equal(ids(base).length, 26);
   assert.deepEqual(ids({ ...base, topics: ["内容策略", "社媒运营"] }), [
     "a-mini-masterclass-for-brands-using-ai-for-content",
     "build-your-ai-content-machine",

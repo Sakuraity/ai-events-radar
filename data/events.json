@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-19T12:00:00+08:00",
+  "last_updated": "2026-11-20T11:50:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -331,7 +331,7 @@
           "end": "2026-11-20T01:00:00+08:00",
           "duration_minutes": 60,
           "date": "2026-11-20",
-          "label": "Build your Black Friday campaign in Figma Weave",
+          "label": "已结束 · Build your Black Friday campaign in Figma Weave",
           "url": "https://luma.com/wm8kwc6u"
         },
         {
@@ -370,7 +370,7 @@
         {
           "type": "replay",
           "label": "11/13 回放（YouTube）",
-          "url": "https://www.youtube.com/watch?v=LwfYl46EFRQ"
+          "url": "https://www.youtube.com/watch?v=Xef-yx5uT9Q"
         },
         {
           "type": "event",
@@ -416,7 +416,7 @@
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-19T12:00:00+08:00",
+      "last_updated": "2026-11-20T11:50:00+08:00",
       "topics": [
         "视觉与视频制作",
         "AI 工作流与智能体"
@@ -1059,17 +1059,17 @@
         "note": null
       },
       "replay": {
-        "channel": "报名者可见（结束后 24 小时内）",
-        "status": "upcoming",
+        "channel": "报名者可见（结束后 24 小时内邮件发送）",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
         "content",
         "visibility"
       ],
-      "notes": "开始时间与原表一致，已补结束时间（1 小时）。回放政策见系列页 FAQ。",
+      "notes": "开始时间与原表一致，已补结束时间（1 小时）。回放政策见系列页 FAQ。活动已结束，暂未见公开回放页（S3 曾在 Wellows 官网公开回放）。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00",
+      "last_updated": "2026-11-20T11:50:00+08:00",
       "topics": [
         "AI 搜索可见度",
         "内容策略"
@@ -1756,18 +1756,18 @@
         "note": null
       },
       "replay": {
-        "channel": "会后通过邮件发给报名者",
-        "status": "upcoming",
+        "channel": "报名者可见（会后邮件发送录像）",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
         "growth"
       ],
-      "notes": "美国山地时间 11/19 11:00 AM（美东 1:00 PM）开始，60 分钟。是 12 场月度系列的第一场。页面未写直播平台。",
+      "notes": "美国山地时间 11/19 11:00 AM（美东 1:00 PM）开始，60 分钟。是 12 场月度系列的第一场。页面未写直播平台。 活动已结束，录像已通过邮件发给报名者，暂无公开回放地址。",
       "missing": [
         "platform"
       ],
-      "last_updated": "2026-11-19T12:00:00+08:00",
+      "last_updated": "2026-11-20T11:50:00+08:00",
       "topics": [
         "AI 工作流与智能体",
         "增长与 GTM"
@@ -1832,6 +1832,62 @@
         "个人品牌",
         "社媒运营",
         "内容策略"
+      ]
+    },
+    {
+      "id": "dataxgrowth-building-an-ai-workflow-live",
+      "title": "Building an AI Workflow - Live Session",
+      "summary": "DataXGrowth 在「Building Your Marketing AI Operating System」之后的下一场免费直播，主办方介绍为带大家现场一起搭建一个 AI 工作流。Zoom 报名页只写了标题和时间，具体议程、主讲人和时长尚未公布。",
+      "host": "DataXGrowth",
+      "speakers": null,
+      "format": "Webinar",
+      "platform": "Zoom",
+      "schedule": [
+        {
+          "start": "2026-12-18T02:00:00+08:00",
+          "end": null,
+          "duration_minutes": null,
+          "date": "2026-12-18",
+          "label": null,
+          "url": "https://us02web.zoom.us/webinar/register/WN_YfKqUo0WSmShh7-g8uKD2A"
+        }
+      ],
+      "links": [
+        {
+          "type": "register",
+          "label": "报名（Zoom）",
+          "url": "https://us02web.zoom.us/webinar/register/WN_YfKqUo0WSmShh7-g8uKD2A"
+        },
+        {
+          "type": "host",
+          "label": "DataXGrowth 网络研讨会",
+          "url": "https://dataxgrowth.com/webinars/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth"
+      ],
+      "notes": "美国山地时间 12/17 11:00 AM 开始（上海 12/18 02:00）。DataXGrowth 官网网络研讨会页暂未上架这一场，Zoom 报名页未写结束时间和回放安排；同一主办方的上一场会后给全部报名者发了录像。",
+      "missing": [
+        "speakers",
+        "schedule.end",
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-20T11:50:00+08:00",
+      "topics": [
+        "AI 工作流与智能体",
+        "增长与 GTM"
       ]
     }
   ]
