@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-20T11:50:00+08:00",
+  "last_updated": "2026-11-23T12:00:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -307,7 +307,7 @@
     {
       "id": "figma-weave-office-hours",
       "title": "Figma Weave Office Hours",
-      "summary": "Figma Weave 团队的线上 Office Hours，由 Mara Dilts 主持，用现场演示和问答讲解 Weave 里的创作工作流。接下来四场分别是：用绿幕素材和 Seedance 2.5 做视频提示与后期；在 Weave 里搭建可复用的黑五营销物料流程；用 AI 做配音、配乐和口型同步；以及每月一次的功能更新速览。每场 1 小时，免费，可在 Luma 报名。",
+      "summary": "Figma Weave 团队的线上 Office Hours，由 Mara Dilts 主持，用现场演示和问答讲解 Weave 里的创作工作流。接下来四场分别是：用绿幕素材和 Seedance 2.5 做视频提示与后期；在 Weave 里搭建可复用的黑五营销物料流程；用 AI 做配音、配乐和口型同步；以及每月一次的功能更新速览。每场 1 小时，免费；原 Luma 日历已归档，11/27 场改在 Figma Events 页面报名。",
       "host": "Figma Weave Office Hours",
       "speakers": [
         {
@@ -340,7 +340,7 @@
           "duration_minutes": 60,
           "date": "2026-11-27",
           "label": "Find your sound in Figma Weave",
-          "url": "https://luma.com/sycjrtbd"
+          "url": "https://fig-events.figma.com/oh-find-your-sound/"
         },
         {
           "start": "2026-12-04T00:00:00+08:00",
@@ -348,13 +348,13 @@
           "duration_minutes": 60,
           "date": "2026-12-04",
           "label": "What's new in Figma Weave",
-          "url": "https://luma.com/2qwkv339"
+          "url": null
         }
       ],
       "links": [
         {
           "type": "host",
-          "label": "系列日历",
+          "label": "系列日历（Luma，已归档）",
           "url": "https://luma.com/figma-weave-live-events"
         },
         {
@@ -378,19 +378,14 @@
           "url": "https://luma.com/wm8kwc6u"
         },
         {
-          "type": "event",
-          "label": "11/27 活动页",
-          "url": "https://luma.com/sycjrtbd"
-        },
-        {
-          "type": "other",
-          "label": "11/27 直播入口",
-          "url": "https://fig-events.figma.com/oh-find-your-sound"
+          "type": "replay",
+          "label": "11/20 回放（YouTube）",
+          "url": "https://www.youtube.com/watch?v=n8BDO-NXUXs"
         },
         {
           "type": "event",
-          "label": "12/4 活动页",
-          "url": "https://luma.com/2qwkv339"
+          "label": "11/27 活动页（Figma Events）",
+          "url": "https://fig-events.figma.com/oh-find-your-sound/"
         },
         {
           "type": "other",
@@ -412,11 +407,11 @@
       "tags": [
         "aigc"
       ],
-      "notes": "开始时间与原表一致（美东 11:00，对应上海次日 00:00），已补结束时间（每场 1 小时）。11/27「Find your sound」的 Luma 地点写的是 Figma Events 链接，不是线下场地。Halloween 场次回放已另行通知，这里不收录该场。Mara Dilts 的职务页面未写明。 11/13 场回放已在 YouTube 公开（视频标题为 Figma Weave Office Hours: From First Cut to Final Take）。",
+      "notes": "开始时间与原表一致（美东 11:00，对应上海次日 00:00），已补结束时间（每场 1 小时）。11/27「Find your sound」的 Luma 地点写的是 Figma Events 链接，不是线下场地。Halloween 场次回放已另行通知，这里不收录该场。Mara Dilts 的职务页面未写明。 11/13 场回放已在 YouTube 公开（视频标题为 From First Cut to Final Take）。 11/20 场回放已在 YouTube 公开（视频标题为 Build Scalable Ad Campaigns with AI Workflows，简介里的原场次日期写成 11/12，内容与黑五物料场一致）。Luma 日历已归档，11/27、12/4 的 Luma 页面已下线；11/27 场在 Figma Events 页面仍可报名，12/4 场暂未找到新报名页。",
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-20T11:50:00+08:00",
+      "last_updated": "2026-11-23T12:00:00+08:00",
       "topics": [
         "视觉与视频制作",
         "AI 工作流与智能体"
@@ -1050,6 +1045,11 @@
           "type": "host",
           "label": "Wellows 官网",
           "url": "https://wellows.com/"
+        },
+        {
+          "type": "replay",
+          "label": "回放",
+          "url": "https://wellows.com/webinars/make-ai-quote-you/"
         }
       ],
       "price": {
@@ -1059,17 +1059,17 @@
         "note": null
       },
       "replay": {
-        "channel": "报名者可见（结束后 24 小时内邮件发送）",
-        "status": "awaiting_replay",
-        "url": null
+        "channel": "Wellows 官网（公开回放，免费观看）",
+        "status": "replay_available",
+        "url": "https://wellows.com/webinars/make-ai-quote-you/"
       },
       "tags": [
         "content",
         "visibility"
       ],
-      "notes": "开始时间与原表一致，已补结束时间（1 小时）。回放政策见系列页 FAQ。活动已结束，暂未见公开回放页（S3 曾在 Wellows 官网公开回放）。",
+      "notes": "开始时间与原表一致，已补结束时间（1 小时）。回放政策见系列页 FAQ。回放已在 Wellows 官网公开，可免费观看（同时上传到 Wellows YouTube 频道）。",
       "missing": [],
-      "last_updated": "2026-11-20T11:50:00+08:00",
+      "last_updated": "2026-11-23T12:00:00+08:00",
       "topics": [
         "AI 搜索可见度",
         "内容策略"
@@ -1340,7 +1340,7 @@
     {
       "id": "a-mini-masterclass-for-brands-using-ai-for-content",
       "title": "A Mini-Masterclass for Brands Using AI for Content",
-      "summary": "Learn with Shemia（Shemia Williams，Borderless Creative Group）的 30 分钟迷你大师课，讨论品牌和传播策略为什么必须放在把内容交给 AI 之前，以及怎样让社交、邮件、海报和视频真正带动品牌、受众和业务增长。面向品牌建设者、创业者和内容团队成员，尤其是设计、营销或品牌并非本职背景的人。活动已于上海时间 11 月 12 日 08:00 在 Zoom 结束，页面未提及回放。",
+      "summary": "Learn with Shemia（Shemia Williams，Borderless Creative Group）的 30 分钟迷你大师课，讨论品牌和传播策略为什么必须放在把内容交给 AI 之前，以及怎样让社交、邮件、海报和视频真正带动品牌、受众和业务增长。面向品牌建设者、创业者和内容团队成员，尤其是设计、营销或品牌并非本职背景的人。活动已于上海时间 11 月 12 日 08:00 在 Zoom 结束，回放已在 YouTube 公开。",
       "host": "Learn with Shemia",
       "speakers": [
         {
@@ -1370,6 +1370,11 @@
           "type": "host",
           "label": "Borderless Creative Group",
           "url": "https://borderlesscreativegroup.com"
+        },
+        {
+          "type": "replay",
+          "label": "回放（YouTube）",
+          "url": "https://www.youtube.com/watch?v=tfqDDwrurSw"
         }
       ],
       "price": {
@@ -1379,21 +1384,20 @@
         "note": null
       },
       "replay": {
-        "channel": null,
-        "status": "awaiting_replay",
-        "url": null
+        "channel": "YouTube（Learn with Shemia 频道，公开）",
+        "status": "replay_available",
+        "url": "https://www.youtube.com/watch?v=tfqDDwrurSw"
       },
       "tags": [
         "brand",
         "aigc",
         "content"
       ],
-      "notes": "已结束。开始时间与原表一致，已补结束时间（30 分钟）。主办日历名称是 Learn with Shemia。Shemia Williams 的正式职务页面未单列。页面未提及回放。",
+      "notes": "已结束。开始时间与原表一致，已补结束时间（30 分钟）。主办日历名称是 Learn with Shemia。Shemia Williams 的正式职务页面未单列。回放已在 YouTube 公开（视频标题为 Learn with Shemia – A Mini Masterclass for Brands That Use AI for Content）。",
       "missing": [
-        "speakers.title",
-        "replay.channel"
+        "speakers.title"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00",
+      "last_updated": "2026-11-23T12:00:00+08:00",
       "topics": [
         "品牌叙事",
         "内容策略"
@@ -1888,6 +1892,251 @@
       "topics": [
         "AI 工作流与智能体",
         "增长与 GTM"
+      ]
+    },
+    {
+      "id": "afp-office-hours-you-dont-need-50000-subscribers",
+      "title": "You Don't Need 50,000 Subscribers",
+      "summary": "AI Founder Playbook 的免费 AFP Office Hours，主题是为什么在 2027 年前开一份 newsletter 可能是聪明的事业和职业选择。经营 Now I Know 16 年、积累 5 万多订阅的 Dan Lewis 和 Alisha Outridge 会聊：小而精准的受众为什么比大量社媒粉丝更有价值、怎么找到选题和角度、AI 能在调研、写作、编辑和运营上帮多少忙，以及怎样把它做得可持续。面向创始人、顾问、职场人和创作者，有观众问答。",
+      "host": "AI Founder Playbook",
+      "speakers": [
+        {
+          "name": "Dan Lewis",
+          "title": "Publisher, Now I Know; The Comms Stack"
+        },
+        {
+          "name": "Alisha Outridge",
+          "title": "Creator of AIFounderPlaybook.com; Founder & CTO+CPO, Byte&Chord"
+        }
+      ],
+      "format": "Office Hours",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-02T07:30:00+08:00",
+          "end": "2026-12-02T09:00:00+08:00",
+          "duration_minutes": 90,
+          "date": "2026-12-02",
+          "label": null,
+          "url": "https://luma.com/aifounder-y5cc"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/aifounder-y5cc"
+        },
+        {
+          "type": "host",
+          "label": "AI Founder Playbook",
+          "url": "https://aifounderplaybook.com"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "页面未提回放",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "content"
+      ],
+      "notes": "美东 12/1 18:30–19:30，可选问答延长到 20:00（上海 12/2 07:30–09:00）。Luma 地点写 Online，未写明平台。主办方另有 12/8 的付费 newsletter 实操工作坊，这里不收录。",
+      "missing": [
+        "platform"
+      ],
+      "last_updated": "2026-11-23T12:00:00+08:00",
+      "topics": [
+        "内容策略",
+        "个人品牌"
+      ]
+    },
+    {
+      "id": "gaingels-your-story-is-your-brand",
+      "title": "Your Story Is Your Brand: The Story Behind the Ask",
+      "summary": "Gaingels 的线上分享，讲创始人怎样把自己的故事变成投资人、客户和合作方愿意相信的品牌。主讲人 Kelly Lynn Adams 会示范如何把愿景、进展和机会串成一套建立信任、讲清回报的叙事，把情感和证据结合起来，并根据面对的是投资人、客户还是合作伙伴调整讲法，最后落到一个清楚的请求上。",
+      "host": "Gaingels",
+      "speakers": [
+        {
+          "name": "Kelly Lynn Adams",
+          "title": "Business and life coach, growth advisor; creator of Perfectly Imperfect Podcast"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
+      "schedule": [
+        {
+          "start": "2026-12-03T03:00:00+08:00",
+          "end": "2026-12-03T04:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-03",
+          "label": null,
+          "url": "https://luma.com/2x5z3fnp"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/2x5z3fnp"
+        },
+        {
+          "type": "host",
+          "label": "Gaingels 官网",
+          "url": "https://gaingels.com"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "页面未提回放",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand"
+      ],
+      "notes": "美东 12/2 14:00–15:00。免费，Luma 报名。页面未提回放。",
+      "missing": [],
+      "last_updated": "2026-11-23T12:00:00+08:00",
+      "topics": [
+        "品牌叙事"
+      ]
+    },
+    {
+      "id": "gohvio-fireside-ai-helps-everyone-argue-faster",
+      "title": "AI Helps Everyone Argue Faster. Now What?（Fireside & Firefights: AI Edition）",
+      "summary": "Gohvio 的免费 LinkedIn Live，面向 RevOps 和 GTM 运营负责人。Gohvio 创始人 Emily Goh 和 Earle + Co. 首席顾问 Earle Richards, Jr. 讨论：销售、市场和财务对数字的定义和归属各执一词时，AI 只会让大家更快地吵；应该给 AI 设什么护栏、谁拍板、哪些环节必须保留人的判断。前 35 分钟对谈，后 25 分钟观众提问。",
+      "host": "Gohvio",
+      "speakers": [
+        {
+          "name": "Emily Goh",
+          "title": "Founder, Gohvio"
+        },
+        {
+          "name": "Earle Richards, Jr.",
+          "title": "Principal Consultant, Earle + Co."
+        }
+      ],
+      "format": "Fireside chat",
+      "platform": "LinkedIn Live",
+      "schedule": [
+        {
+          "start": "2026-12-11T01:00:00+08:00",
+          "end": "2026-12-11T02:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-11",
+          "label": null,
+          "url": "https://gohvio.io/fireside/2026-12"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://gohvio.io/fireside/2026-12"
+        },
+        {
+          "type": "host",
+          "label": "Gohvio 官网",
+          "url": "https://gohvio.io"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "Gohvio 官网公开完整录像（报名者两天内另收要点和短视频）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "gtm"
+      ],
+      "notes": "美东 12/10 12:00（17:00 UTC）。页面写明完整录像会发布在 gohvio.io。",
+      "missing": [],
+      "last_updated": "2026-11-23T12:00:00+08:00",
+      "topics": [
+        "增长与 GTM",
+        "AI 工作流与智能体"
+      ]
+    },
+    {
+      "id": "fresh-egg-principles-of-good-geo",
+      "title": "From clarity to confidence: the principles of good GEO",
+      "summary": "英国数字代理商 Fresh Egg 的免费 webinar，讲 AI 平台怎样决定在回答里提哪些品牌。SEO 负责人 Tom Light 和内容与研究负责人 Callum Grantham 会分享一年研究和客户工作的结论：ChatGPT、Gemini 和 AI Overviews 为什么要分开对待、提示词追踪能说明什么不能说明什么、为什么 GEO 更像品牌渠道而不是效果渠道，以及「好的 GEO 七原则」和起步顺序。",
+      "host": "Fresh Egg",
+      "speakers": [
+        {
+          "name": "Tom Light",
+          "title": "Head of SEO, Fresh Egg"
+        },
+        {
+          "name": "Callum Grantham",
+          "title": "Head of Content and Research, Fresh Egg"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-16T17:30:00+08:00",
+          "end": "2026-12-16T19:30:00+08:00",
+          "duration_minutes": 120,
+          "date": "2026-12-16",
+          "label": null,
+          "url": "https://www.freshegg.co.uk/events-and-webinars/free-session-from-clarity-to-confidence-the-principles-of-good-geo/"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://www.freshegg.co.uk/events-and-webinars/free-session-from-clarity-to-confidence-the-principles-of-good-geo/"
+        },
+        {
+          "type": "host",
+          "label": "Fresh Egg 官网",
+          "url": "https://www.freshegg.co.uk"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "报名者可见（会后发送录像和 GEO 白皮书）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "visibility"
+      ],
+      "notes": "英国时间 12/16 09:30–11:30。活动页内嵌报名表。页面未写明直播平台。",
+      "missing": [
+        "platform"
+      ],
+      "last_updated": "2026-11-23T12:00:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "品牌叙事"
       ]
     }
   ]

@@ -98,13 +98,17 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "go-to-market-in-the-ai-era",
       "why-geo-why-now",
       "wellows-s5-30-day-ai-visibility-plan",
+      "afp-office-hours-you-dont-need-50000-subscribers",
       "building-an-ai-assisted-gtm-strategy",
+      "gaingels-your-story-is-your-brand",
       "new-playbook-ama-gtm-marketing-ai-era",
       "deepline-deepdives-gtm-ai-office-hours",
       "agentic-gtm-engine-round-3",
       "content-strategy-you-can-sustain-ai",
       "geo-for-b2b-saas-whats-working-now",
+      "gohvio-fireside-ai-helps-everyone-argue-faster",
       "stand-out-on-linkedin-personal-branding-ai",
+      "fresh-egg-principles-of-good-geo",
       "dataxgrowth-building-an-ai-workflow-live",
       "build-your-personal-brand-with-ai",
     ],
@@ -140,13 +144,13 @@ test("topic selection keeps vocabulary order and drops unknown values", () => {
 
 test("topic counts use the fixed vocabulary", () => {
   assert.deepEqual(countByTopic(data.events), {
-    内容策略: 7,
+    内容策略: 8,
     社媒运营: 3,
-    个人品牌: 3,
-    品牌叙事: 3,
-    "增长与 GTM": 8,
-    "AI 搜索可见度": 6,
-    "AI 工作流与智能体": 9,
+    个人品牌: 4,
+    品牌叙事: 5,
+    "增长与 GTM": 9,
+    "AI 搜索可见度": 7,
+    "AI 工作流与智能体": 10,
     销售获客: 3,
     视觉与视频制作: 3,
   });
@@ -169,9 +173,10 @@ test("content topic filter is any-match and combines with the other filters", ()
       .sort();
   const base = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
 
-  assert.equal(ids(base).length, 26);
+  assert.equal(ids(base).length, 30);
   assert.deepEqual(ids({ ...base, topics: ["内容策略", "社媒运营"] }), [
     "a-mini-masterclass-for-brands-using-ai-for-content",
+    "afp-office-hours-you-dont-need-50000-subscribers",
     "build-your-ai-content-machine",
     "build-your-personal-brand-with-ai",
     "claude-social-media-manager",
@@ -181,6 +186,7 @@ test("content topic filter is any-match and combines with the other filters", ()
     "wellows-s4-make-ai-quote-you",
   ]);
   assert.deepEqual(ids({ ...base, when: "upcoming", price: "free", topics: ["内容策略", "社媒运营"] }), [
+    "afp-office-hours-you-dont-need-50000-subscribers",
     "build-your-ai-content-machine",
     "content-strategy-you-can-sustain-ai",
     "go-to-market-in-the-ai-era",
@@ -194,13 +200,14 @@ test("content topic filter is any-match and combines with the other filters", ()
   ]);
 });
 
-test("only the four daytime-or-evening seed events skip the sleep badge", () => {
+test("only the five daytime-or-evening seed events skip the sleep badge", () => {
   const awake = data.events
     .filter((event) => sleepCoverage(event.schedule) === "none")
     .map((event) => event.id)
     .sort();
   assert.deepEqual(awake, [
     "a-mini-masterclass-for-brands-using-ai-for-content",
+    "fresh-egg-principles-of-good-geo",
     "geo-for-b2b-saas-whats-working-now",
     "how-much-of-your-next-product-launch-can-ai-handle",
     "why-geo-why-now",
