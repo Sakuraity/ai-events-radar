@@ -98,18 +98,21 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "go-to-market-in-the-ai-era",
       "why-geo-why-now",
       "wellows-s5-30-day-ai-visibility-plan",
+      "learnmore-ai-slop-vs-brand-gold-2026-12",
       "afp-office-hours-you-dont-need-50000-subscribers",
       "building-an-ai-assisted-gtm-strategy",
       "gaingels-your-story-is-your-brand",
       "new-playbook-ama-gtm-marketing-ai-era",
       "deepline-deepdives-gtm-ai-office-hours",
       "agentic-gtm-engine-round-3",
+      "ecomone-geo-for-growing-ecommerce-brands",
       "content-strategy-you-can-sustain-ai",
       "geo-for-b2b-saas-whats-working-now",
       "gohvio-fireside-ai-helps-everyone-argue-faster",
       "stand-out-on-linkedin-personal-branding-ai",
       "fresh-egg-principles-of-good-geo",
       "dataxgrowth-building-an-ai-workflow-live",
+      "tenacious-marketing-recommended-by-ai-2026-12",
       "build-your-personal-brand-with-ai",
     ],
   );
@@ -144,12 +147,12 @@ test("topic selection keeps vocabulary order and drops unknown values", () => {
 
 test("topic counts use the fixed vocabulary", () => {
   assert.deepEqual(countByTopic(data.events), {
-    内容策略: 8,
+    内容策略: 9,
     社媒运营: 3,
     个人品牌: 4,
-    品牌叙事: 5,
-    "增长与 GTM": 9,
-    "AI 搜索可见度": 7,
+    品牌叙事: 6,
+    "增长与 GTM": 10,
+    "AI 搜索可见度": 9,
     "AI 工作流与智能体": 10,
     销售获客: 3,
     视觉与视频制作: 3,
@@ -173,7 +176,7 @@ test("content topic filter is any-match and combines with the other filters", ()
       .sort();
   const base = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
 
-  assert.equal(ids(base).length, 30);
+  assert.equal(ids(base).length, 33);
   assert.deepEqual(ids({ ...base, topics: ["内容策略", "社媒运营"] }), [
     "a-mini-masterclass-for-brands-using-ai-for-content",
     "afp-office-hours-you-dont-need-50000-subscribers",
@@ -182,6 +185,7 @@ test("content topic filter is any-match and combines with the other filters", ()
     "claude-social-media-manager",
     "content-strategy-you-can-sustain-ai",
     "go-to-market-in-the-ai-era",
+    "learnmore-ai-slop-vs-brand-gold-2026-12",
     "stand-out-on-linkedin-personal-branding-ai",
     "wellows-s4-make-ai-quote-you",
   ]);
@@ -190,6 +194,7 @@ test("content topic filter is any-match and combines with the other filters", ()
     "build-your-ai-content-machine",
     "content-strategy-you-can-sustain-ai",
     "go-to-market-in-the-ai-era",
+    "learnmore-ai-slop-vs-brand-gold-2026-12",
     "stand-out-on-linkedin-personal-branding-ai",
     "wellows-s4-make-ai-quote-you",
   ]);
@@ -200,16 +205,19 @@ test("content topic filter is any-match and combines with the other filters", ()
   ]);
 });
 
-test("only the five daytime-or-evening seed events skip the sleep badge", () => {
+test("only the daytime-or-evening seed events skip the sleep badge", () => {
   const awake = data.events
     .filter((event) => sleepCoverage(event.schedule) === "none")
     .map((event) => event.id)
     .sort();
   assert.deepEqual(awake, [
     "a-mini-masterclass-for-brands-using-ai-for-content",
+    "ecomone-geo-for-growing-ecommerce-brands",
     "fresh-egg-principles-of-good-geo",
     "geo-for-b2b-saas-whats-working-now",
     "how-much-of-your-next-product-launch-can-ai-handle",
+    "learnmore-ai-slop-vs-brand-gold-2026-12",
+    "tenacious-marketing-recommended-by-ai-2026-12",
     "why-geo-why-now",
   ]);
 });

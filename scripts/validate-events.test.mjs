@@ -52,6 +52,9 @@ const SEED_TITLES = [
   "Your Story Is Your Brand: The Story Behind the Ask",
   "AI Helps Everyone Argue Faster. Now What?（Fireside & Firefights: AI Edition）",
   "From clarity to confidence: the principles of good GEO",
+  "AI Slop vs Brand Gold: Protecting What Makes Your Brand Unique",
+  "Earn Authority, Win Visibility: GEO for Growing eCommerce Brands",
+  "How to Get Your Business Recommended by AI — December 2026",
 ];
 
 function sample() {
@@ -118,10 +121,10 @@ test("schema keys stay aligned with the validator", () => {
   assert.equal(EVENT_KEYS.includes("urls"), false);
 });
 
-test("seed file is public-safe schema v2 and matches the 30 source titles", () => {
+test("seed file is public-safe schema v2 and matches the 33 source titles", () => {
   assert.deepEqual(validateEvents(data), []);
   assert.equal(data.schema_version, 2);
-  assert.equal(data.events.length, 30);
+  assert.equal(data.events.length, 33);
   assert.deepEqual(
     data.events.map((event) => event.title).sort(),
     [...SEED_TITLES].sort(),

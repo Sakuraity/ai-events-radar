@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-23T12:00:00+08:00",
+  "last_updated": "2026-11-24T11:30:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -2137,6 +2137,175 @@
       "topics": [
         "AI 搜索可见度",
         "品牌叙事"
+      ]
+    },
+    {
+      "id": "learnmore-ai-slop-vs-brand-gold-2026-12",
+      "title": "AI Slop vs Brand Gold: Protecting What Makes Your Brand Unique",
+      "summary": "英国培训机构 Learnmore 的免费营销 masterclass，讨论用 AI 做内容时怎样避免千篇一律的「AI 垃圾内容」，守住品牌声音、视觉识别和一致性，以及哪些环节需要人工把关。会后提供一份可带走的实用工具。适合在用 AI 产出内容、又担心品牌被稀释的营销人和小企业主。",
+      "host": "Learnmore Network Limited",
+      "speakers": [],
+      "format": "Webinar",
+      "platform": "Microsoft Teams",
+      "schedule": [
+        {
+          "start": "2026-12-01T18:30:00+08:00",
+          "end": "2026-12-01T19:30:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-01",
+          "label": null,
+          "url": "https://learnmoreuk.com/events/ai-slop-vs-brand-gold-december-2026/"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://learnmoreuk.com/events/ai-slop-vs-brand-gold-december-2026/"
+        },
+        {
+          "type": "host",
+          "label": "Learnmore 官网",
+          "url": "https://learnmoreuk.com"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "页面未提回放",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "content"
+      ],
+      "notes": "英国时间 12/1 10:30–11:30。每月一期的系列 masterclass。页面未写主讲人。",
+      "missing": [
+        "speakers"
+      ],
+      "last_updated": "2026-11-24T11:30:00+08:00",
+      "topics": [
+        "品牌叙事",
+        "内容策略"
+      ]
+    },
+    {
+      "id": "ecomone-geo-for-growing-ecommerce-brands",
+      "title": "Earn Authority, Win Visibility: GEO for Growing eCommerce Brands",
+      "summary": "电商营销代理商 eComOne 的免费 webinar，讲购物者从「搜索」转向「问 AI」后，电商品牌怎样被 ChatGPT、Gemini 和 Google AI Overviews 推荐。会介绍两个框架：GEO SCOPE（SEO、数字 PR、社媒、评价等五个方向）和 GEO SURFACE（商品层面的技术基础与可执行修复），最后是问答。适合年营收 300 万英镑以上电商品牌的电商、营销负责人和创始人。",
+      "host": "eComOne",
+      "speakers": [
+        {
+          "name": "Richard Hill",
+          "title": "CEO and Founder, eComOne"
+        },
+        {
+          "name": "Theo Roberts",
+          "title": "Head of SEO, eComOne"
+        },
+        {
+          "name": "Kieran Wright",
+          "title": "Head of Technical, eComOne"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-09T22:00:00+08:00",
+          "end": "2026-12-09T23:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-09",
+          "label": null,
+          "url": "https://www.eventbrite.co.uk/e/earn-authority-win-visibility-geo-for-growing-ecommerce-brands-tickets-2004808656660"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页（Eventbrite）",
+          "url": "https://www.eventbrite.co.uk/e/earn-authority-win-visibility-geo-for-growing-ecommerce-brands-tickets-2004808656660"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "页面未提回放",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth",
+        "visibility"
+      ],
+      "notes": "英国时间 12/9 14:00–15:00。Eventbrite 报名，页面未写直播平台。",
+      "missing": [
+        "platform"
+      ],
+      "last_updated": "2026-11-24T11:30:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "增长与 GTM"
+      ]
+    },
+    {
+      "id": "tenacious-marketing-recommended-by-ai-2026-12",
+      "title": "How to Get Your Business Recommended by AI — December 2026",
+      "summary": "Tenacious Marketing 每月一期的免费入门 webinar，讲 AI 问答引擎如何决定引用和推荐哪些企业。内容包括 SEO、AEO 和 GEO 的区别，结构清晰的内容怎样帮 AI 理解你的业务，影响推荐的权威与信任信号，以及 LinkedIn、YouTube 和第三方提及的作用。适合想先弄懂 AI 可见度的企业主和营销负责人。",
+      "host": "Tenacious Marketing",
+      "speakers": [
+        {
+          "name": "Dean Whitby",
+          "title": "AI Visibility"
+        }
+      ],
+      "format": "Webinar",
+      "platform": "Zoom",
+      "schedule": [
+        {
+          "start": "2026-12-22T16:00:00+08:00",
+          "end": "2026-12-22T17:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-22",
+          "label": null,
+          "url": "https://honedperformance.uk/events/how-to-get-your-business-recommended-by-ai-2026-12"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://honedperformance.uk/events/how-to-get-your-business-recommended-by-ai-2026-12"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "页面未提回放",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "visibility"
+      ],
+      "notes": "英国时间 12/22 08:00–09:00。每月一期，活动页上直接点 Join Zoom Meeting 参加。",
+      "missing": [],
+      "last_updated": "2026-11-24T11:30:00+08:00",
+      "topics": [
+        "AI 搜索可见度"
       ]
     }
   ]
