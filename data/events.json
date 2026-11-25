@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-24T11:30:00+08:00",
+  "last_updated": "2026-11-25T12:00:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -1320,18 +1320,18 @@
       },
       "replay": {
         "channel": null,
-        "status": "awaiting_replay",
+        "status": "no_replay",
         "url": null
       },
       "tags": [
         "growth",
         "gtm"
       ],
-      "notes": "已结束。开始时间与原表一致，已补结束时间（75 分钟）。官方标题含 Actually。Luma 报名页登记在 Avia Haimovich 名下，正文主办方是 INTRO Marketing。页面未提及回放。",
+      "notes": "已结束。会后满两周，Luma 活动页和公开检索仍无回放。官方标题含 Actually。Luma 报名页登记在 Avia Haimovich 名下，正文主办方是 INTRO Marketing。页面未提及回放。",
       "missing": [
         "replay.channel"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00",
+      "last_updated": "2026-11-25T12:00:00+08:00",
       "topics": [
         "增长与 GTM",
         "AI 工作流与智能体"
@@ -1451,19 +1451,19 @@
       },
       "replay": {
         "channel": null,
-        "status": "upcoming",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
         "brand",
         "gtm"
       ],
-      "notes": "美东时间 11/24 12:00 PM 开始，Founder Institute 页面写 1 小时。页面未写直播平台，也未提回放。",
+      "notes": "已于上海时间 11/25 01:00 结束（美东 11/24 12:00 PM）。Founder Institute 与 Meetup 页面均未写直播平台，也未提回放。",
       "missing": [
         "platform",
         "replay.channel"
       ],
-      "last_updated": "2026-11-13T11:00:00+08:00",
+      "last_updated": "2026-11-25T12:00:00+08:00",
       "topics": [
         "增长与 GTM",
         "品牌叙事",
@@ -2306,6 +2306,318 @@
       "last_updated": "2026-11-24T11:30:00+08:00",
       "topics": [
         "AI 搜索可见度"
+      ]
+    },
+    {
+      "id": "prweek-unicepta-prs-seat-at-the-geo-table",
+      "title": "PR's Seat at the GEO Table: How PR Can Take Ownership of AI Visibility",
+      "summary": "PRWeek 与 UNICEPTA 合办的免费直播，讨论当买家向 ChatGPT、Gemini 或 Perplexity 询问该信任哪家公司时，公关如何在 GEO 里占到位置。内容包括怎样用已获得的媒体报道和品牌叙事影响 AI 对品牌的描述与推荐，如何与 SEO、内容团队分工，以及怎样把 AI 可见度做成能向管理层汇报的指标。主讲人是 UNICEPTA 负责 go-to-market 的 JP Lovejoy，以及 Optimum 传播副总裁 Stephen Stokes。页面未写时长、平台和是否提供回放。",
+      "host": "PRWeek × UNICEPTA",
+      "speakers": [
+        {
+          "name": "JP Lovejoy",
+          "title": "SVP, go-to-market at UNICEPTA"
+        },
+        {
+          "name": "Stephen Stokes",
+          "title": "VP of communications, Optimum"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-04T03:00:00+08:00",
+          "end": null,
+          "duration_minutes": null,
+          "date": "2026-12-04",
+          "label": null,
+          "url": "https://pr-resources.prweek.com/free/w_defa11990/?p=w_defa11990"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://pr-resources.prweek.com/free/w_defa11990/?p=w_defa11990"
+        },
+        {
+          "type": "host",
+          "label": "PRWeek",
+          "url": "https://www.prweek.com/"
+        },
+        {
+          "type": "host",
+          "label": "UNICEPTA",
+          "url": "https://www.unicepta.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "visibility"
+      ],
+      "notes": "美东时间 12/3 2:00 PM 开始。页面未写结束时间、直播平台，也未提回放。",
+      "missing": [
+        "platform",
+        "schedule.end",
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-25T12:00:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "品牌叙事"
+      ]
+    },
+    {
+      "id": "uk-business-academy-distinctiveness-in-ai-search",
+      "title": "Distinctiveness in AI search: How to stand out and get found",
+      "summary": "英国政府 Business Academy 的一小时线上讲座，由 ICS-digital 客户策略负责人 Laura Smith 主讲。讨论在 AI 搜索和生成式回答里，品牌如何既被人记住、又被机器检索到，并被选择。内容结合行为科学和品牌理论，帮助企业找出自己在国际市场中值得占据的情境，再把这些联想做到 SEO、内容、数字公关和社交等渠道上。系列页写明可以获得活动录像，报名需登录 Business Academy。",
+      "host": "UK Business Academy（business.gov.uk）",
+      "speakers": [
+        {
+          "name": "Laura Smith",
+          "title": "Head of client strategy, ICS-digital"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-16T18:00:00+08:00",
+          "end": "2026-12-16T19:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-16",
+          "label": null,
+          "url": "https://www.business.gov.uk/business-academy/events/distinctiveness-in-ai-search-how-to-stand-out-and-get-found-16-december-2026/"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://www.business.gov.uk/business-academy/events/distinctiveness-in-ai-search-how-to-stand-out-and-get-found-16-december-2026/"
+        },
+        {
+          "type": "host",
+          "label": "Business Academy",
+          "url": "https://www.business.gov.uk/business-academy/explore-ai/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": "报名需登录 Business Academy"
+      },
+      "replay": {
+        "channel": "系列页写明可获得录像",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "visibility"
+      ],
+      "notes": "英国时间 12/16 10:00–11:00 GMT。页面未写直播平台。报名需登录英国政府 Business Academy。",
+      "missing": [
+        "platform"
+      ],
+      "last_updated": "2026-11-25T12:00:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "品牌叙事"
+      ]
+    },
+    {
+      "id": "build-with-ai-club-website-visitors-into-leads",
+      "title": "AI for Growth Lab: Turn Website Visitors into Leads with AI",
+      "summary": "Build with AI Club 的 AI for Growth Lab 第 5 场，面向非技术创始人和专业人士。Arjita Sethi 会在 60 分钟里现场演示如何用 AI 把网站访客变成线索，包括起草产品页、核对语气并设定下一步行动，随后有 30 分钟答疑。可在 Zoom 线上或旧金山现场参加，单场门票 50 美元，无需参加过前面的场次。活动页未写公开回放。",
+      "host": "Build with AI Club",
+      "speakers": [
+        {
+          "name": "Arjita Sethi",
+          "title": "Lecturer, San Francisco State University; Claude Community Leader"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
+      "schedule": [
+        {
+          "start": "2026-12-02T08:00:00+08:00",
+          "end": "2026-12-02T09:30:00+08:00",
+          "duration_minutes": 90,
+          "date": "2026-12-02",
+          "label": null,
+          "url": "https://luma.com/build-ykof"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/build-ykof"
+        },
+        {
+          "type": "host",
+          "label": "系列官网",
+          "url": "https://buildwithaiclub.com/ai-for-growth"
+        }
+      ],
+      "price": {
+        "type": "paid",
+        "amount": 50,
+        "currency": "USD",
+        "note": "单场票，可线上或旧金山现场参加"
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "growth",
+        "workshop"
+      ],
+      "notes": "美西时间 12/1 4:00–5:30 PM。Luma 单场票 50 美元；课程页另写 drop-in 为 100 美元且含该场录像，活动页未写公开回放。",
+      "missing": [
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-25T12:00:00+08:00",
+      "topics": [
+        "销售获客",
+        "增长与 GTM"
+      ]
+    },
+    {
+      "id": "build-with-ai-club-articles-ai-will-quote",
+      "title": "AI for Growth Lab: Write Articles That ChatGPT and Google AI Will Quote",
+      "summary": "Build with AI Club 的 AI for Growth Lab 第 6 场。围绕怎样写出真正会被 ChatGPT 和 Google AI 引用的文章，带着一个顾客常问的问题，用主办方提供的答疑型文章模板，在现场写出一篇先给答案、再写观点和 FAQ 的初稿。形式是 60 分钟动手加 30 分钟答疑，单场 50 美元，可在 Zoom 或旧金山现场参加，无需参加过前面的场次。活动页未写公开回放。",
+      "host": "Build with AI Club",
+      "speakers": [
+        {
+          "name": "Arjita Sethi",
+          "title": "Lecturer, San Francisco State University; Claude Community Leader"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
+      "schedule": [
+        {
+          "start": "2026-12-09T08:00:00+08:00",
+          "end": "2026-12-09T09:30:00+08:00",
+          "duration_minutes": 90,
+          "date": "2026-12-09",
+          "label": null,
+          "url": "https://luma.com/build-n24z"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/build-n24z"
+        },
+        {
+          "type": "host",
+          "label": "系列官网",
+          "url": "https://buildwithaiclub.com/ai-for-growth"
+        }
+      ],
+      "price": {
+        "type": "paid",
+        "amount": 50,
+        "currency": "USD",
+        "note": "单场票，可线上或旧金山现场参加"
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "content",
+        "visibility",
+        "workshop"
+      ],
+      "notes": "美西时间 12/8 4:00–5:30 PM。Luma 单场票 50 美元；课程页另写 drop-in 为 100 美元且含该场录像，活动页未写公开回放。",
+      "missing": [
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-25T12:00:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "内容策略"
+      ]
+    },
+    {
+      "id": "build-with-ai-club-voice-note-into-six-posts",
+      "title": "AI for Growth Lab: Turn One Voice Note into Six Posts with AI",
+      "summary": "Build with AI Club 的 AI for Growth Lab 第 7 场，解决内容跟不上的问题。把一条语音备忘录或已有文字拆成六个角度，并现场写出其中三篇草稿。主办方会提供角度提示词，无需参加过前面的场次。形式是 60 分钟动手加 30 分钟答疑，单场 50 美元，可在 Zoom 或旧金山现场参加。活动页未写公开回放。",
+      "host": "Build with AI Club",
+      "speakers": [
+        {
+          "name": "Arjita Sethi",
+          "title": "Lecturer, San Francisco State University; Claude Community Leader"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
+      "schedule": [
+        {
+          "start": "2026-12-16T08:00:00+08:00",
+          "end": "2026-12-16T09:30:00+08:00",
+          "duration_minutes": 90,
+          "date": "2026-12-16",
+          "label": null,
+          "url": "https://luma.com/build-jb9p"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/build-jb9p"
+        },
+        {
+          "type": "host",
+          "label": "系列官网",
+          "url": "https://buildwithaiclub.com/ai-for-growth"
+        }
+      ],
+      "price": {
+        "type": "paid",
+        "amount": 50,
+        "currency": "USD",
+        "note": "单场票，可线上或旧金山现场参加"
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "content",
+        "workshop"
+      ],
+      "notes": "美西时间 12/15 4:00–5:30 PM。Luma 单场票 50 美元；课程页另写 drop-in 为 100 美元且含该场录像，活动页未写公开回放。",
+      "missing": [
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-25T12:00:00+08:00",
+      "topics": [
+        "内容策略",
+        "社媒运营"
       ]
     }
   ]

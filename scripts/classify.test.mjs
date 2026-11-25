@@ -100,17 +100,22 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "wellows-s5-30-day-ai-visibility-plan",
       "learnmore-ai-slop-vs-brand-gold-2026-12",
       "afp-office-hours-you-dont-need-50000-subscribers",
+      "build-with-ai-club-website-visitors-into-leads",
       "building-an-ai-assisted-gtm-strategy",
       "gaingels-your-story-is-your-brand",
+      "prweek-unicepta-prs-seat-at-the-geo-table",
       "new-playbook-ama-gtm-marketing-ai-era",
       "deepline-deepdives-gtm-ai-office-hours",
       "agentic-gtm-engine-round-3",
+      "build-with-ai-club-articles-ai-will-quote",
       "ecomone-geo-for-growing-ecommerce-brands",
       "content-strategy-you-can-sustain-ai",
       "geo-for-b2b-saas-whats-working-now",
       "gohvio-fireside-ai-helps-everyone-argue-faster",
       "stand-out-on-linkedin-personal-branding-ai",
+      "build-with-ai-club-voice-note-into-six-posts",
       "fresh-egg-principles-of-good-geo",
+      "uk-business-academy-distinctiveness-in-ai-search",
       "dataxgrowth-building-an-ai-workflow-live",
       "tenacious-marketing-recommended-by-ai-2026-12",
       "build-your-personal-brand-with-ai",
@@ -147,14 +152,14 @@ test("topic selection keeps vocabulary order and drops unknown values", () => {
 
 test("topic counts use the fixed vocabulary", () => {
   assert.deepEqual(countByTopic(data.events), {
-    内容策略: 9,
-    社媒运营: 3,
+    内容策略: 11,
+    社媒运营: 4,
     个人品牌: 4,
-    品牌叙事: 6,
-    "增长与 GTM": 10,
-    "AI 搜索可见度": 9,
+    品牌叙事: 8,
+    "增长与 GTM": 11,
+    "AI 搜索可见度": 12,
     "AI 工作流与智能体": 10,
-    销售获客: 3,
+    销售获客: 4,
     视觉与视频制作: 3,
   });
 });
@@ -176,10 +181,12 @@ test("content topic filter is any-match and combines with the other filters", ()
       .sort();
   const base = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
 
-  assert.equal(ids(base).length, 33);
+  assert.equal(ids(base).length, 38);
   assert.deepEqual(ids({ ...base, topics: ["内容策略", "社媒运营"] }), [
     "a-mini-masterclass-for-brands-using-ai-for-content",
     "afp-office-hours-you-dont-need-50000-subscribers",
+    "build-with-ai-club-articles-ai-will-quote",
+    "build-with-ai-club-voice-note-into-six-posts",
     "build-your-ai-content-machine",
     "build-your-personal-brand-with-ai",
     "claude-social-media-manager",
@@ -212,12 +219,16 @@ test("only the daytime-or-evening seed events skip the sleep badge", () => {
     .sort();
   assert.deepEqual(awake, [
     "a-mini-masterclass-for-brands-using-ai-for-content",
+    "build-with-ai-club-articles-ai-will-quote",
+    "build-with-ai-club-voice-note-into-six-posts",
+    "build-with-ai-club-website-visitors-into-leads",
     "ecomone-geo-for-growing-ecommerce-brands",
     "fresh-egg-principles-of-good-geo",
     "geo-for-b2b-saas-whats-working-now",
     "how-much-of-your-next-product-launch-can-ai-handle",
     "learnmore-ai-slop-vs-brand-gold-2026-12",
     "tenacious-marketing-recommended-by-ai-2026-12",
+    "uk-business-academy-distinctiveness-in-ai-search",
     "why-geo-why-now",
   ]);
 });

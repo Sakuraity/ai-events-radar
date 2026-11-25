@@ -55,6 +55,11 @@ const SEED_TITLES = [
   "AI Slop vs Brand Gold: Protecting What Makes Your Brand Unique",
   "Earn Authority, Win Visibility: GEO for Growing eCommerce Brands",
   "How to Get Your Business Recommended by AI — December 2026",
+  "PR's Seat at the GEO Table: How PR Can Take Ownership of AI Visibility",
+  "Distinctiveness in AI search: How to stand out and get found",
+  "AI for Growth Lab: Turn Website Visitors into Leads with AI",
+  "AI for Growth Lab: Write Articles That ChatGPT and Google AI Will Quote",
+  "AI for Growth Lab: Turn One Voice Note into Six Posts with AI",
 ];
 
 function sample() {
@@ -121,10 +126,10 @@ test("schema keys stay aligned with the validator", () => {
   assert.equal(EVENT_KEYS.includes("urls"), false);
 });
 
-test("seed file is public-safe schema v2 and matches the 33 source titles", () => {
+test("seed file is public-safe schema v2 and matches the 38 source titles", () => {
   assert.deepEqual(validateEvents(data), []);
   assert.equal(data.schema_version, 2);
-  assert.equal(data.events.length, 33);
+  assert.equal(data.events.length, 38);
   assert.deepEqual(
     data.events.map((event) => event.title).sort(),
     [...SEED_TITLES].sort(),
