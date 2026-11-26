@@ -109,6 +109,7 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "agentic-gtm-engine-round-3",
       "build-with-ai-club-articles-ai-will-quote",
       "ecomone-geo-for-growing-ecommerce-brands",
+      "sej-live-2026-12-ai-search-strategy",
       "content-strategy-you-can-sustain-ai",
       "geo-for-b2b-saas-whats-working-now",
       "gohvio-fireside-ai-helps-everyone-argue-faster",
@@ -118,6 +119,7 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "uk-business-academy-distinctiveness-in-ai-search",
       "dataxgrowth-building-an-ai-workflow-live",
       "tenacious-marketing-recommended-by-ai-2026-12",
+      "codify-your-brand-ai-builders-israel",
       "build-your-personal-brand-with-ai",
     ],
   );
@@ -152,13 +154,13 @@ test("topic selection keeps vocabulary order and drops unknown values", () => {
 
 test("topic counts use the fixed vocabulary", () => {
   assert.deepEqual(countByTopic(data.events), {
-    内容策略: 11,
+    内容策略: 12,
     社媒运营: 4,
     个人品牌: 4,
-    品牌叙事: 8,
-    "增长与 GTM": 11,
-    "AI 搜索可见度": 12,
-    "AI 工作流与智能体": 10,
+    品牌叙事: 9,
+    "增长与 GTM": 12,
+    "AI 搜索可见度": 13,
+    "AI 工作流与智能体": 11,
     销售获客: 4,
     视觉与视频制作: 3,
   });
@@ -181,7 +183,7 @@ test("content topic filter is any-match and combines with the other filters", ()
       .sort();
   const base = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
 
-  assert.equal(ids(base).length, 38);
+  assert.equal(ids(base).length, 40);
   assert.deepEqual(ids({ ...base, topics: ["内容策略", "社媒运营"] }), [
     "a-mini-masterclass-for-brands-using-ai-for-content",
     "afp-office-hours-you-dont-need-50000-subscribers",
@@ -193,6 +195,7 @@ test("content topic filter is any-match and combines with the other filters", ()
     "content-strategy-you-can-sustain-ai",
     "go-to-market-in-the-ai-era",
     "learnmore-ai-slop-vs-brand-gold-2026-12",
+    "sej-live-2026-12-ai-search-strategy",
     "stand-out-on-linkedin-personal-branding-ai",
     "wellows-s4-make-ai-quote-you",
   ]);
@@ -202,6 +205,7 @@ test("content topic filter is any-match and combines with the other filters", ()
     "content-strategy-you-can-sustain-ai",
     "go-to-market-in-the-ai-era",
     "learnmore-ai-slop-vs-brand-gold-2026-12",
+    "sej-live-2026-12-ai-search-strategy",
     "stand-out-on-linkedin-personal-branding-ai",
     "wellows-s4-make-ai-quote-you",
   ]);

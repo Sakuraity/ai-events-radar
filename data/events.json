@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-25T12:00:00+08:00",
+  "last_updated": "2026-11-26T11:45:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -281,6 +281,11 @@
           "type": "event",
           "label": "12/23 活动页",
           "url": "https://luma.com/midjou-dsm1"
+        },
+        {
+          "type": "other",
+          "label": "11/25 场 X 帖",
+          "url": "https://x.com/i/status/2125682482649739511"
         }
       ],
       "price": {
@@ -297,9 +302,9 @@
       "tags": [
         "aigc"
       ],
-      "notes": "原表只写到「凌晨」、日期用的是上海日期。已按官方 Luma 日历校正：每周三芝加哥时间 14:00 开始、时长 1 小时；夏令时（11/1 前）对应上海次日 03:00，冬令时对应 04:00。原表中的 10/29、11/5、11/12 分别对应 10/28、11/4、11/11 的官方场次。后续场次已从官方日历补到 12/23。平台以 Luma 标注的 Discord 为准，部分场次同时有 X Space。 10/28、11/4 场已过约两周仍未见公开录屏，记为无法获取回放。",
+      "notes": "原表只写到「凌晨」、日期用的是上海日期。已按官方 Luma 日历校正：每周三芝加哥时间 14:00 开始、时长 1 小时；夏令时（11/1 前）对应上海次日 03:00，冬令时对应 04:00。原表中的 10/29、11/5、11/12 分别对应 10/28、11/4、11/11 的官方场次。后续场次已从官方日历补到 12/23。平台以 Luma 标注的 Discord 为准，部分场次同时有 X Space。 10/28、11/4、11/11 场已过约两周仍未见公开录屏，记为无法获取回放。",
       "missing": [],
-      "last_updated": "2026-11-19T12:00:00+08:00",
+      "last_updated": "2026-11-26T11:45:00+08:00",
       "topics": [
         "视觉与视频制作"
       ]
@@ -925,17 +930,17 @@
       },
       "replay": {
         "channel": null,
-        "status": "upcoming",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
         "visibility"
       ],
-      "notes": "开始时间与原表一致，已补结束时间（1 小时，跨到上海时间 11/26 00:00）。官方主办名称是 Sphere - Underground Sessions。两位主持的职务页面未写。Luma 未标明具体会议软件，平台记为 Luma。",
+      "notes": "开始时间与原表一致，已补结束时间（1 小时，跨到上海时间 11/26 00:00）。官方主办名称是 Sphere - Underground Sessions。两位主持的职务页面未写。Luma 未标明具体会议软件，平台记为 Luma。 已于上海时间 11/26 00:00 结束；日历写明私人线上圆桌，回放可能性低。",
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-12T21:30:00+08:00",
+      "last_updated": "2026-11-26T11:45:00+08:00",
       "topics": [
         "AI 搜索可见度"
       ]
@@ -2618,6 +2623,150 @@
       "topics": [
         "内容策略",
         "社媒运营"
+      ]
+    },
+    {
+      "id": "sej-live-2026-12-ai-search-strategy",
+      "title": "SEJ Live: Headed into 2027 – Your AI Search Strategy for What's Next",
+      "summary": "Search Engine Journal 编辑部联合行业专家的三小时线上直播，分三节：复盘 2026 年哪些 AI 搜索打法真正拿到了引用、2027 年品牌对搜索与营销的预期，以及如何把 AI 可见度转化为落地页、邮件订阅和转化并衡量 AI 流量。适合 SEO、内容和营销负责人。免费，报名即可获得三节录像。",
+      "host": "Search Engine Journal",
+      "speakers": [
+        {
+          "name": "Loren Baker",
+          "title": "Founder, Search Engine Journal"
+        },
+        {
+          "name": "Matt G. Southern",
+          "title": "Senior News Writer, Search Engine Journal"
+        },
+        {
+          "name": "Josh Spilker",
+          "title": "Head of AI Search, AirOps"
+        },
+        {
+          "name": "Steve Wiideman",
+          "title": "CEO, Wiideman Consulting Group"
+        },
+        {
+          "name": "Allison Townsend",
+          "title": "VP of Customer Success, Uberall"
+        },
+        {
+          "name": "Katie Morton",
+          "title": "Editor-in-Chief, Search Engine Journal"
+        },
+        {
+          "name": "Greg Jarboe",
+          "title": "SEJ Contributor"
+        },
+        {
+          "name": "Kara Kelly",
+          "title": "VP, Platform Strategy & Operations, CallRail"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-10T01:00:00+08:00",
+          "end": "2026-12-10T04:00:00+08:00",
+          "duration_minutes": 180,
+          "date": "2026-12-10",
+          "label": null,
+          "url": "https://www.searchenginejournal.com/sejlive-december9/"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://www.searchenginejournal.com/sejlive-december9/"
+        },
+        {
+          "type": "host",
+          "label": "Search Engine Journal 官网",
+          "url": "https://www.searchenginejournal.com"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": "仅向报名者提供（页面写明报名即含录像）",
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "content",
+        "visibility"
+      ],
+      "notes": "美东时间 12/9 12:00–3:00 PM，共三节，每节约 55 分钟。页面写明免费、报名可获得全部录像。直播平台页面未写。",
+      "missing": [
+        "platform"
+      ],
+      "last_updated": "2026-11-26T11:45:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "内容策略",
+        "增长与 GTM"
+      ]
+    },
+    {
+      "id": "codify-your-brand-ai-builders-israel",
+      "title": "Codify your brand: how to market with AI in 2027",
+      "summary": "AI Builders Israel 的动手工作坊，由 fractional CMO Ido Assaf 带大家把品牌定位、信息、语气和视觉规范整理成一个私有仓库，让 Claude Code 每次写作或设计前先读它；现场搭建生成 LinkedIn 帖子、轮播图和网页的技能，以及按品牌规则审稿的技能。适合用 AI 做内容、想保持品牌一致的创始人和营销人，需要一点终端基础，自备 Claude Code Pro/Max 与 GitHub 账号，限 15 人。",
+      "host": "AI Builders Israel",
+      "speakers": [
+        {
+          "name": "Ido Assaf",
+          "title": "Fractional CMO for early-stage B2B tech"
+        }
+      ],
+      "format": "Workshop",
+      "platform": "Zoom",
+      "schedule": [
+        {
+          "start": "2026-12-24T02:00:00+08:00",
+          "end": "2026-12-24T04:00:00+08:00",
+          "duration_minutes": 120,
+          "date": "2026-12-24",
+          "label": null,
+          "url": "https://luma.com/codify-your-brand-ido-assaf-2026"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://luma.com/codify-your-brand-ido-assaf-2026"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": "限 15 人，需自备 Claude Code Pro/Max 与 GitHub 账号"
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "workshop"
+      ],
+      "notes": "以色列时间 12/23 20:00–22:00。Luma 页面未标票价，未提回放。",
+      "missing": [
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-26T11:45:00+08:00",
+      "topics": [
+        "品牌叙事",
+        "AI 工作流与智能体"
       ]
     }
   ]

@@ -60,6 +60,8 @@ const SEED_TITLES = [
   "AI for Growth Lab: Turn Website Visitors into Leads with AI",
   "AI for Growth Lab: Write Articles That ChatGPT and Google AI Will Quote",
   "AI for Growth Lab: Turn One Voice Note into Six Posts with AI",
+  "SEJ Live: Headed into 2027 – Your AI Search Strategy for What's Next",
+  "Codify your brand: how to market with AI in 2027",
 ];
 
 function sample() {
@@ -126,10 +128,10 @@ test("schema keys stay aligned with the validator", () => {
   assert.equal(EVENT_KEYS.includes("urls"), false);
 });
 
-test("seed file is public-safe schema v2 and matches the 38 source titles", () => {
+test("seed file is public-safe schema v2 and matches the 40 source titles", () => {
   assert.deepEqual(validateEvents(data), []);
   assert.equal(data.schema_version, 2);
-  assert.equal(data.events.length, 38);
+  assert.equal(data.events.length, 40);
   assert.deepEqual(
     data.events.map((event) => event.title).sort(),
     [...SEED_TITLES].sort(),
