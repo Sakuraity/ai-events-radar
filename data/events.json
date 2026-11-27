@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "timezone": "Asia/Shanghai",
-  "last_updated": "2026-11-26T11:45:00+08:00",
+  "last_updated": "2026-11-27T12:15:00+08:00",
   "events": [
     {
       "id": "twosetai-workshops",
@@ -344,7 +344,7 @@
           "end": "2026-11-27T01:00:00+08:00",
           "duration_minutes": 60,
           "date": "2026-11-27",
-          "label": "Find your sound in Figma Weave",
+          "label": "已结束 · Find your sound in Figma Weave",
           "url": "https://fig-events.figma.com/oh-find-your-sound/"
         },
         {
@@ -412,11 +412,11 @@
       "tags": [
         "aigc"
       ],
-      "notes": "开始时间与原表一致（美东 11:00，对应上海次日 00:00），已补结束时间（每场 1 小时）。11/27「Find your sound」的 Luma 地点写的是 Figma Events 链接，不是线下场地。Halloween 场次回放已另行通知，这里不收录该场。Mara Dilts 的职务页面未写明。 11/13 场回放已在 YouTube 公开（视频标题为 From First Cut to Final Take）。 11/20 场回放已在 YouTube 公开（视频标题为 Build Scalable Ad Campaigns with AI Workflows，简介里的原场次日期写成 11/12，内容与黑五物料场一致）。Luma 日历已归档，11/27、12/4 的 Luma 页面已下线；11/27 场在 Figma Events 页面仍可报名，12/4 场暂未找到新报名页。",
+      "notes": "开始时间与原表一致（美东 11:00，对应上海次日 00:00），已补结束时间（每场 1 小时）。11/13 与 11/20 回放已在 YouTube 公开。Luma 日历已归档。11/27「Find your sound」活动页仍在 Figma Events，页面主持写 Kim Köhler（Creative Workflow Advocate, Figma Weave），结束当天未见回放。12/4「What's new」暂未找到新报名页。",
       "missing": [
         "speakers.title"
       ],
-      "last_updated": "2026-11-23T12:00:00+08:00",
+      "last_updated": "2026-11-27T12:15:00+08:00",
       "topics": [
         "视觉与视频制作",
         "AI 工作流与智能体"
@@ -866,17 +866,17 @@
         "note": null
       },
       "replay": {
-        "channel": "Luma 活动页",
-        "status": "awaiting_replay",
+        "channel": "未见公开回放",
+        "status": "no_replay",
         "url": null
       },
       "tags": [
         "aigc",
         "content"
       ],
-      "notes": "开始时间与原表一致，已补结束时间（50+30+10 分钟，共 90 分钟）。官方标题带 + Q&A。页面未承诺回放。",
+      "notes": "开始时间与原表一致，已补结束时间（50+30+10 分钟，共 90 分钟）。官方标题带 + Q&A。会后公开检索未见回放入口。",
       "missing": [],
-      "last_updated": "2026-11-16T11:45:00+08:00",
+      "last_updated": "2026-11-27T12:15:00+08:00",
       "topics": [
         "个人品牌",
         "社媒运营",
@@ -1127,17 +1127,17 @@
         "note": null
       },
       "replay": {
-        "channel": "报名者可见（结束后 24 小时内）",
-        "status": "upcoming",
+        "channel": "官网即将公开（报名者 24 小时内可见）",
+        "status": "awaiting_replay",
         "url": null
       },
       "tags": [
         "growth",
         "visibility"
       ],
-      "notes": "开始时间与原表一致，已补结束时间（1 小时）。Luma 与系列报名表的标题是 Your 30-Day AI Visibility Plan, Built Live；系列页场次列表里另有一处把本场写作 Content that gets cited。回放政策见系列页 FAQ。",
+      "notes": "开始时间与原表一致，已补结束时间（1 小时）。Luma 与系列报名表的标题是 Your 30-Day AI Visibility Plan, Built Live；系列页场次列表里另有一处把本场写作 Content that gets cited。系列页写 Replay coming soon，报名者 24 小时内可见。",
       "missing": [],
-      "last_updated": "2026-11-12T21:30:00+08:00",
+      "last_updated": "2026-11-27T12:15:00+08:00",
       "topics": [
         "AI 搜索可见度"
       ]
@@ -2665,7 +2665,7 @@
         }
       ],
       "format": "Webinar",
-      "platform": null,
+      "platform": "BigMarker",
       "schedule": [
         {
           "start": "2026-12-10T01:00:00+08:00",
@@ -2703,11 +2703,9 @@
         "content",
         "visibility"
       ],
-      "notes": "美东时间 12/9 12:00–3:00 PM，共三节，每节约 55 分钟。页面写明免费、报名可获得全部录像。直播平台页面未写。",
-      "missing": [
-        "platform"
-      ],
-      "last_updated": "2026-11-26T11:45:00+08:00",
+      "notes": "美东时间 12/9 12:00–3:00 PM，共三节，每节约 55 分钟。页面写明免费、报名可获得全部录像。直播平台为 BigMarker。",
+      "missing": [],
+      "last_updated": "2026-11-27T12:15:00+08:00",
       "topics": [
         "AI 搜索可见度",
         "内容策略",
@@ -2767,6 +2765,194 @@
       "topics": [
         "品牌叙事",
         "AI 工作流与智能体"
+      ]
+    },
+    {
+      "id": "alknz-praxis-ai-for-brand-trust",
+      "title": "AI for Brand Trust and Market Visibility",
+      "summary": "Alknz Praxis 的免费线上工作坊，由 LOUD 创始人兼策略负责人 Alejandra Endara 讲解如何用品牌定位、市场可见度和 AI 工具，让对的人发现并理解你的产品，再把兴趣转成客户。内容覆盖定位与信息、低成本渠道取舍、用 AI 做研究与内容，以及从意识到行动的获客路径。面向创业者、经营者，无需营销或技术背景，时长 90 分钟。",
+      "host": "Alknz Praxis",
+      "speakers": [
+        {
+          "name": "Alejandra Endara",
+          "title": "Founder & Head of Strategy, LOUD"
+        }
+      ],
+      "format": "Workshop",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-03T05:00:00+08:00",
+          "end": "2026-12-03T06:30:00+08:00",
+          "duration_minutes": 90,
+          "date": "2026-12-03",
+          "label": null,
+          "url": "https://www.alknzpraxis.com/aiforbusiness/branding-marketing"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://www.alknzpraxis.com/aiforbusiness/branding-marketing"
+        },
+        {
+          "type": "host",
+          "label": "Alknz Praxis 官网",
+          "url": "https://www.alknzpraxis.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "brand",
+        "gtm"
+      ],
+      "notes": "美中时间 12/2 3:00–4:30 PM CST。页面写 Live online，未写直播平台，也未提回放。",
+      "missing": [
+        "platform",
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-27T12:15:00+08:00",
+      "topics": [
+        "品牌叙事",
+        "增长与 GTM"
+      ]
+    },
+    {
+      "id": "unitedads-geo-source-in-ai-answers",
+      "title": "How to make your company a source in AI answers",
+      "summary": "德国机构 UnitedAds 的免费一小时 GEO 线上课，由 Partner 兼 SEO 负责人 Alex Sperber 讲解 ChatGPT、Perplexity 和 Google AI Overviews 如何挑选来源，以及怎样用自有经验和数据做内容、把页面结构给这些系统读懂，并加强站外提及与评测。面向想让品牌出现在 AI 答案里的团队，可现场提问。同一内容还有 11/26 场，本条只收录仍可参加的 12/3 场。",
+      "host": "UnitedAds",
+      "speakers": [
+        {
+          "name": "Alex Sperber",
+          "title": "Partner · SEO Team Lead, UnitedAds"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-03T21:00:00+08:00",
+          "end": "2026-12-03T22:00:00+08:00",
+          "duration_minutes": 60,
+          "date": "2026-12-03",
+          "label": null,
+          "url": "https://unitedads.com/services/training/geo"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://unitedads.com/services/training/geo"
+        },
+        {
+          "type": "host",
+          "label": "UnitedAds 官网",
+          "url": "https://unitedads.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "content",
+        "visibility"
+      ],
+      "notes": "页面未写时区；主办在柏林，按中欧冬季时间 CET 换算为上海 21:00–22:00。未写直播平台，也未提回放。报名页有提示称表单提交可能尚未接通。",
+      "missing": [
+        "platform",
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-27T12:15:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "内容策略"
+      ]
+    },
+    {
+      "id": "coalition-agentic-commerce-playbook",
+      "title": "From AI Discovery to Checkout: The Agentic Commerce Playbook",
+      "summary": "Coalition Technologies 总裁 Jordan Brannon 与 Shopify 高级合作解决方案工程师 Matt Hickey 的免费电商 webinar。前半讲品牌如何出现在 ChatGPT、Gemini、Perplexity 的推荐里：引用份额、品牌舆情、站点结构与 schema，以及新闻、Reddit 和评论形成的外部共识。后半讲 AI 代理组购物车和结账时，商户怎样让商品、库存和价格保持准确，并保住订单与客户数据。面向电商团队，结束时间页面未写。",
+      "host": "Coalition Technologies",
+      "speakers": [
+        {
+          "name": "Jordan Brannon",
+          "title": "President, Coalition Technologies"
+        },
+        {
+          "name": "Matt Hickey",
+          "title": "Senior Partner Solutions Engineer, Shopify"
+        }
+      ],
+      "format": "Webinar",
+      "platform": null,
+      "schedule": [
+        {
+          "start": "2026-12-17T01:00:00+08:00",
+          "end": null,
+          "duration_minutes": null,
+          "date": "2026-12-17",
+          "label": null,
+          "url": "https://coalitiontechnologies.com/from-ai-discovery-to-checkout-the-agentic-commerce-playbook-webinar"
+        }
+      ],
+      "links": [
+        {
+          "type": "event",
+          "label": "活动页",
+          "url": "https://coalitiontechnologies.com/from-ai-discovery-to-checkout-the-agentic-commerce-playbook-webinar"
+        },
+        {
+          "type": "host",
+          "label": "Coalition Technologies 官网",
+          "url": "https://coalitiontechnologies.com/"
+        }
+      ],
+      "price": {
+        "type": "free",
+        "amount": null,
+        "currency": null,
+        "note": null
+      },
+      "replay": {
+        "channel": null,
+        "status": "upcoming",
+        "url": null
+      },
+      "tags": [
+        "gtm",
+        "visibility"
+      ],
+      "notes": "美西时间 12/16 9:00 AM Pacific。页面写 Register now，未见票价，未写时长、直播平台和回放。",
+      "missing": [
+        "platform",
+        "schedule.end",
+        "replay.channel"
+      ],
+      "last_updated": "2026-11-27T12:15:00+08:00",
+      "topics": [
+        "AI 搜索可见度",
+        "增长与 GTM"
       ]
     }
   ]

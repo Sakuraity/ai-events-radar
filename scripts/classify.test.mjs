@@ -103,6 +103,8 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "build-with-ai-club-website-visitors-into-leads",
       "building-an-ai-assisted-gtm-strategy",
       "gaingels-your-story-is-your-brand",
+      "alknz-praxis-ai-for-brand-trust",
+      "unitedads-geo-source-in-ai-answers",
       "prweek-unicepta-prs-seat-at-the-geo-table",
       "new-playbook-ama-gtm-marketing-ai-era",
       "deepline-deepdives-gtm-ai-office-hours",
@@ -117,6 +119,7 @@ test("seed events are grouped with upcoming first at 2026-11-12 19:26 Shanghai",
       "build-with-ai-club-voice-note-into-six-posts",
       "fresh-egg-principles-of-good-geo",
       "uk-business-academy-distinctiveness-in-ai-search",
+      "coalition-agentic-commerce-playbook",
       "dataxgrowth-building-an-ai-workflow-live",
       "tenacious-marketing-recommended-by-ai-2026-12",
       "codify-your-brand-ai-builders-israel",
@@ -154,12 +157,12 @@ test("topic selection keeps vocabulary order and drops unknown values", () => {
 
 test("topic counts use the fixed vocabulary", () => {
   assert.deepEqual(countByTopic(data.events), {
-    内容策略: 12,
+    内容策略: 13,
     社媒运营: 4,
     个人品牌: 4,
-    品牌叙事: 9,
-    "增长与 GTM": 12,
-    "AI 搜索可见度": 13,
+    品牌叙事: 10,
+    "增长与 GTM": 14,
+    "AI 搜索可见度": 15,
     "AI 工作流与智能体": 11,
     销售获客: 4,
     视觉与视频制作: 3,
@@ -183,7 +186,7 @@ test("content topic filter is any-match and combines with the other filters", ()
       .sort();
   const base = { when: "all", price: "all", replay: "all", format: "all", topics: [], q: "" };
 
-  assert.equal(ids(base).length, 40);
+  assert.equal(ids(base).length, 43);
   assert.deepEqual(ids({ ...base, topics: ["内容策略", "社媒运营"] }), [
     "a-mini-masterclass-for-brands-using-ai-for-content",
     "afp-office-hours-you-dont-need-50000-subscribers",
@@ -197,6 +200,7 @@ test("content topic filter is any-match and combines with the other filters", ()
     "learnmore-ai-slop-vs-brand-gold-2026-12",
     "sej-live-2026-12-ai-search-strategy",
     "stand-out-on-linkedin-personal-branding-ai",
+    "unitedads-geo-source-in-ai-answers",
     "wellows-s4-make-ai-quote-you",
   ]);
   assert.deepEqual(ids({ ...base, when: "upcoming", price: "free", topics: ["内容策略", "社媒运营"] }), [
@@ -207,6 +211,7 @@ test("content topic filter is any-match and combines with the other filters", ()
     "learnmore-ai-slop-vs-brand-gold-2026-12",
     "sej-live-2026-12-ai-search-strategy",
     "stand-out-on-linkedin-personal-branding-ai",
+    "unitedads-geo-source-in-ai-answers",
     "wellows-s4-make-ai-quote-you",
   ]);
   assert.deepEqual(ids({ ...base, topics: ["内容策略"], q: "wellows" }), ["wellows-s4-make-ai-quote-you"]);
@@ -233,6 +238,7 @@ test("only the daytime-or-evening seed events skip the sleep badge", () => {
     "learnmore-ai-slop-vs-brand-gold-2026-12",
     "tenacious-marketing-recommended-by-ai-2026-12",
     "uk-business-academy-distinctiveness-in-ai-search",
+    "unitedads-geo-source-in-ai-answers",
     "why-geo-why-now",
   ]);
 });
