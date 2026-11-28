@@ -18,7 +18,7 @@ npm run build
 npm run preview
 ```
 
-`npm run dev` 启动开发服务器。`npm run validate` 只检查 `data/events.json`。
+`npm run dev` 启动开发服务器。`npm run validate` 检查 `data/events.json` 和 `data/insights.json`。
 
 技术栈是 [Astro](https://astro.build/)。页面在构建时从数据文件渲染成静态 HTML，筛选、搜索和「即将开始 / 已结束」的重新归类由一个小脚本在浏览器里完成。没有客户端框架。
 
@@ -36,12 +36,13 @@ npm run preview
 - 上海时间 00:00（含）到 08:00（不含）开始的场次显示「熬夜场」。08:00 整点不算。模糊时间「凌晨、清晨、半夜、午夜、通宵」也算熬夜场。
 - 链接按类型分成活动页、报名、回放、举办方、其他。
 - 页头「数据更新于」读的是数据文件根上的 `last_updated`，不是页面构建时刻。
+- 「活动特征总结」在页头下方、筛选和活动列表上方，按 `data/insights.json` 在构建时渲染。标为「初步观察」，并显示样本规模、日期范围和观察更新时间。要点里的 `event_ids` 链到对应活动卡片锚点。
 - 没有 JavaScript 时，列表仍在，分类和「x 天后 / 已结束」用的是构建时刻。打开 JavaScript 后会按访客当前时刻重算。
-- 部署产物里的 `/events.json` 是数据文件的副本，方便核对线上内容。可编辑的源头只有仓库里的 `data/events.json`。
+- 部署产物里的 `/events.json` 和 `/insights.json` 是数据文件的副本，方便核对线上内容。可编辑的源头只有仓库里的 `data/events.json` 与 `data/insights.json`。
 
 ## 数据约定
 
-每日更新的机器人**只提交 `data/events.json`**。改完跑 `npm run validate`，通过后再提交。GitHub Actions（`.github/workflows/check.yml`）和 Cloudflare Pages 的构建都会再查一次；校验失败时构建失败，线上会继续保留上一份成功的部署。
+每日更新的机器人**只提交 `data/events.json`**（活动列表）。「活动特征总结」由人工或另外的流程更新 `data/insights.json`。改完跑 `npm run validate`，通过后再提交。GitHub Actions（`.github/workflows/check.yml`）和 Cloudflare Pages 的构建都会再查一次；校验失败时构建失败，线上会继续保留上一份成功的部署。
 
 当前契约是 **schema v2**。不再使用 `urls`。
 
@@ -173,6 +174,33 @@ npm run preview
 
 要新增内容标签，得同时改 schema 的枚举、`src/lib/classify.mjs` 里的 `TOPIC_ORDER`，以及测试。一场里这些值不能重复，也不能写成上面 9 个以外的文字。英文 `tags` 继续用原来的枚举，不要把中文内容标签写进 `tags`。
 
+### insights.json（活动特征总结）
+
+公开数据，供首页「活动特征总结」模块使用，与 `events.json` 同目录（`data/insights.json`）。只描述已收录场次的观察，不写邮箱、密码、报名方式或代报情况。机器可读说明见 [`data/insights.schema.md`](data/insights.schema.md)。实际生效的校验在 `scripts/validate-insights.mjs`，由 `npm run validate` 一并执行。
+
+| 字段 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| `schema_version` | number | 是 | 当前为 `1`。不兼容变更时加一 |
+| `timezone` | string | 是 | 固定为 `Asia/Shanghai` |
+| `last_updated` | string | 是 | `YYYY-MM-DDTHH:mm:ss+08:00` |
+| `disclaimer` | string | 是 | 简短声明：内容为初步观察，只依据当前已收录场次 |
+| `sample` | object | 是 | 观察所依据的样本范围 |
+| `sample.event_count` | number | 是 | 必须等于当时 `events.json` 的 `events.length` |
+| `sample.session_count` | number | 否 | 若填写，必须等于全部 `schedule` 长度之和 |
+| `sample.date_range` | object | 是 | `start` / `end` 均为 `YYYY-MM-DD`，且 `start <= end` |
+| `sample.note` | string | 否 | 对计数或日期范围的补充说明 |
+| `sections` | array | 是 | 非空。顺序即页面展示顺序，建议 4–8 节 |
+| `sections[].id` | string | 是 | 稳定英文短 id，匹配 `^[a-z0-9]+(?:-[a-z0-9]+)*$`，全文件唯一 |
+| `sections[].title` | string | 是 | 中文标题 |
+| `sections[].summary` | string | 是 | 2–4 句总述，需标出这是初步观察 |
+| `sections[].points` | array | 是 | 非空要点，建议 3–6 条 |
+| `sections[].points[].text` | string | 是 | 中文要点 |
+| `sections[].points[].event_ids` | string[] | 否 | 例证活动 id，必须存在于 `events.json`，数组内不重复 |
+
+建议的 `sections[].id`：`topics`、`formats`、`scenarios`、`hosts`、`replay-and-access`、`growth-and-community`。可增删，但不要随意改已发布的 id。
+
+校验还会拒绝正文（`disclaimer`、`summary`、`points[].text`、`sample.note`）里的邮箱地址。更新时只根据当时的 `events.json` 重写观察，计数变化时同步 `sample` 和各节数字，文案保持「初步观察」。
+
 ### 时间怎么算已结束
 
 - 精确时间：当前时刻大于等于 `start`，这场次已结束。
@@ -193,7 +221,7 @@ npm run preview
 
 数据必须可以公开。种子已经去掉个人报名信息，以后的提交也要保持这样。
 
-不要写入：
+不要写入（`events.json` 与 `insights.json` 均适用）：
 
 - 邮箱地址、`mailto:`、密码、令牌、手机号
 - 谁报名了、谁决定不报名、会员库之类的私人去向
@@ -201,7 +229,7 @@ npm run preview
 
 可以写公开信息：活动页链接、价格、货币、以及「免费但需主办方审批」这种参与条件。回放如果只给报名者、没有公开地址，`channel` 写「仅向报名者提供」即可，不要写邮箱。
 
-校验会拒绝邮箱地址、敏感字段名（如 `email`、`password`、`token`）、英文 `password`、中文「密码」、HTML，以及带账号密码或敏感查询参数的 URL。
+`events.json` 校验会拒绝邮箱地址、敏感字段名（如 `email`、`password`、`token`）、英文 `password`、中文「密码」、HTML，以及带账号密码或敏感查询参数的 URL。`insights.json` 额外检查正文不含邮箱，且所有 `event_ids` 都能在 `events.json` 里找到。
 
 ## 部署到 Cloudflare Pages
 

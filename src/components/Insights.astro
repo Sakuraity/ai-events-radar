@@ -1,0 +1,77 @@
+---
+import { formatUpdated } from "../lib/classify.mjs";
+
+const { insights, eventTitles } = Astro.props;
+const updated = formatUpdated(insights.last_updated);
+const { sample } = insights;
+---
+
+<section class="insights" id="insights" aria-labelledby="insights-heading">
+  <div class="insights-head">
+    <div class="insights-title-row">
+      <h2 id="insights-heading">活动特征总结</h2>
+      <span class="insights-badge">初步观察</span>
+    </div>
+    <p class="insights-disclaimer">{insights.disclaimer}</p>
+    <dl class="insights-meta">
+      <div>
+        <dt>样本规模</dt>
+        <dd>
+          {sample.event_count} 场活动
+          {typeof sample.session_count === "number" ? ` · ${sample.session_count} 场次` : ""}
+        </dd>
+      </div>
+      <div>
+        <dt>日期范围</dt>
+        <dd>
+          <time datetime={sample.date_range.start}>{sample.date_range.start}</time>
+          {" – "}
+          <time datetime={sample.date_range.end}>{sample.date_range.end}</time>
+        </dd>
+      </div>
+      <div>
+        <dt>观察更新</dt>
+        <dd><time datetime={insights.last_updated}>{updated}</time></dd>
+      </div>
+    </dl>
+    {sample.note && <p class="insights-note">{sample.note}</p>}
+  </div>
+
+  <nav class="insights-toc" aria-label="总结小节">
+    {
+      insights.sections.map((section) => (
+        <a href={`#insight-${section.id}`}>{section.title}</a>
+      ))
+    }
+  </nav>
+
+  <div class="insights-sections">
+    {
+      insights.sections.map((section) => (
+        <article class="insight-section" id={`insight-${section.id}`}>
+          <h3>{section.title}</h3>
+          <p class="insight-summary">{section.summary}</p>
+          <ul class="insight-points">
+            {section.points.map((point) => (
+              <li>
+                <p>{point.text}</p>
+                {point.event_ids?.length > 0 && (
+                  <p class="insight-examples">
+                    <span class="k">例证</span>
+                    <span class="insight-links">
+                      {point.event_ids.map((id) => (
+                        <a href={`#${id}`} title={eventTitles.get(id) ?? id}>
+                          {eventTitles.get(id) ?? id}
+                        </a>
+                      ))}
+                    </span>
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>

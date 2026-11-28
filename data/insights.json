@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "timezone": "Asia/Shanghai",
+  "last_updated": "2026-11-28T12:05:00+08:00",
+  "disclaimer": "初步观察。结论只依据当前站点已收录的场次，不代表整个行业，也不外推未收录的产品活动。",
+  "sample": {
+    "event_count": 43,
+    "session_count": 56,
+    "date_range": {
+      "start": "2026-10-29",
+      "end": "2027-01-16"
+    },
+    "note": "日期范围为这 43 场在 events.json 里出现的最早和最晚一场开始时间（按上海时区日期）。一场系列活动可能包含多场次，故场次数多于活动条数。"
+  },
+  "sections": [
+    {
+      "id": "topics",
+      "title": "内容主题分布",
+      "summary": "这 43 场共使用站点固定的 9 个主题标签，每场 1 到 3 个。出现最多的是「AI 搜索可见度」（15 场），其次是「增长与 GTM」（14 场）和「内容策略」（13 场），「AI 工作流与智能体」（11 场）和「品牌叙事」（10 场）紧随其后。个人品牌、销售获客、社媒运营各 4 场，视觉与视频制作最少，只有 3 场。这是当前雷达样本的初步观察，说明眼下收录更偏 GEO、增长和内容，而不是创作工具课。",
+      "points": [
+        {
+          "text": "「AI 搜索可见度」是本批最高频主题（15/43），内容多围绕 ChatGPT、Perplexity、Google AI Overviews 如何挑选来源，以及品牌怎样被引用或推荐。",
+          "event_ids": [
+            "wellows-s5-30-day-ai-visibility-plan",
+            "fresh-egg-principles-of-good-geo",
+            "unitedads-geo-source-in-ai-answers",
+            "sej-live-2026-12-ai-search-strategy",
+            "ecomone-geo-for-growing-ecommerce-brands"
+          ]
+        },
+        {
+          "text": "「增长与 GTM」有 14 场，常见课题是用 AI 做获客策略、搭建营销操作系统，或在现场走一遍工作流。",
+          "event_ids": [
+            "building-an-ai-assisted-gtm-strategy",
+            "agentic-gtm-engine-round-3",
+            "building-your-marketing-ai-operating-system",
+            "dataxgrowth-building-an-ai-workflow-live"
+          ]
+        },
+        {
+          "text": "「内容策略」13 场，从可持续内容规划、区分 AI 成稿和品牌差异，到让内容成为 AI 答案里的来源。",
+          "event_ids": [
+            "content-strategy-you-can-sustain-ai",
+            "learnmore-ai-slop-vs-brand-gold-2026-12",
+            "wellows-s4-make-ai-quote-you",
+            "build-with-ai-club-articles-ai-will-quote"
+          ]
+        },
+        {
+          "text": "「品牌叙事」10 场，重点往往不是写一篇稿，而是把定位、故事和信任信号讲清楚，再接到可见度或融资沟通上。",
+          "event_ids": [
+            "gaingels-your-story-is-your-brand",
+            "alknz-praxis-ai-for-brand-trust",
+            "codify-your-brand-ai-builders-israel",
+            "uk-business-academy-distinctiveness-in-ai-search"
+          ]
+        },
+        {
+          "text": "「视觉与视频制作」仅 3 场，目前主要来自 Midjourney、Figma Weave 的例会，以及一场用 Claude 做社媒经理的工作坊；本批样本很少覆盖图像或视频产品课。",
+          "event_ids": [
+            "midjourney-office-hours",
+            "figma-weave-office-hours",
+            "claude-social-media-manager"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formats",
+      "title": "活动形式",
+      "summary": "按 events.json 的 format 字段计：Webinar 18 场、Workshop 17 场，两者合计超过七成。其余是 Office Hours 4 场，以及 Roundtable、Masterclass、AMA、Fireside chat 各 1 场。初步观察：讲解型 webinar 和带着做的 workshop 是这个样本里的主流形式，定期答疑或办公时间是产品团队更常用的补充节奏。",
+      "points": [
+        {
+          "text": "Webinar 是最多的形式（18 场），多为 45 到 90 分钟的主题讲解加问答，主办方以机构和媒体居多。",
+          "event_ids": [
+            "fresh-egg-principles-of-good-geo",
+            "sej-live-2026-12-ai-search-strategy",
+            "prweek-unicepta-prs-seat-at-the-geo-table",
+            "coalition-agentic-commerce-playbook"
+          ]
+        },
+        {
+          "text": "Workshop 有 17 场，页面更常写明要现场做出人设、策略、工作流或一套可带走的文件。",
+          "event_ids": [
+            "building-an-ai-assisted-gtm-strategy",
+            "content-strategy-you-can-sustain-ai",
+            "agentic-gtm-engine-round-3",
+            "codify-your-brand-ai-builders-israel",
+            "dataxgrowth-building-an-ai-workflow-live"
+          ]
+        },
+        {
+          "text": "Office Hours 只有 4 场，但节奏更固定：Midjourney、Figma Weave 为每周，Deepline 为每两周，AFP 则以单场办公时间出现。",
+          "event_ids": [
+            "midjourney-office-hours",
+            "figma-weave-office-hours",
+            "deepline-deepdives-gtm-ai-office-hours",
+            "afp-office-hours-you-dont-need-50000-subscribers"
+          ]
+        },
+        {
+          "text": "圆桌、大师课、AMA、炉边谈话在本批各只出现 1 场，是补充形态，不是主流。",
+          "event_ids": [
+            "why-geo-why-now",
+            "a-mini-masterclass-for-brands-using-ai-for-content",
+            "new-playbook-ama-gtm-marketing-ai-era",
+            "gohvio-fireside-ai-helps-everyone-argue-faster"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scenarios",
+      "title": "常见具体场景",
+      "summary": "把各场摘要里实际写出的任务放在一起看，本批最常见的不是「介绍某个功能」，而是几类可执行的业务场景。出现最多的是：让品牌进入 AI 答案、用 AI 做出一套 GTM 或内容系统、以及在直播里搭一条可复用的工作流。这是对这 43 场文案的初步归纳，不是对主办方真实课堂的逐场核验。",
+      "points": [
+        {
+          "text": "被 AI 推荐或引用：讲 ChatGPT、Perplexity、Google AI 如何选来源，以及怎样用自身经验、页面结构和站外提及成为被引用的出处。",
+          "event_ids": [
+            "unitedads-geo-source-in-ai-answers",
+            "wellows-s4-make-ai-quote-you",
+            "tenacious-marketing-recommended-by-ai-2026-12",
+            "build-with-ai-club-articles-ai-will-quote"
+          ]
+        },
+        {
+          "text": "电商与结账链路：从 AI 发现商品，讲到代理组购物车、库存价格同步和订单归属，例如 Coalition 与 Shopify 合办的场次。",
+          "event_ids": [
+            "coalition-agentic-commerce-playbook",
+            "ecomone-geo-for-growing-ecommerce-brands"
+          ]
+        },
+        {
+          "text": "当场做出 GTM 或内容系统：明确受众和价值主张、压测假设、写下可坚持的内容节奏，或把一条语音变成一组帖子。",
+          "event_ids": [
+            "building-an-ai-assisted-gtm-strategy",
+            "content-strategy-you-can-sustain-ai",
+            "build-your-personal-brand-with-ai",
+            "build-with-ai-club-voice-note-into-six-posts"
+          ]
+        },
+        {
+          "text": "把品牌写成可复用的规则：把定位、话术、证据和视觉标记收进仓库，让模型按同一套规范写帖、做页面和审稿。",
+          "event_ids": [
+            "codify-your-brand-ai-builders-israel",
+            "alknz-praxis-ai-for-brand-trust",
+            "gaingels-your-story-is-your-brand"
+          ]
+        },
+        {
+          "text": "现场解决问题或演示工作流：Figma Weave 用成片、投放物料和配乐做演示；Deepline 让参加者带一个 GTM 难题当场拆；DataXGrowth 则在直播里搭营销工作流。",
+          "event_ids": [
+            "figma-weave-office-hours",
+            "deepline-deepdives-gtm-ai-office-hours",
+            "dataxgrowth-building-an-ai-workflow-live",
+            "building-your-marketing-ai-operating-system"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hosts",
+      "title": "举办方类型",
+      "summary": "按公开身份把 43 场主办方归为五类，这是初步归类，个别主办可能同时带有社区和咨询色彩。代理商、咨询或培训机构主办 16 场，社区、俱乐部、加速器或挑战赛 14 场，SaaS 或产品公司 10 场，媒体 2 场，政府或公共机构 1 场。当前样本里，机构课和社区课明显多于产品官方活动。",
+      "points": [
+        {
+          "text": "代理商、咨询和培训机构（16 场）是本批最大的主办类型，课题高度集中在 GEO、品牌和增长方法课。",
+          "event_ids": [
+            "unitedads-geo-source-in-ai-answers",
+            "fresh-egg-principles-of-good-geo",
+            "coalition-agentic-commerce-playbook",
+            "alknz-praxis-ai-for-brand-trust",
+            "dataxgrowth-building-an-ai-workflow-live"
+          ]
+        },
+        {
+          "text": "社区、俱乐部、加速器和挑战赛（14 场）常见于创业或建设者网络，形式从工作坊、AMA 到限人数动手课都有。",
+          "event_ids": [
+            "building-an-ai-assisted-gtm-strategy",
+            "new-playbook-ama-gtm-marketing-ai-era",
+            "gaingels-your-story-is-your-brand",
+            "codify-your-brand-ai-builders-israel",
+            "twosetai-workshops"
+          ]
+        },
+        {
+          "text": "SaaS 或产品公司（10 场）更常把活动做成系列例会或办公时间，例如 Midjourney、Figma Weave、Deepline、Wellows 和 Metadata。",
+          "event_ids": [
+            "midjourney-office-hours",
+            "figma-weave-office-hours",
+            "deepline-deepdives-gtm-ai-office-hours",
+            "wellows-s5-30-day-ai-visibility-plan",
+            "agentic-gtm-engine-round-3"
+          ]
+        },
+        {
+          "text": "媒体场次在本批只有 2 场（PRWeek、Search Engine Journal），政府或公共机构 1 场（英国 Business Academy）。媒体场更偏行业议程和部门协作，政府场则挂在公共技能课系列下。",
+          "event_ids": [
+            "prweek-unicepta-prs-seat-at-the-geo-table",
+            "sej-live-2026-12-ai-search-strategy",
+            "uk-business-academy-distinctiveness-in-ai-search"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "replay-and-access",
+      "title": "回放与参与门槛",
+      "summary": "回放状态按 events.json 的 replay.status 计：即将开始 29 场，等待回放 7 场，确认无回放 4 场，已有回放 3 场。费用上，大多数为免费（含需审批、需登录或限人动手的免费场），付费场是少数。初步观察：公开回放更多出现在产品例会和社区系列；付费课和会员库通常不把回放公开；不少机构 webinar 的页面并未承诺回放。",
+      "points": [
+        {
+          "text": "明确走公开回放渠道的，目前多见 YouTube 或主办官网，例如 TwoSetAI、Figma Weave、部分 Wellows 场次、Deepline 和 Gohvio。",
+          "event_ids": [
+            "twosetai-workshops",
+            "figma-weave-office-hours",
+            "wellows-s4-make-ai-quote-you",
+            "deepline-deepdives-gtm-ai-office-hours",
+            "gohvio-fireside-ai-helps-everyone-argue-faster"
+          ]
+        },
+        {
+          "text": "已标记为无法获取回放的，包括 Midjourney 多场已结束例会未见公开录屏，以及回放只留在付费报名者或会员库的场次。",
+          "event_ids": [
+            "midjourney-office-hours",
+            "claude-social-media-manager",
+            "create-your-ai-growth-brief",
+            "build-your-ai-content-machine"
+          ]
+        },
+        {
+          "text": "免费仍可能设门槛：有的需要主办方审批，有的要登录政府学院账号，有的要求自备指定产品账号并限人数动手。",
+          "event_ids": [
+            "agentic-gtm-engine-round-3",
+            "stand-out-on-linkedin-personal-branding-ai",
+            "uk-business-academy-distinctiveness-in-ai-search",
+            "codify-your-brand-ai-builders-israel"
+          ]
+        },
+        {
+          "text": "付费场在本批是少数，目前可见的是 Willa 的 59 美元工作坊，以及 Build with AI Club Growth Lab 的 50 美元单场；这些场次的回放也多不对外公开。",
+          "event_ids": [
+            "build-your-personal-brand-with-ai",
+            "claude-social-media-manager",
+            "create-your-ai-growth-brief",
+            "build-with-ai-club-website-visitors-into-leads",
+            "build-with-ai-club-articles-ai-will-quote",
+            "build-with-ai-club-voice-note-into-six-posts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "growth-and-community",
+      "title": "和增长或社区的连接",
+      "summary": "从这 43 场的公开页面看，活动很少只是单向讲课。机构 webinar 往往承担获客和专业形象的功能；社区和挑战赛用系列课为后续资助、会员或付费班做铺垫；产品公司则用固定例会维持使用习惯，并在现场处理真实问题。以下为初步观察，不推断各场的实际转化结果。",
+      "points": [
+        {
+          "text": "机构把同一套 GEO 或增长方法做成系列或每月入门场，用免费讲解建立专业形象，并保持持续出现。",
+          "event_ids": [
+            "wellows-s3-why-ai-trusts-your-competitors",
+            "wellows-s4-make-ai-quote-you",
+            "wellows-s5-30-day-ai-visibility-plan",
+            "tenacious-marketing-recommended-by-ai-2026-12",
+            "fresh-egg-principles-of-good-geo"
+          ]
+        },
+        {
+          "text": "社区和挑战赛把单场课嵌进更大的网络：例如 Queens Tech 工作坊连接创业资助申请，AFP 免费办公时间后另有付费动手班，Gaingels 的叙事课面向创始人和投资人两侧。",
+          "event_ids": [
+            "building-an-ai-assisted-gtm-strategy",
+            "content-strategy-you-can-sustain-ai",
+            "afp-office-hours-you-dont-need-50000-subscribers",
+            "gaingels-your-story-is-your-brand"
+          ]
+        },
+        {
+          "text": "产品公司更依赖固定节奏的办公时间和现场拆问题，把活动做成持续使用产品的场合，而不是一次性发布会。",
+          "event_ids": [
+            "midjourney-office-hours",
+            "figma-weave-office-hours",
+            "deepline-deepdives-gtm-ai-office-hours",
+            "gohvio-fireside-ai-helps-everyone-argue-faster"
+          ]
+        },
+        {
+          "text": "部分场次用「做完就能带走」作为钩子，例如现场得到提示词包、品牌仓库和技能，或一套可复用的工作流，让参与本身留下资产。",
+          "event_ids": [
+            "codify-your-brand-ai-builders-israel",
+            "build-your-personal-brand-with-ai",
+            "dataxgrowth-building-an-ai-workflow-live",
+            "agentic-gtm-engine-round-3"
+          ]
+        }
+      ]
+    }
+  ]
+}
