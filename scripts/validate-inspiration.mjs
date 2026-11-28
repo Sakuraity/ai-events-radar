@@ -38,16 +38,27 @@ export const PRODUCT_REQUIRED_KEYS = [
   "sources",
 ];
 
-export const PRODUCT_OPTIONAL_KEYS = ["notes", "spotlight"];
+export const PRODUCT_OPTIONAL_KEYS = [
+  "profile",
+  "rewards",
+  "scale",
+  "update_cadence",
+  "examples",
+  "unconfirmed",
+  "notes",
+  "spotlight",
+];
 
 export const MODULE_REQUIRED_KEYS = ["name", "kind", "url", "status"];
 export const MODULE_OPTIONAL_KEYS = ["status_note"];
 
 export const SOURCE_KEYS = ["label", "url"];
-
+export const EXAMPLE_REQUIRED_KEYS = ["title", "url"];
+export const EXAMPLE_OPTIONAL_KEYS = ["note"];
 export const CHANGELOG_KEYS = ["date", "product_id", "summary", "source_url"];
-
 export const PATTERN_KEYS = ["id", "title", "summary", "product_ids"];
+export const PATTERN_OPTIONAL_KEYS = ["observations"];
+export const PATTERN_OBSERVATION_KEYS = ["product_id", "note"];
 
 export const EVIDENCE_VALUES = ["已打开", "部分打开", "仅搜到"];
 export const STATUS_VALUES = ["active", "unreachable", "changed"];
@@ -55,7 +66,19 @@ export const STATUS_VALUES = ["active", "unreachable", "changed"];
 export const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const KIND_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const EMAIL = /[^@\s]+@[^@\s]+\.[^@\s]+/;
-export const FORBIDDEN_BRAND = /youmind|优麦/i;
+
+/** Blocked terms kept encoded so the public repo does not spell them out. */
+const BLOCKED_TERM_B64 = ["eW91bWluZA==", "5LyY6bqm"];
+
+export function blockedTerms() {
+  return BLOCKED_TERM_B64.map((value) => Buffer.from(value, "base64").toString("utf8"));
+}
+
+export function containsBlockedTerm(text) {
+  if (typeof text !== "string" || text.length === 0) return false;
+  const lower = text.toLowerCase();
+  return blockedTerms().some((term) => lower.includes(term.toLowerCase()));
+}
 
 const STRING_PRODUCT_FIELDS = [
   "name",
@@ -129,12 +152,9 @@ export function validateInspiration(data, rawText = null) {
   }
 
   const productIds = new Set();
-  const productById = new Map();
   if (Array.isArray(data.products)) {
     for (let index = 0; index < data.products.length; index += 1) {
-      const product = data.products[index];
-      validateProduct(product, `products[${index}]`, groupIds, productIds, fail);
-      if (product && typeof product.id === "string") productById.set(product.id, product);
+      validateProduct(data.products[index], `products[${index}]`, groupIds, productIds, fail);
     }
   }
 
@@ -226,9 +246,14 @@ function validateProduct(product, path, groupIds, productIds, fail) {
     }
   }
 
-  if ("notes" in product && typeof product.notes !== "string") {
-    fail(`${path}.notes`, "必须是字符串");
+  for (const field of ["profile", "rewards", "scale", "update_cadence", "notes"]) {
+    if (field in product && typeof product[field] !== "string") {
+      fail(`${path}.${field}`, "必须是字符串");
+    }
   }
+
+  if ("examples" in product) validateExamples(product.examples, `${path}.examples`, fail);
+  if ("unconfirmed" in product) validateUnconfirmed(product.unconfirmed, `${path}.unconfirmed`, fail);
   if ("spotlight" in product) validateSpotlight(product.spotlight, `${path}.spotlight`, fail);
 }
 
@@ -270,6 +295,44 @@ function validateSource(source, path, fail) {
   checkHttpsUrl(source.url, `${path}.url`, fail);
 }
 
+function validateExamples(examples, path, fail) {
+  if (!Array.isArray(examples) || examples.length < 1 || examples.length > 5) {
+    fail(path, "必须是 1 到 5 项的数组");
+    return;
+  }
+  for (let index = 0; index < examples.length; index += 1) {
+    const example = examples[index];
+    const examplePath = `${path}[${index}]`;
+    if (!example || typeof example !== "object" || Array.isArray(example)) {
+      fail(examplePath, "必须是对象");
+      continue;
+    }
+    for (const key of EXAMPLE_REQUIRED_KEYS) {
+      if (!(key in example)) fail(examplePath, `缺少字段 ${key}`);
+    }
+    for (const key of Object.keys(example)) {
+      if (![...EXAMPLE_REQUIRED_KEYS, ...EXAMPLE_OPTIONAL_KEYS].includes(key)) {
+        fail(examplePath, `有未知字段 ${key}`);
+      }
+    }
+    checkNonEmptyString(example.title, `${examplePath}.title`, fail);
+    checkOptionalHttpsUrl(example.url, `${examplePath}.url`, fail);
+    if ("note" in example && typeof example.note !== "string") {
+      fail(`${examplePath}.note`, "必须是字符串");
+    }
+  }
+}
+
+function validateUnconfirmed(items, path, fail) {
+  if (!Array.isArray(items)) {
+    fail(path, "必须是字符串数组");
+    return;
+  }
+  for (let index = 0; index < items.length; index += 1) {
+    checkNonEmptyString(items[index], `${path}[${index}]`, fail);
+  }
+}
+
 function validateChangelogEntry(entry, path, productIds, fail) {
   if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
     fail(path, "必须是对象");
@@ -294,6 +357,11 @@ function validatePattern(pattern, path, productIds, patternIds, fail) {
   for (const key of PATTERN_KEYS) {
     if (!(key in pattern)) fail(path, `缺少字段 ${key}`);
   }
+  for (const key of Object.keys(pattern)) {
+    if (![...PATTERN_KEYS, ...PATTERN_OPTIONAL_KEYS].includes(key)) {
+      fail(path, `有未知字段 ${key}`);
+    }
+  }
   checkStableId(pattern.id, `${path}.id`, patternIds, fail);
   checkNonEmptyString(pattern.title, `${path}.title`, fail);
   checkNonEmptyString(pattern.summary, `${path}.summary`, fail);
@@ -310,6 +378,36 @@ function validatePattern(pattern, path, productIds, patternIds, fail) {
     }
     if (seen.has(id)) fail(`${path}.product_ids[${index}]`, "product_ids 内部不能重复");
     seen.add(id);
+  }
+  if ("observations" in pattern) {
+    validatePatternObservations(pattern.observations, `${path}.observations`, seen, fail);
+  }
+}
+
+function validatePatternObservations(observations, path, allowedIds, fail) {
+  if (!Array.isArray(observations)) {
+    fail(path, "必须是数组");
+    return;
+  }
+  const seen = new Set();
+  for (let index = 0; index < observations.length; index += 1) {
+    const item = observations[index];
+    const itemPath = `${path}[${index}]`;
+    if (!item || typeof item !== "object" || Array.isArray(item)) {
+      fail(itemPath, "必须是对象");
+      continue;
+    }
+    for (const key of PATTERN_OBSERVATION_KEYS) {
+      if (!(key in item)) fail(itemPath, `缺少字段 ${key}`);
+    }
+    if (typeof item.product_id !== "string" || !allowedIds.has(item.product_id)) {
+      fail(`${itemPath}.product_id`, "必须出现在该条 patterns[].product_ids 中");
+    } else if (seen.has(item.product_id)) {
+      fail(`${itemPath}.product_id`, "同一 pattern 内 product_id 不能重复");
+    } else {
+      seen.add(item.product_id);
+    }
+    checkNonEmptyString(item.note, `${itemPath}.note`, fail);
   }
 }
 
@@ -389,8 +487,8 @@ function checkOptionalHttpsUrl(value, path, fail) {
 
 function checkSafetyText(text, path, fail) {
   if (typeof text !== "string") return;
-  if (FORBIDDEN_BRAND.test(text)) {
-    fail(path, "不得出现 YouMind / 优麦 / youmind（大小写不敏感）");
+  if (containsBlockedTerm(text)) {
+    fail(path, "命中禁用词表（blocked terms）");
   }
   if (EMAIL.test(text)) {
     fail(path, "不得出现邮箱地址");

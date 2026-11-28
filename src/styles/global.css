@@ -826,12 +826,34 @@ footer {
 .pattern-list,
 .module-list,
 .source-list,
-.observation-list {
+.observation-list,
+.example-list,
+.unconfirmed-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   gap: 14px;
+}
+
+.profile {
+  max-width: 68ch;
+  line-height: 1.7;
+}
+
+.example-item,
+.pattern-observations {
+  display: grid;
+  gap: 6px;
+}
+
+.example-title,
+.observation-product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  align-items: center;
+  font-weight: 700;
 }
 
 .changelog-item,

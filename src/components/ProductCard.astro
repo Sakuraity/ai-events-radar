@@ -11,6 +11,8 @@ const spotlightEntries = hasSpotlight
   : [];
 const scoringRules = product.spotlight?.scoring_rules ?? [];
 const observations = product.spotlight?.observations ?? [];
+const examples = Array.isArray(product.examples) ? product.examples : [];
+const unconfirmed = Array.isArray(product.unconfirmed) ? product.unconfirmed : [];
 
 function spotlightLabel(key) {
   return SPOTLIGHT_LABELS[key] ?? key;
@@ -35,6 +37,8 @@ function spotlightLabel(key) {
       <span class="meta-chip">证据：{product.evidence}</span>
     </p>
   </div>
+
+  {product.profile && <p class="profile blurb">{product.profile}</p>}
 
   {product.status_note && (
     <div class="fact">
@@ -109,15 +113,78 @@ function spotlightLabel(key) {
     <p class="blurb">{product.interaction || "（空）"}</p>
   </div>
 
+  {typeof product.rewards === "string" && product.rewards && (
+    <div class="fact">
+      <span class="k">激励权益</span>
+      <p class="blurb">{product.rewards}</p>
+    </div>
+  )}
+
   <div class="fact">
     <span class="k">转化路径</span>
     <p class="blurb">{product.conversion || "（空）"}</p>
   </div>
 
+  {typeof product.scale === "string" && product.scale && (
+    <div class="fact">
+      <span class="k">规模</span>
+      <p class="blurb">{product.scale}</p>
+    </div>
+  )}
+
+  {typeof product.update_cadence === "string" && product.update_cadence && (
+    <div class="fact">
+      <span class="k">更新节奏</span>
+      <p class="blurb">{product.update_cadence}</p>
+    </div>
+  )}
+
   <div class="fact">
     <span class="k">近期变化</span>
     <p class="blurb">{product.recent_updates || "（空）"}</p>
   </div>
+
+  {examples.length > 0 && (
+    <div class="fact">
+      <span class="k">具体条目</span>
+      <ul class="example-list">
+        {examples.map((example) => (
+          <li class="example-item">
+            <p class="example-title">
+              {example.url ? (
+                <a href={example.url} target="_blank" rel="noopener noreferrer">
+                  {example.title}
+                  <span class="sr-only">（新窗口打开）</span>
+                </a>
+              ) : (
+                <span>{example.title}</span>
+              )}
+            </p>
+            {example.url && (
+              <p class="url-line">
+                <a href={example.url} target="_blank" rel="noopener noreferrer">
+                  {example.url}
+                  <span class="sr-only">（新窗口打开）</span>
+                </a>
+              </p>
+            )}
+            {example.note && <p class="blurb">{example.note}</p>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  {unconfirmed.length > 0 && (
+    <div class="fact">
+      <span class="k">待确认</span>
+      <ul class="unconfirmed-list">
+        {unconfirmed.map((item) => (
+          <li class="blurb">{item}</li>
+        ))}
+      </ul>
+    </div>
+  )}
 
   <div class="fact">
     <span class="k">首次记录</span>

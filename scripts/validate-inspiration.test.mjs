@@ -9,6 +9,7 @@ import data from "../data/inspiration.json" with { type: "json" };
 import {
   EVIDENCE_VALUES,
   STATUS_VALUES,
+  blockedTerms,
   validateInspiration,
 } from "./validate-inspiration.mjs";
 
@@ -54,6 +55,18 @@ function sample() {
         status: "active",
         status_note: "",
         sources: [{ label: "Community 页", url: "https://example.com/community" }],
+        profile: "这是一段产品概述。",
+        rewards: "积分奖励",
+        scale: "页面显示约 100 条。",
+        update_cadence: "待确认",
+        examples: [
+          {
+            title: "Example Item",
+            url: "https://example.com/community/item",
+            note: "首页精选",
+          },
+        ],
+        unconfirmed: ["Rooms 当前人数未读到。"],
       },
     ],
     changelog: [
@@ -68,8 +81,9 @@ function sample() {
       {
         id: "one-click-reuse",
         title: "作品可一键复用",
-        summary: "初步观察：用户可以一键复用。",
+        summary: "初步观察：用户可以一键复用。第二句补充机制。",
         product_ids: ["sample-product"],
+        observations: [{ product_id: "sample-product", note: "支持 recreate。" }],
       },
     ],
   };
@@ -82,17 +96,22 @@ test("seed inspiration file passes every schema rule", () => {
   assert.equal(data.baseline_date, "2026-11-28");
   assert.equal(data.groups.length, 5);
   assert.equal(data.products.length, 29);
-  assert.equal(data.changelog.length, 9);
-  assert.equal(data.patterns.length, 9);
+  assert.equal(data.changelog.length, 27);
+  assert.equal(data.patterns.length, 16);
   assert.ok(data.products.every((product) => product.modules.length >= 1));
   assert.ok(data.products.every((product) => product.sources.length >= 1));
   assert.ok(data.products.every((product) => EVIDENCE_VALUES.includes(product.evidence)));
   assert.ok(data.products.every((product) => STATUS_VALUES.includes(product.status)));
+  assert.ok(data.products.every((product) => typeof product.profile === "string" && product.profile));
   assert.ok(
-    data.products.every((product) =>
-      product.modules.every((module) => STATUS_VALUES.includes(module.status)),
+    data.products.every(
+      (product) =>
+        Array.isArray(product.examples) &&
+        product.examples.length >= 1 &&
+        product.examples.length <= 5,
     ),
   );
+  assert.ok(data.products.every((product) => Array.isArray(product.unconfirmed)));
   const groupIds = new Set(data.groups.map((group) => group.id));
   assert.ok(data.products.every((product) => groupIds.has(product.group_id)));
   const productIds = new Set(data.products.map((product) => product.id));
@@ -100,16 +119,29 @@ test("seed inspiration file passes every schema rule", () => {
   assert.ok(
     data.patterns.every((pattern) => pattern.product_ids.every((id) => productIds.has(id))),
   );
+  assert.ok(
+    data.patterns.every((pattern) =>
+      (pattern.observations ?? []).every((item) => pattern.product_ids.includes(item.product_id)),
+    ),
+  );
+  const dates = data.changelog.map((entry) => entry.date);
+  assert.deepEqual(dates, [...dates].sort());
+  assert.ok(dates[0] < data.baseline_date);
 });
 
-test("rejects youmind / 优麦 anywhere in the file text", () => {
+test("rejects blocked terms anywhere in the file text", () => {
+  const [latin, cjk] = blockedTerms();
   const branded = sample();
-  branded.products[0].notes = "compare with YouMind later";
-  assert.match(validateInspiration(branded).join("\n"), /YouMind|优麦|youmind/i);
+  branded.products[0].notes = `compare with ${latin} later`;
+  assert.match(validateInspiration(branded).join("\n"), /禁用词表|blocked terms/i);
+
+  const mixedCase = sample();
+  mixedCase.products[0].notes = latin[0].toUpperCase() + latin.slice(1);
+  assert.match(validateInspiration(mixedCase).join("\n"), /禁用词表|blocked terms/i);
 
   const chinese = sample();
-  chinese.disclaimer = "不要写优麦";
-  assert.match(validateInspiration(chinese).join("\n"), /YouMind|优麦|youmind/i);
+  chinese.disclaimer = `不要写${cjk}`;
+  assert.match(validateInspiration(chinese).join("\n"), /禁用词表|blocked terms/i);
 });
 
 test("rejects an email address", () => {
@@ -178,10 +210,55 @@ test("rejects empty modules or sources and bad dates", () => {
   assert.match(validateInspiration(badUpdated).join("\n"), /\+08:00/);
 });
 
-test("allows empty optional urls and empty string fields", () => {
+test("validates optional profile, examples, unconfirmed, and pattern observations", () => {
+  const ok = sample();
+  assert.deepEqual(validateInspiration(ok), []);
+
+  const badExamples = sample();
+  badExamples.products[0].examples = [];
+  assert.match(validateInspiration(badExamples).join("\n"), /1 到 5/);
+
+  const badExampleUrl = sample();
+  badExampleUrl.products[0].examples[0].url = "http://example.com/item";
+  assert.match(validateInspiration(badExampleUrl).join("\n"), /https/);
+
+  const emptyExampleUrl = sample();
+  emptyExampleUrl.products[0].examples[0].url = "";
+  assert.deepEqual(validateInspiration(emptyExampleUrl), []);
+
+  const badUnconfirmed = sample();
+  badUnconfirmed.products[0].unconfirmed = [""];
+  assert.match(validateInspiration(badUnconfirmed).join("\n"), /非空字符串/);
+
+  const badObs = sample();
+  badObs.patterns[0].observations = [{ product_id: "missing-product", note: "x" }];
+  assert.match(validateInspiration(badObs).join("\n"), /product_ids/);
+
+  const dupObs = sample();
+  dupObs.patterns[0].observations = [
+    { product_id: "sample-product", note: "a" },
+    { product_id: "sample-product", note: "b" },
+  ];
+  assert.match(validateInspiration(dupObs).join("\n"), /不能重复/);
+});
+
+test("allows empty optional urls, empty string fields, and pre-baseline changelog dates", () => {
   const data = sample();
   data.products[0].modules[0].url = "";
-  data.changelog[0].source_url = "";
+  data.changelog = [
+    {
+      date: "2025-05-23",
+      product_id: "sample-product",
+      summary: "historic entry before baseline",
+      source_url: "",
+    },
+    {
+      date: "2026-11-28",
+      product_id: "sample-product",
+      summary: "baseline",
+      source_url: "",
+    },
+  ];
   data.products[0].recent_updates = "";
   data.products[0].evidence_note = "";
   data.products[0].status_note = "";

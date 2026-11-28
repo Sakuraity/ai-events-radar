@@ -124,6 +124,29 @@ const description =
                   );
                 })}
               </p>
+              {pattern.observations?.length > 0 && (
+                <div class="pattern-observations">
+                  <p class="k">分产品观察</p>
+                  <ul class="observation-list">
+                    {pattern.observations.map((item) => {
+                      const product = productsById.get(item.product_id);
+                      return (
+                        <li>
+                          <p class="observation-product">
+                            {product ? (
+                              <a href={`#${item.product_id}`}>{product.name}</a>
+                            ) : (
+                              <span>{item.product_id}</span>
+                            )}
+                            <span class="meta-chip">product_id：{item.product_id}</span>
+                          </p>
+                          <p class="blurb">{item.note}</p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
             </article>
           ))}
         </div>

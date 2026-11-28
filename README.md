@@ -53,7 +53,8 @@ npm run preview
 - 顶部展示声明、`baseline_date`、更新节奏（每周一、周四）和 `last_updated`。
 - 「最近变化」按日期从新到旧列出全部 changelog，含完整摘要与来源链接。
 - 「跨产品模式」展示全部 patterns 的完整 summary，并链到例证产品。
-- 产品按 `groups` 分组；可用分组、状态和搜索筛选。每张卡片完整渲染模块链接、入口位置、内容类型、内容来源、组织方式、互动机制、转化路径、近期变化、证据、状态、核对日期、来源、备注和 spotlight（含评分表）；不截断、不省略字段。
+- 产品按 `groups` 分组；可用分组、状态和搜索筛选。每张卡片完整渲染 `profile`、模块链接、入口位置、内容类型、内容来源、组织方式、互动机制、激励权益、转化路径、规模、更新节奏、近期变化、具体条目、待确认、证据、状态、核对日期、来源、备注和 spotlight；不截断、不省略字段。
+- 「跨产品模式」在完整 summary 之外，还会按产品列出 `observations`，并链到对应卡片。
 - 部署产物里的 `/inspiration.json` 是数据副本。后续更新**只替换** `data/inspiration.json`。
 
 ## 数据约定
@@ -249,9 +250,11 @@ npm run preview
 7. `evidence` 只能是 `已打开`、`部分打开`、`仅搜到`。
 8. 产品级与模块级 `status` 只能是 `active`、`unreachable`、`changed`。
 9. 每个产品的 `modules`、`sources` 非空；`modules[].name`、`modules[].kind`、`sources[].label` 非空；`kind` 为小写短标签。
-10. **安全**：整个文件文本（大小写不敏感）不得出现 `youmind` / `优麦`；任意字符串不得含邮箱地址。
-11. `changelog` 按 `date` 升序；新条目只追加。有变化时更新产品字段、`last_checked`，必要时改 `status` 并追加 changelog；同步改 `last_updated`。
+10. **安全**：整个文件文本（忽略大小写）不得命中内置禁用词表（blocked terms）；任意字符串不得含邮箱地址。
+11. `changelog` 按 `date` 升序排列（历史条目可以早于 `baseline_date`）。有变化时更新产品字段、`last_checked`，必要时改 `status` 并追加 changelog；同步改 `last_updated`。
 12. 只写公开页面可核对事实；不要写私人建议、邮箱、密码、注册信息；未知留空，不要猜测。
+13. 可选字段：`profile`、`rewards`、`scale`、`update_cadence` 为字符串；`examples[]` 为 1–5 项 `{title,url,note?}`；`unconfirmed` 为字符串数组；`patterns[].observations[]` 为 `{product_id,note}`，且 `product_id` 必须在该条 `product_ids` 内。
+14. `patterns[].product_ids` 建议 3–12 个；`summary` 2–5 句。
 
 ## 隐私
 
@@ -262,11 +265,11 @@ npm run preview
 - 邮箱地址、`mailto:`、密码、令牌、手机号
 - 谁报名了、谁决定不报名、会员库之类的私人去向
 - 具体报名步骤，或带有账号、密码、邮箱、token 的链接
-- 灵感数据中的 `YouMind` / `优麦` / `youmind`（大小写不敏感）
+- 灵感数据中的禁用词表条目（blocked terms，大小写不敏感）
 
 可以写公开信息：活动页链接、价格、货币、以及「免费但需主办方审批」这种参与条件。回放如果只给报名者、没有公开地址，`channel` 写「仅向报名者提供」即可，不要写邮箱。
 
-`events.json` 校验会拒绝邮箱地址、敏感字段名（如 `email`、`password`、`token`）、英文 `password`、中文「密码」、HTML，以及带账号密码或敏感查询参数的 URL。`insights.json` 额外检查正文不含邮箱，且所有 `event_ids` 都能在 `events.json` 里找到。`inspiration.json` 额外拒绝 `youmind` / `优麦`，以及邮箱地址。
+`events.json` 校验会拒绝邮箱地址、敏感字段名（如 `email`、`password`、`token`）、英文 `password`、中文「密码」、HTML，以及带账号密码或敏感查询参数的 URL。`insights.json` 额外检查正文不含邮箱，且所有 `event_ids` 都能在 `events.json` 里找到。`inspiration.json` 额外拒绝命中禁用词表（blocked terms）的文本，以及邮箱地址。
 
 ## 部署到 Cloudflare Pages
 

@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import data from "../data/events.json" with { type: "json" };
 import insights from "../data/insights.json" with { type: "json" };
 import inspiration from "../data/inspiration.json" with { type: "json" };
+import { containsBlockedTerm } from "./validate-inspiration.mjs";
 
 const html = readFileSync(new URL("../dist/index.html", import.meta.url), "utf8");
 const inspirationHtml = readFileSync(new URL("../dist/inspiration/index.html", import.meta.url), "utf8");
@@ -97,7 +98,7 @@ assert.match(inspirationHtml, /跨产品模式/);
 assert.match(inspirationHtml, /href="\/"/);
 assert.ok(inspirationDecoded.includes(inspiration.disclaimer), "missing disclaimer text");
 assert.match(inspirationHtml, /每周一、周四/);
-assert.doesNotMatch(inspirationHtml, /youmind|优麦/i);
+assert.equal(containsBlockedTerm(inspirationHtml), false);
 assert.doesNotMatch(inspirationHtml, /[^@\s]+@[^@\s]+\.[^@\s]+/);
 
 for (const product of inspiration.products) {
@@ -109,6 +110,18 @@ for (const product of inspiration.products) {
   assert.ok(inspirationDecoded.includes(product.organization), `missing organization: ${product.id}`);
   assert.ok(inspirationDecoded.includes(product.interaction), `missing interaction: ${product.id}`);
   assert.ok(inspirationDecoded.includes(product.conversion), `missing conversion: ${product.id}`);
+  if (product.profile) {
+    assert.ok(inspirationDecoded.includes(product.profile), `missing profile: ${product.id}`);
+  }
+  if (product.rewards) {
+    assert.ok(inspirationDecoded.includes(product.rewards), `missing rewards: ${product.id}`);
+  }
+  if (product.scale) {
+    assert.ok(inspirationDecoded.includes(product.scale), `missing scale: ${product.id}`);
+  }
+  if (product.update_cadence) {
+    assert.ok(inspirationDecoded.includes(product.update_cadence), `missing product update_cadence: ${product.id}`);
+  }
   if (product.recent_updates) {
     assert.ok(inspirationDecoded.includes(product.recent_updates), `missing recent_updates: ${product.id}`);
   }
@@ -133,6 +146,21 @@ for (const product of inspiration.products) {
   for (const source of product.sources) {
     assert.ok(inspirationDecoded.includes(source.label), `missing source ${source.label}`);
     assert.ok(inspirationHtml.includes(source.url), `missing source url ${source.url}`);
+  }
+  for (const example of product.examples ?? []) {
+    assert.ok(inspirationDecoded.includes(example.title), `missing example ${example.title}`);
+    if (example.url) {
+      assert.ok(inspirationHtml.includes(example.url), `missing example url ${example.url}`);
+    }
+    if (example.note) {
+      assert.ok(inspirationDecoded.includes(example.note), `missing example note on ${product.id}`);
+    }
+  }
+  for (const item of product.unconfirmed ?? []) {
+    assert.ok(inspirationDecoded.includes(item), `missing unconfirmed on ${product.id}`);
+  }
+  if ((product.unconfirmed ?? []).length > 0) {
+    assert.match(inspirationHtml, /待确认/);
   }
   if (product.spotlight) {
     for (const [key, value] of Object.entries(product.spotlight)) {
@@ -163,6 +191,13 @@ for (const entry of inspiration.changelog) {
 for (const pattern of inspiration.patterns) {
   assert.ok(inspirationDecoded.includes(pattern.title), `missing pattern title: ${pattern.title}`);
   assert.ok(inspirationDecoded.includes(pattern.summary), `missing pattern summary: ${pattern.id}`);
+  for (const item of pattern.observations ?? []) {
+    assert.ok(inspirationDecoded.includes(item.note), `missing pattern observation on ${pattern.id}`);
+    assert.ok(
+      inspirationHtml.includes(`href="#${item.product_id}"`),
+      `missing pattern observation link ${item.product_id}`,
+    );
+  }
 }
 
 const productArticles = inspirationHtml.match(/<article\b[^>]*class="[^"]*product-card/g) ?? [];

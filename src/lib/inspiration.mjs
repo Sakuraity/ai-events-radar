@@ -46,18 +46,23 @@ export function searchBlob(product) {
     product.name,
     product.id,
     product.group_id,
+    product.profile ?? "",
     product.placement,
     product.content_types,
     product.content_source,
     product.organization,
     product.interaction,
+    product.rewards ?? "",
     product.conversion,
+    product.scale ?? "",
+    product.update_cadence ?? "",
     product.recent_updates,
     product.evidence,
     product.evidence_note,
     product.status,
     product.status_note,
     product.notes ?? "",
+    ...(product.unconfirmed ?? []),
     ...product.modules.flatMap((module) => [
       module.name,
       module.kind,
@@ -66,6 +71,11 @@ export function searchBlob(product) {
       module.status_note ?? "",
     ]),
     ...product.sources.flatMap((source) => [source.label, source.url]),
+    ...(product.examples ?? []).flatMap((example) => [
+      example.title,
+      example.url ?? "",
+      example.note ?? "",
+    ]),
   ];
   if (product.spotlight) {
     for (const [key, value] of Object.entries(product.spotlight)) {
