@@ -1,0 +1,207 @@
+---
+import { STATUS_CLASS, STATUS_LABELS, SPOTLIGHT_LABELS } from "../lib/inspiration.mjs";
+import { searchBlob } from "../lib/inspiration.mjs";
+
+const { product, groupName } = Astro.props;
+const statusClass = STATUS_CLASS[product.status] ?? "active";
+const statusLabel = STATUS_LABELS[product.status] ?? product.status;
+const hasSpotlight = product.spotlight && Object.keys(product.spotlight).length > 0;
+const spotlightEntries = hasSpotlight
+  ? Object.entries(product.spotlight).filter(([key]) => key !== "scoring_rules" && key !== "observations")
+  : [];
+const scoringRules = product.spotlight?.scoring_rules ?? [];
+const observations = product.spotlight?.observations ?? [];
+
+function spotlightLabel(key) {
+  return SPOTLIGHT_LABELS[key] ?? key;
+}
+---
+
+<article
+  id={product.id}
+  class:list={["card", "product-card", `is-${statusClass}`]}
+  data-group={product.group_id}
+  data-status={product.status}
+  data-name={product.name}
+  data-search={searchBlob(product).replaceAll("\n", " ")}
+>
+  <div class="product-head">
+    <h3>{product.name}</h3>
+    <p class="value-line">
+      <span class:list={["pill", statusClass]}>{statusLabel}</span>
+      <span class="meta-chip">{groupName}</span>
+      <span class="meta-chip">id：{product.id}</span>
+      <span class="meta-chip">group_id：{product.group_id}</span>
+      <span class="meta-chip">证据：{product.evidence}</span>
+    </p>
+  </div>
+
+  {product.status_note && (
+    <div class="fact">
+      <span class="k">状态说明</span>
+      <p class="blurb">{product.status_note}</p>
+    </div>
+  )}
+
+  {product.evidence_note && (
+    <div class="fact">
+      <span class="k">证据补充</span>
+      <p class="blurb">{product.evidence_note}</p>
+    </div>
+  )}
+
+  <div class="fact">
+    <span class="k">模块</span>
+    <ul class="module-list">
+      {product.modules.map((module) => (
+        <li class:list={["module-item", `is-${STATUS_CLASS[module.status] ?? "active"}`]}>
+          <p class="module-title">
+            {module.url ? (
+              <a href={module.url} target="_blank" rel="noopener noreferrer">
+                {module.name}
+                <span class="sr-only">（新窗口打开）</span>
+              </a>
+            ) : (
+              <span>{module.name}</span>
+            )}
+            <span class="meta-chip">{module.kind}</span>
+            <span class:list={["pill", STATUS_CLASS[module.status] ?? "active"]}>
+              {STATUS_LABELS[module.status] ?? module.status}
+            </span>
+          </p>
+          {module.url && (
+            <p class="url-line">
+              <a href={module.url} target="_blank" rel="noopener noreferrer">
+                {module.url}
+                <span class="sr-only">（新窗口打开）</span>
+              </a>
+            </p>
+          )}
+          {!module.url && <p class="muted-line">无公开直链</p>}
+          {module.status_note && <p class="blurb">{module.status_note}</p>}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="fact">
+    <span class="k">入口位置</span>
+    <p class="blurb">{product.placement || "（空）"}</p>
+  </div>
+
+  <div class="fact">
+    <span class="k">内容类型</span>
+    <p class="blurb">{product.content_types || "（空）"}</p>
+  </div>
+
+  <div class="fact">
+    <span class="k">内容来源</span>
+    <p class="blurb">{product.content_source || "（空）"}</p>
+  </div>
+
+  <div class="fact">
+    <span class="k">组织方式</span>
+    <p class="blurb">{product.organization || "（空）"}</p>
+  </div>
+
+  <div class="fact">
+    <span class="k">互动机制</span>
+    <p class="blurb">{product.interaction || "（空）"}</p>
+  </div>
+
+  <div class="fact">
+    <span class="k">转化路径</span>
+    <p class="blurb">{product.conversion || "（空）"}</p>
+  </div>
+
+  <div class="fact">
+    <span class="k">近期变化</span>
+    <p class="blurb">{product.recent_updates || "（空）"}</p>
+  </div>
+
+  <div class="fact">
+    <span class="k">首次记录</span>
+    <p><time datetime={product.first_seen}>{product.first_seen}</time></p>
+  </div>
+
+  <div class="fact">
+    <span class="k">最近核对</span>
+    <p><time datetime={product.last_checked}>{product.last_checked}</time></p>
+  </div>
+
+  <div class="fact">
+    <span class="k">来源</span>
+    <ul class="source-list">
+      {product.sources.map((source) => (
+        <li>
+          <a href={source.url} target="_blank" rel="noopener noreferrer">
+            {source.label}
+            <span class="sr-only">（新窗口打开）</span>
+          </a>
+          <p class="url-line">
+            <a href={source.url} target="_blank" rel="noopener noreferrer">
+              {source.url}
+              <span class="sr-only">（新窗口打开）</span>
+            </a>
+          </p>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  {product.notes && (
+    <details class="notes" open>
+      <summary>备注</summary>
+      <p class="blurb">{product.notes}</p>
+    </details>
+  )}
+
+  {hasSpotlight && (
+    <details class="notes spotlight" open>
+      <summary>补充观察（spotlight）</summary>
+      <div class="spotlight-body">
+        {spotlightEntries.map(([key, value]) => (
+          <div class="fact fact-stack">
+            <span class="k">{spotlightLabel(key)} <span class="field-key">{key}</span></span>
+            <p class="blurb">{value}</p>
+          </div>
+        ))}
+        {scoringRules.length > 0 && (
+          <div class="fact fact-stack">
+            <span class="k">{spotlightLabel("scoring_rules")} <span class="field-key">scoring_rules</span></span>
+            <div class="score-table-wrap">
+              <table class="score-table">
+                <thead>
+                  <tr>
+                    <th scope="col">action</th>
+                    <th scope="col">score</th>
+                    <th scope="col">credit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {scoringRules.map((rule) => (
+                    <tr>
+                      <td>{rule.action}</td>
+                      <td>{rule.score}</td>
+                      <td>{rule.credit}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+        {observations.length > 0 && (
+          <div class="fact fact-stack">
+            <span class="k">{spotlightLabel("observations")} <span class="field-key">observations</span></span>
+            <ul class="observation-list">
+              {observations.map((item) => (
+                <li class="blurb">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </details>
+  )}
+</article>

@@ -1,0 +1,1516 @@
+{
+  "schema_version": 1,
+  "timezone": "Asia/Shanghai",
+  "last_updated": "2026-11-28T12:51:25+08:00",
+  "baseline_date": "2026-11-28",
+  "update_cadence": "每周一、周四",
+  "disclaimer": "公开页面观察，均为初步判断。依据本轮打开或检索到的公开页面整理，未注册、未登录、未付费。查不到的字段留空，不代表功能不存在。结论只覆盖当前样本，不外推未收录的产品。",
+  "groups": [
+    {
+      "id": "ai-creation",
+      "name": "AI 创作",
+      "description": "图像、视频、音乐等生成类产品的社区、作品流、风格库与比赛模块。"
+    },
+    {
+      "id": "ai-agents",
+      "name": "AI 智能体与助手",
+      "description": "对话助手、智能体与自动化产品的模板、目录、社区与创作者模块。"
+    },
+    {
+      "id": "ai-site-docs",
+      "name": "AI 建站与文档",
+      "description": "AI 建站与文档生成产品的模板库、作品墙与社区活动。"
+    },
+    {
+      "id": "knowledge-notes",
+      "name": "知识与笔记",
+      "description": "笔记与知识工具的模板店、图库、公开分享与插件目录。"
+    },
+    {
+      "id": "non-ai-tools",
+      "name": "非 AI 工具",
+      "description": "传统设计、建站与自动化工具中的社区、模板市场与扩展商店，作为对照样本。"
+    }
+  ],
+  "products": [
+    {
+      "id": "higgsfield",
+      "name": "Higgsfield",
+      "group_id": "ai-creation",
+      "modules": [
+        {
+          "name": "Community",
+          "kind": "community",
+          "url": "https://higgsfield.ai/community",
+          "status": "active"
+        },
+        {
+          "name": "Academy",
+          "kind": "academy",
+          "url": "https://higgsfield.ai/academy",
+          "status": "active"
+        },
+        {
+          "name": "Open Projects",
+          "kind": "gallery",
+          "url": "https://higgsfield.ai/community",
+          "status": "active"
+        },
+        {
+          "name": "Shots",
+          "kind": "gallery",
+          "url": "https://higgsfield.ai/community",
+          "status": "active"
+        },
+        {
+          "name": "Contests",
+          "kind": "contests",
+          "url": "https://higgsfield.ai/community",
+          "status": "active"
+        },
+        {
+          "name": "Grants",
+          "kind": "grants",
+          "url": "https://higgsfield.ai/community",
+          "status": "active"
+        },
+        {
+          "name": "Rooms",
+          "kind": "community",
+          "url": "https://higgsfield.ai/community",
+          "status": "active"
+        },
+        {
+          "name": "Blogs",
+          "kind": "blogs",
+          "url": "https://higgsfield.ai/community",
+          "status": "active"
+        }
+      ],
+      "placement": "官网顶部导航「Community」；Academy 页导航里 Community、Academy、Contests 并列。Community 页底部有 Creator Hub 与 Discord 入口。",
+      "content_types": "Open Project（成果 + 项目 brief + 素材文件夹 + 所用模型，prompt 由作者选择公开或隐藏）、Shot（单图或视频 + prompt + 模型 + 设置）、Blog（含 prompt 块与自己的生成）、Post、Higgsfield Originals 影片、Rooms 话题空间。",
+      "content_source": "用户 UGC 为主；Higgsfield Selected 与 Originals 为官方精选；Creator Partnership Program 成员提供稳定供给。",
+      "organization": "Community tab：Discovery / Feed / Projects / Shots / Creators / Contests / Rooms / Blogs / Originals。Discovery 为首页，含精选项目、创作者、Grants 横幅和当前比赛。Open Projects 分栏：Popular / Talent Contest / Global Film Festival / Higgsfield Originals。筛选含比赛作品与 Originals；另有搜索、Featured Creators、创作者 Ranking。Featured Creators 展示评分与一句话身份。",
+      "interaction": "点赞、关注、Rooms 聊天（建房需付费套餐，每人最多 3 个）、比赛作品点赞或踩、Shot 一键 recreate、社区评分与成就、评分里程碑送积分、Grants、比赛奖金。点赞、浏览、关注本身不加分。",
+      "conversion": "作品从站内 Assets 一键发布；别人可直接 recreate Shot 或项目。评分换来的积分回到同一个账号余额，用于继续生成。浏览不需要账号；发布、点赞、关注和申请 Grants 需要账号。",
+      "recent_updates": "2026-10-17 官方博客发布 Community 上线；帮助中心文章于 2026-11-13 04:42（Asia/Shanghai）更新，tab 比博客多出 Feed、Contests、Rooms、Blogs、Originals；2026-11-21 官方 X 发 Talent Contest 倒计时。帮助中心文章首次发布是 2026-10-08，早于博客。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Community 页",
+          "url": "https://higgsfield.ai/community"
+        },
+        {
+          "label": "Academy 页",
+          "url": "https://higgsfield.ai/academy"
+        },
+        {
+          "label": "官方博客：Higgsfield Community",
+          "url": "https://higgsfield.ai/blog/higgsfield-community"
+        },
+        {
+          "label": "帮助中心：What is Higgsfield Community?",
+          "url": "https://higgsfield.ai/creator-hub/help-center/community/what-is-higgsfield-community"
+        },
+        {
+          "label": "官方 X @higgsfield",
+          "url": "https://x.com/higgsfield"
+        }
+      ],
+      "notes": "本轮用 X 公开读取查过 @higgsfield 在 10 月中旬与 Community、Grants 相关的帖子，没有找到一条专门宣布 Community 上线的帖子；公开读取可能漏帖。",
+      "spotlight": {
+        "page_snapshot": "2026-11-28 打开 higgsfield.ai/community：Featured Creators 展示 12 位，另有 +655 View all；Open Projects 分栏 Popular / Talent Contest / Global Film Festival / Higgsfield Originals；Contests 区含 Higgsfield Grants 卡片（up to 200K generation credits），卡片文案为 Submit your best project；另有 Shots by creators、Creator Partnership Program、Creator Hub、Discord Community（频道含 community-events、prompt-discussion、collaborations、community-streams、general-chat、your-creations、Community Stage）。",
+        "scoring_rules": [
+          {
+            "action": "完善资料（头像、名字、简介、专长）",
+            "score": "+3",
+            "credit": "计入里程碑"
+          },
+          {
+            "action": "首次 recreate 他人作品",
+            "score": "+2",
+            "credit": "计入里程碑"
+          },
+          {
+            "action": "完成 Academy 入门课",
+            "score": "+15",
+            "credit": "计入里程碑"
+          },
+          {
+            "action": "首发 Open Project",
+            "score": "+4",
+            "credit": "计入里程碑"
+          },
+          {
+            "action": "Open Project 被验证（每个）",
+            "score": "+30",
+            "credit": "计入里程碑"
+          },
+          {
+            "action": "已验证项目被付费创作者 recreate",
+            "score": "每次 +1，每月最多 15",
+            "credit": "计入里程碑"
+          },
+          {
+            "action": "博客获批且至少 20 赞",
+            "score": "+20",
+            "credit": "最多 5,000 积分"
+          },
+          {
+            "action": "作品被官方宣传使用（每次）",
+            "score": "+50",
+            "credit": "最多 200,000 积分"
+          },
+          {
+            "action": "评分达到 100 / 500 / 1,000",
+            "score": "里程碑",
+            "credit": "分别送 5,000 / 75,000 / 200,000 积分"
+          }
+        ],
+        "scoring_source": "官方博客，页面标注 2026-10-17 核对。",
+        "verification": "Open Project 满足至少 30 赞、至少 30 次生成、最终成品为视频，会自动送审。",
+        "grants": "最高 200,000 生成积分；项目需为至少 1 分钟的视频；获奖项目 3 个月内不能取消发布。规则口径前后不一致，见更新日志。",
+        "academy": "higgsfield.ai/academy：7 节课、90 分钟、可拿证书，页面显示 100,000+ 人加入。Academy 与 Community 在 2026-10-17 同一天公开宣布。",
+        "observations": [
+          "成果自带上下文：brief、模型、素材文件夹、可选公开的 prompt。看的人能学，也能直接复刻（初步观察）。",
+          "评分只认动作，不认流量：被验证、被复刻、被官方采用才加分，奖励的是可复用的作品（初步观察）。",
+          "积分是闭环货币：评分里程碑送积分，积分回到生成余额（初步观察）。",
+          "完成 Academy 入门课可获 +15 分，把新手到创作者连成一条路径（初步观察）。",
+          "2026-10-09 官方 X 介绍 Community Presets for Higgsfield Katana，可在 Claude 里用社区预设换成自己的人物或产品后复刻。"
+        ]
+      }
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "group_id": "ai-creation",
+      "modules": [
+        {
+          "name": "Explore",
+          "kind": "explore",
+          "url": "https://www.midjourney.com/explore",
+          "status": "active"
+        },
+        {
+          "name": "Styles",
+          "kind": "gallery",
+          "url": "https://www.midjourney.com/explore",
+          "status": "active"
+        }
+      ],
+      "placement": "网站主导航「Explore」（来自官方 Website Overview 文档）。",
+      "content_types": "社区公开生成的图片与视频；Styles tab 为 sref 风格码图集。",
+      "content_source": "用户 UGC（公开 job）；midjourney.tv 为高排名视频流。",
+      "organization": "For You（基于个人化档案）、Random、Hot、Top（日 / 周 / 月）、Styles（Random、Popular）、Likes 页；支持图 / 视频切换与搜索。分类名来自官方文档与 changelog。",
+      "interaction": "点赞；悬停快捷键可复用图片、复用 prompt、找相似；Style 可「Try Style」「Copy」。",
+      "conversion": "悬停即可把 prompt 复用到 Imagine 栏；Try Style 用当前 prompt 套该 sref 重新生成。",
+      "recent_updates": "2026-08-21 changelog：Top Week/Month 纳入 V8.2 图。2026-09-23 Create feed 视觉改版。2026-10-08 说明非 stealth 图即使在私有文件夹也可能出现在 Explore。更早：2025-07-30 上线 For You 与 midjourney.tv；2025-09-04 Style Explorer V1。",
+      "evidence": "仅搜到",
+      "evidence_note": "本轮请求站点返回 403/500，内容来自官方文档与 changelog 摘要，下期需补开。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "未直接打开页面，状态按官方文档与 changelog 仍在维护 Explore 来记录，不是对本轮可访问性的确认。",
+      "sources": [
+        {
+          "label": "Explore",
+          "url": "https://www.midjourney.com/explore"
+        },
+        {
+          "label": "Updates / changelog",
+          "url": "https://www.midjourney.com/updates"
+        }
+      ]
+    },
+    {
+      "id": "krea",
+      "name": "Krea",
+      "group_id": "ai-creation",
+      "modules": [
+        {
+          "name": "Gallery",
+          "kind": "gallery",
+          "url": "",
+          "status": "active",
+          "status_note": "直链入口未确认；本轮尝试的 /featured 返回 404。"
+        },
+        {
+          "name": "Moodboard Gallery",
+          "kind": "gallery",
+          "url": "",
+          "status": "active"
+        }
+      ],
+      "placement": "",
+      "content_types": "社区作品、sref 风格参考、Moodboard（数千个）；博客有 community 栏目。",
+      "content_source": "用户 UGC + 官方策展（博客的 community standouts）。",
+      "organization": "新 feed 为瀑布流；另有 Moodboard 图库，以及 Random / Auto 选板模式（预览）。本轮未确认 Gallery 的分类名。",
+      "interaction": "Remix；一键复制 sref；方向键翻看；Moodboard 可公开链接分享（只能用，不能改）。",
+      "conversion": "从 Moodboard 一键用 Krea 2 生成；Gallery 作品可 remix。",
+      "recent_updates": "2026-05-14 新 Gallery feed；2026-05-15 Gallery 显示并可一键复制 sref；2026-05-28 Moodboard Gallery 扩充。2026-11 changelog 未见 Gallery 变化；11-27 记录为 Krea Motion 模板，含「Edit in Claude」。",
+      "evidence": "部分打开",
+      "evidence_note": "首页已打开；Gallery 直链 /featured 返回 404，入口未确认。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "Gallery 的真实入口尚未确认，不能据此判断模块已下线。",
+      "sources": [
+        {
+          "label": "博客（含 community 栏目）",
+          "url": "https://www.krea.ai/blog"
+        },
+        {
+          "label": "Changelog",
+          "url": "https://www.krea.ai/docs/changelog"
+        }
+      ],
+      "notes": "产品内侧栏可见 Home 等项，本轮未找到 Gallery 直链。"
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "group_id": "ai-creation",
+      "modules": [
+        {
+          "name": "Runway Watch",
+          "kind": "showcase",
+          "url": "https://watch.runwayml.com/2026",
+          "status": "active"
+        },
+        {
+          "name": "Gen:48",
+          "kind": "contests",
+          "url": "https://runway.com/gen48",
+          "status": "active"
+        },
+        {
+          "name": "Hundred Film Fund",
+          "kind": "contests",
+          "url": "",
+          "status": "active"
+        },
+        {
+          "name": "Academy meetups",
+          "kind": "events",
+          "url": "https://academy.runwayml.com/meetups",
+          "status": "active"
+        }
+      ],
+      "placement": "",
+      "content_types": "影片作品、Gen:48 的 48 小时挑战获奖片、基金项目、线下放映与聚会。",
+      "content_source": "官方策展 + 创作者作品 + Runway Studios。",
+      "organization": "Watch 按年份分集；Gen:48 按届展示获奖片（1–4 届 + Aleph Edition）。",
+      "interaction": "比赛、基金申请、线下聚会。Meetups 页本轮所见写着暂无即将举行的场次，最近一场为 11-05 索菲亚。",
+      "conversion": "在已搜到的内容里，未见作品直接跳回生成界面。",
+      "recent_updates": "Meetups 页最近一场为 2026-11-05 索菲亚。Hundred Film Fund 于 2024-09-26 发布；第三方页面标注 2026-12-31 截止，未经官方核实。",
+      "evidence": "仅搜到",
+      "evidence_note": "Watch 为独立站点 watch.runwayml.com；runwayml.com/academy 返回 404。Academy 入口未确认。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Runway Watch 2026",
+          "url": "https://watch.runwayml.com/2026"
+        },
+        {
+          "label": "Gen:48",
+          "url": "https://runway.com/gen48"
+        },
+        {
+          "label": "Academy meetups",
+          "url": "https://academy.runwayml.com/meetups"
+        }
+      ],
+      "notes": "本轮未确认这些模块在 runway.com 主导航中的位置。"
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "group_id": "ai-creation",
+      "modules": [
+        {
+          "name": "Explore",
+          "kind": "explore",
+          "url": "https://suno.com/explore",
+          "status": "active"
+        }
+      ],
+      "placement": "官网「Explore」；页面顶部有 Log in / Open App。",
+      "content_types": "歌曲，带模型版本标签 V6 / V6-MINI / V6-WILD / CUSTOM。",
+      "content_source": "用户 UGC + 官方编辑精选 Staff Picks。",
+      "organization": "已核对 Staff Picks 分区；其余分区未核对。第三方指南还提到搜索、流派、个性化，未逐项核对。",
+      "interaction": "播放、点赞、评论（页面显示三个计数）。第三方指南还提到 remix 与 Hooks，未逐项核对。",
+      "conversion": "页面顶部有 Open App。歌曲页可 remix 来自第三方指南，未逐项核对。",
+      "recent_updates": "release-notes 有 2026-10 的 Suno Studio 更新；Explore 本身的更新日期未找到。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Explore",
+          "url": "https://suno.com/explore"
+        },
+        {
+          "label": "Release notes",
+          "url": "https://suno.com/release-notes"
+        }
+      ]
+    },
+    {
+      "id": "leonardo",
+      "name": "Leonardo.Ai",
+      "group_id": "ai-creation",
+      "modules": [
+        {
+          "name": "Community Feed",
+          "kind": "feed",
+          "url": "https://leonardo.ai",
+          "status": "active"
+        }
+      ],
+      "placement": "",
+      "content_types": "社区生成图。",
+      "content_source": "用户 UGC；付费用户可设私有。",
+      "organization": "",
+      "interaction": "Remix：带入原 prompt、模型、尺寸等设置。",
+      "conversion": "点图后 Remix 直接进入生成区。",
+      "recent_updates": "",
+      "evidence": "仅搜到",
+      "evidence_note": "本轮请求站点返回 403，changelog 入口也未找到。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "未直接打开 Community Feed，细节来自搜索摘要。",
+      "sources": [
+        {
+          "label": "官网",
+          "url": "https://leonardo.ai"
+        }
+      ]
+    },
+    {
+      "id": "manus",
+      "name": "Manus",
+      "group_id": "ai-agents",
+      "modules": [
+        {
+          "name": "Playbook",
+          "kind": "playbook",
+          "url": "https://manus.im/playbook",
+          "status": "active"
+        },
+        {
+          "name": "Events（Showcases）",
+          "kind": "events",
+          "url": "",
+          "status": "active"
+        },
+        {
+          "name": "Fellows",
+          "kind": "community",
+          "url": "",
+          "status": "active"
+        }
+      ],
+      "placement": "官网页脚 Resources 下有 Playbook、Community、Events、Fellows；顶部导航有 Events。",
+      "content_types": "Playbook 为场景模板，类别包括 Business / Creative / Sales and marketing / Education / Fun & Life。Events 有活动作品墙 Showcases。",
+      "content_source": "Playbook 页面写 Built by professionals，meta 描述写 community members。Fellows 与活动为社区。",
+      "organization": "Playbook：Picks + 按场景分类（Picks / Business / Creative / Sales and marketing / Education）。Events 作品墙按类型筛选：All / Websites / Games / Videos / Slides / Documents / Images / Other / Tasks。",
+      "interaction": "可申请办活动。Fellows 计划提供 Manus credits、活动预算和 Featured Fellow 页。",
+      "conversion": "Playbook 条目是可改的迷你应用（官方视频表述为 tweak, click and go）。页面标题多为 SEO 式关键词，例如 AI video generator。",
+      "recent_updates": "Playbook 于 2025-06-12 上线；Fellows 于 2025-04-10 上线；Webpage Templates 于 2025-09-08 上线。Manus 2.0 于 2026-09-28 发布，其中 Game Dev 从可玩模板开始。/use-cases 本轮返回 404；/updates 为前端渲染，列表未读到。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Playbook",
+          "url": "https://manus.im/playbook"
+        },
+        {
+          "label": "Updates",
+          "url": "https://manus.im/updates"
+        },
+        {
+          "label": "Blog",
+          "url": "https://manus.im/blog"
+        }
+      ]
+    },
+    {
+      "id": "genspark",
+      "name": "Genspark",
+      "group_id": "ai-agents",
+      "modules": [
+        {
+          "name": "Community",
+          "kind": "community",
+          "url": "https://www.gensparkcommunity.com/community",
+          "status": "active"
+        },
+        {
+          "name": "The Spark",
+          "kind": "community",
+          "url": "",
+          "status": "active"
+        },
+        {
+          "name": "工具目录",
+          "kind": "directory",
+          "url": "",
+          "status": "active"
+        }
+      ],
+      "placement": "社区为独立站。官网首页有「Browse all tools」；页脚有 Blog、Comparisons。",
+      "content_types": "数十个 SEO 式工具页（如 AI PDF Generator）、对比页、社区分享、power user 系列。",
+      "content_source": "官方 + 社区大使（Genius Ambassadors）。",
+      "organization": "工具目录按 Writing & Content / Design & Visuals / AI Models / Audio & Video / Business & Productivity 等分类。",
+      "interaction": "社区分享、本地分会、活动。",
+      "conversion": "工具页即产品入口；具体跳转未逐页核对。",
+      "recent_updates": "Workspace 6.0 于 2026-07-20 发布（来自搜索结果）；社区页未见日期。",
+      "evidence": "部分打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Community",
+          "url": "https://www.gensparkcommunity.com/community"
+        },
+        {
+          "label": "Blog",
+          "url": "https://www.genspark.ai/blog"
+        }
+      ]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "group_id": "ai-agents",
+      "modules": [
+        {
+          "name": "Discover",
+          "kind": "feed",
+          "url": "https://www.perplexity.ai/discover",
+          "status": "active"
+        },
+        {
+          "name": "Projects（由 Spaces 更名）",
+          "kind": "templates",
+          "url": "",
+          "status": "active"
+        }
+      ],
+      "placement": "",
+      "content_types": "",
+      "content_source": "",
+      "organization": "",
+      "interaction": "",
+      "conversion": "",
+      "recent_updates": "2026-07-30 Spaces 更名并迁移为 Projects。Spaces 模板库是否保留，本轮未确认。",
+      "evidence": "仅搜到",
+      "evidence_note": "本轮请求站点返回 403。Discover 当前内容未核实。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "未直接打开 Discover，也未确认原 Spaces 模板库是否还在。",
+      "sources": [
+        {
+          "label": "Discover",
+          "url": "https://www.perplexity.ai/discover"
+        },
+        {
+          "label": "Changelog",
+          "url": "https://www.perplexity.ai/changelog"
+        }
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "group_id": "ai-agents",
+      "modules": [
+        {
+          "name": "Plugin Directory",
+          "kind": "directory",
+          "url": "https://chatgpt.com/plugins",
+          "status": "active"
+        }
+      ],
+      "placement": "ChatGPT 内 Plugins 标签页；对应 chatgpt.com/plugins。",
+      "content_types": "插件 / 应用目录。",
+      "content_source": "第三方开发者 + 官方。",
+      "organization": "可搜索。细分类本轮未找到。",
+      "interaction": "安装并授权；对话中会推荐相关插件。",
+      "conversion": "安装后在对话中调用。",
+      "recent_updates": "搜索结果称目录已由 App Directory 更名为 Plugin Directory，日期未找到，待核实。GPT Store 本轮未核实。",
+      "evidence": "仅搜到",
+      "evidence_note": "本轮打开页面只返回标题。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Plugin Directory",
+          "url": "https://chatgpt.com/plugins"
+        },
+        {
+          "label": "ChatGPT release notes",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+        }
+      ]
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "group_id": "ai-agents",
+      "modules": [
+        {
+          "name": "Skills 目录",
+          "kind": "directory",
+          "url": "https://claude.com/resources/articles/organization-skills-and-directory",
+          "status": "active"
+        }
+      ],
+      "placement": "产品内 Customize > Skills > Browse skills。2026-09 起并入统一目录。",
+      "content_types": "Skills、connectors、plugins；合作方 skills 包括 Notion、Canva、Figma、Atlassian、Stripe、Zapier 等。",
+      "content_source": "官方 + 合作伙伴；组织可自建。",
+      "organization": "在统一目录内浏览 skills / connectors / plugins。细分类本轮未找到。",
+      "interaction": "安装、启用。",
+      "conversion": "目录内直接启用到 Claude。",
+      "recent_updates": "2025-12-18 Skills 目录首发；2026-09 并入统一目录。Artifacts 图库本轮未核实。",
+      "evidence": "仅搜到",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Organization skills and directory 介绍",
+          "url": "https://claude.com/resources/articles/organization-skills-and-directory"
+        },
+        {
+          "label": "Browse skills, connectors and plugins",
+          "url": "https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory"
+        }
+      ]
+    },
+    {
+      "id": "poe",
+      "name": "Poe",
+      "group_id": "ai-agents",
+      "modules": [
+        {
+          "name": "Explore",
+          "kind": "explore",
+          "url": "https://poe.com/explore",
+          "status": "active"
+        },
+        {
+          "name": "Leaderboard",
+          "kind": "directory",
+          "url": "https://poe.com/explore",
+          "status": "active"
+        }
+      ],
+      "placement": "官网顶部有 Explore、Leaderboard。",
+      "content_types": "官方模型 bot、创作者 bot，以及图像 / 视频 / 音频 / 编程助手。",
+      "content_source": "官方 + 创作者。",
+      "organization": "筛选：Official / Budget / Search / Image / Video / Audio / Programming / Assistant；另有 Leaderboard。",
+      "interaction": "聊天使用。创作者按消息定价分成，经 Stripe 结算，满 10 美元可结算（来自创作者平台公开说明）。",
+      "conversion": "点 bot 直接进入聊天。",
+      "recent_updates": "Explore 本身的更新日期未找到；创作者平台有 changelog。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Explore",
+          "url": "https://poe.com/explore"
+        },
+        {
+          "label": "Creator changelog",
+          "url": "https://creator.poe.com/changelog"
+        }
+      ]
+    },
+    {
+      "id": "lovable",
+      "name": "Lovable",
+      "group_id": "ai-site-docs",
+      "modules": [
+        {
+          "name": "Community",
+          "kind": "community",
+          "url": "https://lovable.dev/community",
+          "status": "active"
+        },
+        {
+          "name": "Launched",
+          "kind": "gallery",
+          "url": "https://launched.lovable.app",
+          "status": "unreachable",
+          "status_note": "2026-11-28 返回 Project not found，未确认是否已下线。公开信息称其为 Product Hunt 式作品榜，2025-01 首发。"
+        }
+      ],
+      "placement": "官网路径 /community。",
+      "content_types": "Discord、全球社区活动（hackathon / buildathon / workshop）、Ambassador 与 Campus Leader 计划、SheBuilds。",
+      "content_source": "社区成员组织 + 官方支持。",
+      "organization": "按线上 Discord / 线下活动 / 项目申请分流；分类名包括 Join IRL / Join online / Become a community leader。",
+      "interaction": "页面称 160K+ builders 的 Discord；活动由社区发起；大使项目季度招募。",
+      "conversion": "社区页引导到 Discord 和活动页；未见作品库直通产品编辑器。",
+      "recent_updates": "页面称 460+ community leaders、1,500+ events、60+ 国家，无发布日期。Lovable Launched 在 2026-11-28 无法打开。",
+      "evidence": "已打开",
+      "evidence_note": "已打开 Community 页；Launched 子模块打不开。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "Community 仍可打开。被跟踪的作品榜 Launched 在 2026-11-28 无法访问，见该模块状态与更新日志。",
+      "sources": [
+        {
+          "label": "Community",
+          "url": "https://lovable.dev/community"
+        },
+        {
+          "label": "Blog",
+          "url": "https://lovable.dev/blog"
+        },
+        {
+          "label": "Launched（本轮无法打开）",
+          "url": "https://launched.lovable.app"
+        }
+      ]
+    },
+    {
+      "id": "v0",
+      "name": "v0",
+      "group_id": "ai-site-docs",
+      "modules": [
+        {
+          "name": "Community Templates",
+          "kind": "templates",
+          "url": "https://v0.app/templates",
+          "status": "active"
+        }
+      ],
+      "placement": "官网顶部「Templates」，页内标 Community。",
+      "content_types": "应用与游戏、落地页、仪表盘、组件、登录注册、博客作品集、电商、AI、动画、设计系统、布局、Agents。",
+      "content_source": "用户 UGC + Featured。",
+      "organization": "Browse All / Featured / Trending，以及约 15 个类别：Apps & Games / Landing Pages / Dashboards / Components / Login & Sign Up / Blog & Portfolio / E-commerce / AI / Animations / Design Systems / Layouts / Website Templates / Agents。",
+      "interaction": "Duplicate a Template。作者可更新模板（URL 不变），并支持 Git 同步。",
+      "conversion": "Duplicate a Template 直接复制进 v0 项目。",
+      "recent_updates": "模板库本身的上线或改版日期未找到。文档页说明了作者更新模板的流程。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Templates",
+          "url": "https://v0.app/templates"
+        },
+        {
+          "label": "模板文档",
+          "url": "https://v0.app/docs/templates"
+        }
+      ]
+    },
+    {
+      "id": "bolt",
+      "name": "Bolt",
+      "group_id": "ai-site-docs",
+      "modules": [
+        {
+          "name": "Gallery",
+          "kind": "gallery",
+          "url": "https://bolt.new/gallery",
+          "status": "unreachable",
+          "status_note": "2026-11-28 返回 404。404 页提示站点另有 use cases、templates 页。"
+        }
+      ],
+      "placement": "",
+      "content_types": "精选项目。",
+      "content_source": "用户投稿，官方策展。",
+      "organization": "",
+      "interaction": "与黑客松项目库相关（World's Largest Hackathon）。",
+      "conversion": "",
+      "recent_updates": "Gallery 于 2025-07 上线（AlternativeTo 报道）。bolt.new/gallery 在 2026-11-28 返回 404。",
+      "evidence": "部分打开",
+      "evidence_note": "打开了 bolt.new 首页；/gallery 返回 404。未找到 changelog 入口。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "unreachable",
+      "status_note": "被跟踪的 Gallery 模块在 2026-11-28 无法打开，未确认是否已下线。404 页提到 use cases 与 templates，本轮未逐页核对。",
+      "sources": [
+        {
+          "label": "官网",
+          "url": "https://bolt.new"
+        },
+        {
+          "label": "Gallery（本轮 404）",
+          "url": "https://bolt.new/gallery"
+        }
+      ]
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "group_id": "ai-site-docs",
+      "modules": [
+        {
+          "name": "Templates",
+          "kind": "templates",
+          "url": "https://gamma.app/templates",
+          "status": "active"
+        }
+      ],
+      "placement": "产品内 Templates > Explore templates（来自帮助中心）。",
+      "content_types": "演示文稿、文档、社交图、网页模板。",
+      "content_source": "官方用 agent 工厂批量生产，并可为客户定制品牌模板。",
+      "organization": "按格式、类别、主题筛选。具体筛选项名称本轮未抓到。",
+      "interaction": "「Create from this」让 AI 按模板重写内容；另有工作区模板。",
+      "conversion": "模板即生成起点。官方称 Gamma 5 中几乎每个 agent 生成的 deck 都从模板开始。",
+      "recent_updates": "2026 年初起上线 100+ 专业模板与 AI-Native Templates（官方 LinkedIn 帖）。2026-11 研究博客披露模板工厂，库内数千个模板。",
+      "evidence": "部分打开",
+      "evidence_note": "模板页本轮返回 403；官方研究博客已打开。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Templates",
+          "url": "https://gamma.app/templates"
+        },
+        {
+          "label": "官方公告区",
+          "url": "https://community.gamma.app/x/gamma-announcements"
+        }
+      ]
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "group_id": "knowledge-notes",
+      "modules": [
+        {
+          "name": "Marketplace",
+          "kind": "marketplace",
+          "url": "https://www.notion.com/templates",
+          "status": "active"
+        },
+        {
+          "name": "Templates",
+          "kind": "templates",
+          "url": "https://www.notion.com/templates",
+          "status": "active"
+        },
+        {
+          "name": "Skills",
+          "kind": "directory",
+          "url": "https://www.notion.com/skills-templates",
+          "status": "active"
+        },
+        {
+          "name": "Agents",
+          "kind": "directory",
+          "url": "",
+          "status": "active"
+        },
+        {
+          "name": "Consultants",
+          "kind": "directory",
+          "url": "",
+          "status": "active"
+        },
+        {
+          "name": "Connections",
+          "kind": "directory",
+          "url": "",
+          "status": "active"
+        }
+      ],
+      "placement": "官网 Resources 下的 Templates；Marketplace 有二级导航。",
+      "content_types": "30,000+ 模板、AI Skills、Agents、认证顾问、连接器。",
+      "content_source": "社区创作者 + 官方；顾问为认证合作伙伴。",
+      "organization": "Marketplace 二级分类：Templates / Skills / Agents / Consultants / Connections。可按类别浏览（页面含 Efficiency 等专题）和搜索。",
+      "interaction": "创作者可上架售卖。Notion 帮助中心摘要称抽成为 8% 另加每笔 0.40 美元。另提供 1:1 顾问服务。",
+      "conversion": "模板复制到自己的工作区。Skills 是可复用的 Notion 页面，供 Notion Agent 使用。",
+      "recent_updates": "Marketplace 于 2024-10 首发。Skills 入驻 Marketplace 的日期未找到。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Templates / Marketplace",
+          "url": "https://www.notion.com/templates"
+        },
+        {
+          "label": "Skills templates",
+          "url": "https://www.notion.com/skills-templates"
+        }
+      ]
+    },
+    {
+      "id": "notebooklm",
+      "name": "NotebookLM",
+      "group_id": "knowledge-notes",
+      "modules": [
+        {
+          "name": "Featured notebooks",
+          "kind": "gallery",
+          "url": "https://notebook.google.com/",
+          "status": "active"
+        },
+        {
+          "name": "Public notebooks",
+          "kind": "gallery",
+          "url": "https://notebook.google.com/",
+          "status": "active"
+        }
+      ],
+      "placement": "产品内 Featured 标签页（来自官方帮助）。本轮打开时，页面现名为 Gemini Notebook。",
+      "content_types": "与合作方共建的策展笔记本；公开笔记本可搜索。",
+      "content_source": "官方策展 + 合作方。无官方公开笔记本目录。已出现第三方图库（NotebookLM Gallery）。",
+      "organization": "Featured 精选。",
+      "interaction": "使用、分享公开笔记本。",
+      "conversion": "精选笔记本可直接打开使用。",
+      "recent_updates": "官方称持续新增精选，具体日期未找到。",
+      "evidence": "部分打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "产品页",
+          "url": "https://notebook.google.com/"
+        },
+        {
+          "label": "官方介绍 Featured notebooks",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/notebooklm-featured-notebooks/"
+        }
+      ],
+      "notes": "产品公开页本轮显示的名称为 Gemini Notebook。"
+    },
+    {
+      "id": "obsidian",
+      "name": "Obsidian",
+      "group_id": "knowledge-notes",
+      "modules": [
+        {
+          "name": "Community",
+          "kind": "directory",
+          "url": "https://community.obsidian.md/",
+          "status": "active"
+        }
+      ],
+      "placement": "官网页脚 Community；应用内可浏览插件。",
+      "content_types": "插件与主题目录。本轮页面数字为 11,005 个插件、1,063 个主题。",
+      "content_source": "开发者 UGC。",
+      "organization": "Plugins / Themes。排序含 Popular / New / Updated，以及按名称、下载、热度、发布、更新排序。几十个类别，页面所见包括 Integrations、Bases、Charts 等。项目详情页含截图与安全评分卡；有 Free / Optional payments / Paid、Official 标签。",
+      "interaction": "作者主页含赞助链接；开发者通过后台提交。",
+      "conversion": "提交通过后 24 小时内可在应用内搜索并下载安装。",
+      "recent_updates": "2026-05-12 官方博客发布新 Community 目录、开发者后台和自动审核，并处理了 2,300+ 排队提交。后续计划包括权限披露、Verified authors，本轮未见已上线。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Community 目录",
+          "url": "https://community.obsidian.md/"
+        },
+        {
+          "label": "Changelog",
+          "url": "https://obsidian.md/changelog"
+        },
+        {
+          "label": "官方博客：Future of plugins",
+          "url": "https://obsidian.md/blog/future-of-plugins/"
+        }
+      ]
+    },
+    {
+      "id": "readwise",
+      "name": "Readwise / Reader",
+      "group_id": "knowledge-notes",
+      "modules": [
+        {
+          "name": "公开分享链接",
+          "kind": "gallery",
+          "url": "https://docs.readwise.io/reader/docs/faqs/sharing",
+          "status": "active"
+        },
+        {
+          "name": "Bundles",
+          "kind": "gallery",
+          "url": "",
+          "status": "active"
+        }
+      ],
+      "placement": "Reader 内分享。",
+      "content_types": "带高亮、笔记、标签的文章公开页；按筛选视图生成的 Bundles。",
+      "content_source": "用户。",
+      "organization": "Bundle 有落地页。未见统一的社区广场。",
+      "interaction": "可用 Open in Reader 导入。",
+      "conversion": "Open in Reader 导入到自己的库。",
+      "recent_updates": "",
+      "evidence": "仅搜到",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Sharing FAQ",
+          "url": "https://docs.readwise.io/reader/docs/faqs/sharing"
+        },
+        {
+          "label": "Changelog",
+          "url": "https://docs.readwise.io/changelog"
+        }
+      ]
+    },
+    {
+      "id": "heptabase",
+      "name": "Heptabase",
+      "group_id": "knowledge-notes",
+      "modules": [
+        {
+          "name": "Gallery",
+          "kind": "gallery",
+          "url": "https://heptabase.com/gallery",
+          "status": "active"
+        }
+      ],
+      "placement": "官网导航，位于 Resources 菜单附近，具体位置待确认。",
+      "content_types": "公开白板，多为读书笔记（如 Mindstorms、The Mom Test）与学习研究。",
+      "content_source": "用户投稿 + 官方滚动审核策展。",
+      "organization": "卡片列表：标题 + 一句话描述 + 作者。页面文本里未见分类筛选。",
+      "interaction": "只读公开链接，实时更新，无需订阅即可看。",
+      "conversion": "官方文章说明发布方式为 Share → Publish。未见一键复制白板。",
+      "recent_updates": "Gallery 在 2025-09-26 的官方 newsletter 中公布。2026 年的变化未找到。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Gallery",
+          "url": "https://heptabase.com/gallery"
+        },
+        {
+          "label": "Changelog",
+          "url": "https://wiki.heptabase.com/changelog"
+        }
+      ]
+    },
+    {
+      "id": "tana",
+      "name": "Tana",
+      "group_id": "knowledge-notes",
+      "modules": [
+        {
+          "name": "Template Store",
+          "kind": "templates",
+          "url": "https://outliner.tana.inc/templates",
+          "status": "active"
+        }
+      ],
+      "placement": "App 内侧栏 Supertags → Browse templates；官网有 Templates。",
+      "content_types": "可安装工作流，包含 Supertags、字段、视图、示例内容，部分含自定义 AI agent。",
+      "content_source": "官方为主（首批）；社区另有第三方 LifeOS 库。",
+      "organization": "按用例组织，例如 OKR、周复盘、语音转邮件、PRD 等。",
+      "interaction": "安装后可深度修改。",
+      "conversion": "一键安装进自己的工作区，手机端也可。",
+      "recent_updates": "官方称每周新增。Template Store 介绍博客的发布日期本轮未抓到。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Template Store",
+          "url": "https://outliner.tana.inc/templates"
+        },
+        {
+          "label": "介绍博客",
+          "url": "https://outliner.tana.inc/blog/tana-template-store"
+        }
+      ]
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "group_id": "non-ai-tools",
+      "modules": [
+        {
+          "name": "Community",
+          "kind": "community",
+          "url": "https://www.figma.com/community",
+          "status": "active"
+        }
+      ],
+      "placement": "Figma 文件浏览器中的 Community；官网路径 /community。",
+      "content_types": "设计文件、插件、小组件、Figma Make 原型与 Web 应用。",
+      "content_source": "用户 UGC。",
+      "organization": "页面描述含模板、插件、小组件，以及 Make 应用。细分类本轮未逐项核对。",
+      "interaction": "Remix。付费计划用户可 remix Make 应用；remix 之后不能再发布回 Community。",
+      "conversion": "Remix 直接进入自己的工作区（Make 应用进入自己的 Make 工作区）。",
+      "recent_updates": "2026-07 起，旧 Make 文件在 remix 时会提示升级（帮助中心）。",
+      "evidence": "部分打开",
+      "evidence_note": "页面为前端渲染，本轮未能完整读取分类细节。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Community",
+          "url": "https://www.figma.com/community"
+        },
+        {
+          "label": "发布到 Community 的帮助文档",
+          "url": "https://help.figma.com/hc/en-us/articles/33652209702423-Publish-a-functional-prototype-or-web-app-to-the-Figma-Community"
+        }
+      ]
+    },
+    {
+      "id": "canva",
+      "name": "Canva",
+      "group_id": "non-ai-tools",
+      "modules": [
+        {
+          "name": "Templates",
+          "kind": "templates",
+          "url": "https://www.canva.com/templates/",
+          "status": "active"
+        },
+        {
+          "name": "Template Creator",
+          "kind": "marketplace",
+          "url": "https://www.canva.com/templates/",
+          "status": "active"
+        }
+      ],
+      "placement": "官网顶部 Templates。导航还含 Templates Marketplace / Apps Marketplace。",
+      "content_types": "按设计类型组织的模板，以及应用。",
+      "content_source": "官方 + 创作者。Template Creator 为 beta，按使用量分成。",
+      "organization": "按设计类型与场合分类。",
+      "interaction": "创作者可提交模板，按使用量收取版税。第三方说明称月结，门槛为 10 美元。",
+      "conversion": "点模板直接进入编辑器。",
+      "recent_updates": "Canva Create 2026 公布内容里，未见模板市场的新计划。更细的日期未找到。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Templates",
+          "url": "https://www.canva.com/templates/"
+        },
+        {
+          "label": "Canva Create 2026 新闻稿",
+          "url": "https://www.canva.com/newsroom/news/canva-create-2026-launches/"
+        }
+      ]
+    },
+    {
+      "id": "framer",
+      "name": "Framer",
+      "group_id": "non-ai-tools",
+      "modules": [
+        {
+          "name": "Marketplace",
+          "kind": "marketplace",
+          "url": "https://www.framer.com/marketplace/templates/",
+          "status": "active"
+        },
+        {
+          "name": "Agent Templates",
+          "kind": "templates",
+          "url": "https://www.framer.com/marketplace/templates/",
+          "status": "active"
+        }
+      ],
+      "placement": "官网 Marketplace。",
+      "content_types": "网站模板、插件、组件、矢量。另有 Agent Templates：模板内置 skills，让 agent 能代为修改。",
+      "content_source": "社区创作者。",
+      "organization": "几十个行业与类型分类，页面所见包括 Agent Templates（标 New）、Portfolio / AI / Agency / Ecommerce / Education / Real Estate / Hospitality / Events 等。排序有 Trending、Best。",
+      "interaction": "创作者保留 100% 收入；模板另有 50% 推荐佣金，为期 12 个月。官方博客摘要称 2025 年付给创作者 650 万美元，卖家超过 7,000。",
+      "conversion": "模板预览后进入 Framer 编辑。",
+      "recent_updates": "Agent Templates 页面标 New，上线日期未找到。Framer 3.0 官方博客提到 Agents 与新的 Community。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Marketplace Templates",
+          "url": "https://www.framer.com/marketplace/templates/"
+        },
+        {
+          "label": "Framer 3.0 博客",
+          "url": "https://www.framer.com/blog/framer-3/"
+        }
+      ]
+    },
+    {
+      "id": "raycast",
+      "name": "Raycast",
+      "group_id": "non-ai-tools",
+      "modules": [
+        {
+          "name": "Store",
+          "kind": "store",
+          "url": "https://www.raycast.com/store",
+          "status": "active"
+        }
+      ],
+      "placement": "官网顶部 Store。",
+      "content_types": "社区扩展，覆盖 macOS 与 Windows。",
+      "content_source": "社区开发者。",
+      "organization": "Featured / All Extensions / Recent / Popular；带作者署名。",
+      "interaction": "Install Extension、Share。",
+      "conversion": "一键安装进 Raycast。",
+      "recent_updates": "Changelog 在 2026-11 有 v2.11–v2.14（搜索结果，含 Dictate to AI、Raycast MCP 等）。Recent 页在 10 月底至 11 月初新增 21 个扩展。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Store",
+          "url": "https://www.raycast.com/store"
+        },
+        {
+          "label": "Changelog",
+          "url": "https://www.raycast.com/changelog"
+        }
+      ]
+    },
+    {
+      "id": "zapier",
+      "name": "Zapier",
+      "group_id": "non-ai-tools",
+      "modules": [
+        {
+          "name": "Templates",
+          "kind": "templates",
+          "url": "https://zapier.com/templates",
+          "status": "active"
+        }
+      ],
+      "placement": "官网 Products 菜单下 Explore templates。",
+      "content_types": "工作流模板，覆盖 Zap / Tables / Interfaces / Chatbots / Agents，宣称覆盖 9,000+ 应用。",
+      "content_source": "官方 + 应用合作方。",
+      "organization": "按应用、团队、场景组织，并有 SEO 详情页。细分类本轮未逐项核对。",
+      "interaction": "Use this template：登录后连接应用、改字段、测试、发布。",
+      "conversion": "「Use this template」直达自己的账号。",
+      "recent_updates": "",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Templates",
+          "url": "https://zapier.com/templates"
+        },
+        {
+          "label": "Blog",
+          "url": "https://zapier.com/blog/"
+        }
+      ]
+    },
+    {
+      "id": "airtable",
+      "name": "Airtable",
+      "group_id": "non-ai-tools",
+      "modules": [
+        {
+          "name": "Universe",
+          "kind": "gallery",
+          "url": "https://www.airtable.com/universe",
+          "status": "active"
+        }
+      ],
+      "placement": "官网路径 /universe。",
+      "content_types": "用户发布的 base。",
+      "content_source": "用户 UGC。",
+      "organization": "",
+      "interaction": "官方帮助说明可以发布、更新、取消发布。",
+      "conversion": "",
+      "recent_updates": "官方帮助文章仍在。有 Airtable 社区帖称新提交不再被收录，此为社区反馈，待验证。",
+      "evidence": "部分打开",
+      "evidence_note": "页面为前端渲染，分类等细节未逐项核对。",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "模块页面与官方帮助仍在。关于是否还收录新提交，只有社区反馈，本轮未当作已确认的变更。",
+      "sources": [
+        {
+          "label": "Universe",
+          "url": "https://www.airtable.com/universe"
+        },
+        {
+          "label": "官方帮助：Airtable Universe",
+          "url": "https://support.airtable.com/articles/7447788665-airtable-universe"
+        }
+      ]
+    },
+    {
+      "id": "webflow",
+      "name": "Webflow",
+      "group_id": "non-ai-tools",
+      "modules": [
+        {
+          "name": "Made in Webflow",
+          "kind": "showcase",
+          "url": "https://webflow.com/made-in-webflow",
+          "status": "active"
+        },
+        {
+          "name": "Marketplace",
+          "kind": "marketplace",
+          "url": "",
+          "status": "active"
+        }
+      ],
+      "placement": "官网 Marketplace 菜单下有 Templates / Made in Webflow。",
+      "content_types": "社区网站作品、可克隆站点、官方 Marketplace 模板。",
+      "content_source": "用户 UGC + 官方 Marketplace。",
+      "organization": "All / Animation / Interactions / CMS / Ecommerce / Portfolio / Popular。有「Cloneable sites only」开关，以及 Showcase your site 投稿入口。",
+      "interaction": "Clone 到自己的工作区；可提交作品。",
+      "conversion": "可克隆站点直接复制进 Workspace。",
+      "recent_updates": "页面出现「New Cloneable: GSAP Flip Layout」，无发布日期。",
+      "evidence": "已打开",
+      "evidence_note": "",
+      "first_seen": "2026-11-28",
+      "last_checked": "2026-11-28",
+      "status": "active",
+      "status_note": "",
+      "sources": [
+        {
+          "label": "Made in Webflow",
+          "url": "https://webflow.com/made-in-webflow"
+        },
+        {
+          "label": "Clone a site 帮助文档",
+          "url": "https://help.webflow.com/hc/en-us/articles/33961311242515-Clone-a-site-in-Webflow"
+        }
+      ]
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-04",
+      "product_id": "higgsfield",
+      "summary": "官方 X 于 2026-10-04 01:09（Asia/Shanghai）发布 Creator Partnership Program，提到月度套餐、额外积分、新模型抢先用、专属合作伙伴社区和联盟收益。",
+      "source_url": "https://x.com/higgsfield/status/2106431413373616254"
+    },
+    {
+      "date": "2026-10-08",
+      "product_id": "higgsfield",
+      "summary": "帮助中心文章 What is Higgsfield Community? 首次发布，早于官方博客对 Community 的正式宣布。",
+      "source_url": "https://higgsfield.ai/creator-hub/help-center/community/what-is-higgsfield-community"
+    },
+    {
+      "date": "2026-10-09",
+      "product_id": "higgsfield",
+      "summary": "官方 X 于 2026-10-09 11:37（Asia/Shanghai）介绍 Community Presets for Higgsfield Katana：选一个社区预设，换成自己的人物或产品，可在 Claude 里复刻。",
+      "source_url": "https://x.com/higgsfield/status/2108401556232327237"
+    },
+    {
+      "date": "2026-10-17",
+      "product_id": "higgsfield",
+      "summary": "官方博客发布 Higgsfield Community，介绍 Community 页、Ranking、Creators、Grants 等。博客里 Grants 的表述是需在 Grants 页提交。同一天官方 X 两次宣布 Higgsfield Academy 上线。",
+      "source_url": "https://higgsfield.ai/blog/higgsfield-community"
+    },
+    {
+      "date": "2026-11-13",
+      "product_id": "higgsfield",
+      "summary": "帮助中心文章于 2026-11-13 04:42（Asia/Shanghai）更新：所列为 tab 比 10-17 博客多出 Feed、Contests、Rooms、Blogs、Originals。Grants 改为「无需申请，发布 Open Project 后由团队挑选」。同日 08:47 官方 X 称最佳参赛者可能加入面向电影人的 Talent community program。",
+      "source_url": "https://higgsfield.ai/creator-hub/help-center/community/what-is-higgsfield-community"
+    },
+    {
+      "date": "2026-11-21",
+      "product_id": "higgsfield",
+      "summary": "官方 X 于 2026-11-21 21:18（Asia/Shanghai）发 Talent Contest 倒计时：奖金写 1,000,000 美元，还剩 5 天，评委 Jama Jurabaev，并称公开项目已在拿积分 grant。",
+      "source_url": "https://x.com/higgsfield/status/2124130355087049128"
+    },
+    {
+      "date": "2026-11-28",
+      "product_id": "higgsfield",
+      "summary": "打开 Community 页时，Grants 卡片写着 Submit your best project，最高 200K generation credits。与 10-17 博客「需提交」和 11-13 帮助中心「无需申请」的口径不一致，规则仍在变化。",
+      "source_url": "https://higgsfield.ai/community"
+    },
+    {
+      "date": "2026-11-28",
+      "product_id": "lovable",
+      "summary": "Lovable Launched（launched.lovable.app，公开信息称 2025-01 首发的作品榜）本轮返回 Project not found，无法打开。未确认是否已下线。Community 页仍可打开。",
+      "source_url": "https://launched.lovable.app"
+    },
+    {
+      "date": "2026-11-28",
+      "product_id": "bolt",
+      "summary": "bolt.new/gallery 本轮返回 404。公开报道称 Gallery 于 2025-07 上线。404 页提示站点另有 use cases、templates 页，本轮未逐页核对。",
+      "source_url": "https://bolt.new/gallery"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "one-click-reuse",
+      "title": "作品可一键复用",
+      "summary": "初步观察：不少模块把「看到」直接接上「做一次」。常见动作是 recreate、复用 prompt、复制风格码、Duplicate、Clone、Remix，或 Use this template。用户不必从空白开始，第一次产出的路径更短。",
+      "product_ids": [
+        "higgsfield",
+        "midjourney",
+        "krea",
+        "v0",
+        "gamma",
+        "zapier",
+        "webflow",
+        "figma"
+      ]
+    },
+    {
+      "id": "official-curation",
+      "title": "官方精选与用户作品分层",
+      "summary": "初步观察：多个产品把官方精选和用户作品放在同一套浏览结构里，用 Staff Picks、Selected、Featured、Watch 或 Originals 来示范「什么算好」，再用用户内容把供给做大。",
+      "product_ids": [
+        "suno",
+        "higgsfield",
+        "heptabase",
+        "notebooklm",
+        "runway",
+        "raycast",
+        "v0"
+      ]
+    },
+    {
+      "id": "creator-incentives",
+      "title": "创作者激励与等级",
+      "summary": "初步观察：供给侧常见三类激励：社区评分和积分（有时能换生成额度）、模板或 bot 的分成与版税、以及大使 / Fellows / 作者主页这类身份与资源。它们服务的是创作者留存和持续供给，而不只是展示。",
+      "product_ids": [
+        "higgsfield",
+        "notion",
+        "framer",
+        "canva",
+        "poe",
+        "manus",
+        "lovable",
+        "obsidian"
+      ]
+    },
+    {
+      "id": "courses-and-tutorials",
+      "title": "课程与场景教程",
+      "summary": "初步观察：一部分产品把教程或短课程嵌进同一套社区 / 模板体系。Higgsfield Academy 与 Community 同日宣布，完成入门课还能加分；Manus Playbook 把场景做成可改的迷你应用；Notion Marketplace 同时放模板、Skills 和顾问入口。路径往往是先完成一次成功产出，再进入创作或发布。",
+      "product_ids": [
+        "higgsfield",
+        "manus",
+        "notion"
+      ]
+    },
+    {
+      "id": "scenario-matrix",
+      "title": "按场景组织的页面矩阵",
+      "summary": "初步观察：工具目录和模板库常按任务、行业或格式铺成大量落地页，标题偏搜索词。这既是浏览结构，也是按需求分流和获取搜索流量的方式。",
+      "product_ids": [
+        "genspark",
+        "manus",
+        "canva",
+        "zapier",
+        "framer"
+      ]
+    },
+    {
+      "id": "skills-as-content",
+      "title": "Skill 与 Agent 成为可分发内容",
+      "summary": "初步观察：除了作品和模板，越来越多产品把 Skill、Agent、扩展本身做成可浏览、可安装的内容。有的模板还内置 agent 或 skills，有的生成结果可以在其他助手里继续改。这带来分发效率，也带来信任和安全问题。",
+      "product_ids": [
+        "claude",
+        "notion",
+        "framer",
+        "tana",
+        "krea",
+        "higgsfield"
+      ]
+    },
+    {
+      "id": "events-and-showcases",
+      "title": "活动与作品墙联动",
+      "summary": "初步观察：比赛、线下聚会或社区活动的产出，会被收进可筛选的作品墙或专题里。活动不再只是一次性到场，也会留下可展示、有时还可复用的案例。",
+      "product_ids": [
+        "manus",
+        "lovable",
+        "runway",
+        "higgsfield"
+      ]
+    },
+    {
+      "id": "trust-and-safety",
+      "title": "信任与安全设计",
+      "summary": "初步观察：开放 UGC 或第三方内容的产品，会用审核、默认私有、可隐藏的过程信息、安全评分或再发布限制来控制风险。例如 Obsidian 的自动审核与评分卡，Higgsfield 默认需主动发布且 prompt 可隐藏，Figma remix 后不能再发回 Community。",
+      "product_ids": [
+        "obsidian",
+        "higgsfield",
+        "figma"
+      ]
+    },
+    {
+      "id": "lifecycle-risk",
+      "title": "广场型模块的生命周期风险",
+      "summary": "初步观察：作品广场需要持续运营和审核，否则可能停滞或下线。本轮直接看到 Lovable Launched 与 Bolt Gallery 的页面无法打开。另外，Airtable Universe 有社区反馈称新提交不再被收录（待验证），Perplexity 则把 Spaces 迁成了 Projects。",
+      "product_ids": [
+        "lovable",
+        "bolt",
+        "airtable",
+        "perplexity"
+      ]
+    }
+  ]
+}

@@ -9,8 +9,8 @@
   },
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev --host 0.0.0.0",
-    "validate": "node scripts/validate-events.mjs && node scripts/validate-insights.mjs",
-    "test": "node --test scripts/validate-events.test.mjs scripts/validate-insights.test.mjs scripts/classify.test.mjs",
+    "validate": "node scripts/validate-events.mjs && node scripts/validate-insights.mjs && node scripts/validate-inspiration.mjs",
+    "test": "node --test scripts/validate-events.test.mjs scripts/validate-insights.test.mjs scripts/validate-inspiration.test.mjs scripts/classify.test.mjs",
     "build": "npm run validate && ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/copy-data.mjs && node scripts/check-dist.mjs",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 0.0.0.0 --port 4321"
   },

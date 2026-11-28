@@ -1,0 +1,212 @@
+---
+import "../../styles/global.css";
+import ProductCard from "../../components/ProductCard.astro";
+import data from "../../../data/inspiration.json";
+import { formatUpdated } from "../../lib/classify.mjs";
+import {
+  STATUS_LABELS,
+  changelogNewestFirst,
+  formatDateZh,
+  groupProducts,
+  productMap,
+} from "../../lib/inspiration.mjs";
+
+const updated = formatUpdated(data.last_updated);
+const grouped = groupProducts(data.groups, data.products);
+const changelog = changelogNewestFirst(data.changelog);
+const productsById = productMap(data.products);
+const description =
+  "产品社区与灵感模块观察：跟踪 AI 应用与传统工具如何呈现社区、灵感、模板、图库与学院模块，以及这些模块如何随时间变化。";
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>产品社区与灵感模块观察 · AI Events Radar</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#14382c" />
+    <meta property="og:title" content="产品社区与灵感模块观察 · AI Events Radar" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip" href="#product-groups">跳到产品列表</a>
+    <header class="site">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+          <circle cx="24" cy="24" r="10" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+          <circle cx="24" cy="24" r="2.2" fill="currentColor"></circle>
+          <path d="M24 24 L36.5 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+        <div>
+          <p class="kicker">公开观察 · 每周一、周四</p>
+          <h1>产品社区与灵感模块观察</h1>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="站点导航">
+        <a href="/">活动列表</a>
+        <a href="/inspiration/" aria-current="page">灵感观察</a>
+      </nav>
+      <p class="lede">
+        持续跟踪 AI 应用与其他产品（创业公司与传统工具）如何在产品和官网上呈现社区、灵感、模板、图库与学院模块，以及这些模块如何随时间变化。页面由
+        <code>data/inspiration.json</code> 在构建时生成。
+      </p>
+      <p class="disclaimer">{data.disclaimer}</p>
+      <p class="updated">
+        schema v{data.schema_version}
+        · 时区 {data.timezone}
+        · 基线 <time datetime={data.baseline_date}>{formatDateZh(data.baseline_date)}</time>
+        · 更新节奏 {data.update_cadence}
+        · 数据更新于 <time datetime={data.last_updated}>{updated}</time>
+      </p>
+    </header>
+
+    <main>
+      <section class="panel" id="changelog" aria-labelledby="changelog-title">
+        <h2 id="changelog-title">最近变化 <span class="count">{changelog.length}</span></h2>
+        <ol class="changelog-list">
+          {changelog.map((entry) => {
+            const product = productsById.get(entry.product_id);
+            return (
+              <li class="changelog-item">
+                <p class="changelog-meta">
+                  <time datetime={entry.date}>{formatDateZh(entry.date)}</time>
+                  <span aria-hidden="true">·</span>
+                  {product ? (
+                    <a href={`#${entry.product_id}`}>{product.name}</a>
+                  ) : (
+                    <span>{entry.product_id}</span>
+                  )}
+                  <span class="meta-chip">product_id：{entry.product_id}</span>
+                </p>
+                <p class="blurb">{entry.summary}</p>
+                {entry.source_url ? (
+                  <p class="link-row">
+                    <a href={entry.source_url} target="_blank" rel="noopener noreferrer">
+                      来源
+                      <span class="sr-only">（新窗口打开）</span>
+                    </a>
+                    <a class="url-inline" href={entry.source_url} target="_blank" rel="noopener noreferrer">
+                      {entry.source_url}
+                      <span class="sr-only">（新窗口打开）</span>
+                    </a>
+                  </p>
+                ) : (
+                  <p class="muted-line">无公开来源链接</p>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+
+      <section class="panel" id="patterns" aria-labelledby="patterns-title">
+        <h2 id="patterns-title">跨产品模式 <span class="count">{data.patterns.length}</span></h2>
+        <div class="pattern-list">
+          {data.patterns.map((pattern) => (
+            <article class="pattern-card" id={`pattern-${pattern.id}`}>
+              <h3>{pattern.title}</h3>
+              <p class="value-line"><span class="meta-chip">id：{pattern.id}</span></p>
+              <p class="blurb">{pattern.summary}</p>
+              <p class="k">例证产品（product_ids）</p>
+              <p class="link-row">
+                {pattern.product_ids.map((id) => {
+                  const product = productsById.get(id);
+                  return product ? (
+                    <a href={`#${id}`}>{product.name}</a>
+                  ) : (
+                    <span class="meta-chip">{id}</span>
+                  );
+                })}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <label class="search">
+          <span>搜索</span>
+          <input
+            id="q"
+            type="search"
+            placeholder="产品名、模块、入口、机制、来源或备注"
+            autocomplete="off"
+            enterkeyhint="search"
+          />
+        </label>
+        <div class="filter-row">
+          <fieldset>
+            <legend>分组</legend>
+            <div class="choices">
+              <button type="button" data-group="group" data-value="all" aria-pressed="true">全部</button>
+              {data.groups.map((group) => (
+                <button type="button" data-group="group" data-value={group.id} aria-pressed="false">
+                  {group.name}
+                  <span class="choice-count">{grouped.find((item) => item.id === group.id)?.products.length ?? 0}</span>
+                </button>
+              ))}
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>状态</legend>
+            <div class="choices">
+              <button type="button" data-group="status" data-value="all" aria-pressed="true">全部</button>
+              {Object.entries(STATUS_LABELS).map(([value, label]) => (
+                <button type="button" data-group="status" data-value={value} aria-pressed="false">
+                  {label}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+          <button type="button" id="clear" hidden>清除筛选</button>
+        </div>
+      </div>
+
+      <p id="summary" aria-live="polite">共 {data.products.length} 个产品</p>
+      <noscript>
+        <p class="noscript">筛选需要 JavaScript。下面仍按分组列出全部产品与字段。</p>
+      </noscript>
+
+      <div id="product-groups">
+        {grouped.map((group) => (
+          <section class="product-group" id={`group-${group.id}`} data-group-id={group.id}>
+            <h2>
+              {group.name}
+              <span class="count">{group.products.length}</span>
+            </h2>
+            <p class="group-meta"><span class="meta-chip">id：{group.id}</span></p>
+            <p class="group-desc">{group.description}</p>
+            <div class="cards">
+              {group.products.map((product) => (
+                <ProductCard product={product} groupName={group.name} />
+              ))}
+            </div>
+          </section>
+        ))}
+        <p id="empty" hidden>没有符合条件的产品。</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        本页只收录公开页面观察，不收录邮箱、密码、注册资料或私人建议。未知字段留空，不代表功能不存在。结论只覆盖当前样本。
+      </p>
+      <p class="footer-links">
+        <a href="/">活动列表</a>
+        <a href="https://github.com/Sakuraity/ai-events-radar">源代码</a>
+        <a href="/inspiration.json">灵感数据</a>
+        <span>MIT</span>
+      </p>
+    </footer>
+    <script>
+      import { initInspiration } from "../../scripts/inspiration.mjs";
+      initInspiration();
+    </script>
+  </body>
+</html>

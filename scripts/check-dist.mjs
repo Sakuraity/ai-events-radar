@@ -2,13 +2,21 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import data from "../data/events.json" with { type: "json" };
 import insights from "../data/insights.json" with { type: "json" };
+import inspiration from "../data/inspiration.json" with { type: "json" };
 
 const html = readFileSync(new URL("../dist/index.html", import.meta.url), "utf8");
+const inspirationHtml = readFileSync(new URL("../dist/inspiration/index.html", import.meta.url), "utf8");
 const published = readFileSync(new URL("../dist/events.json", import.meta.url), "utf8");
 const publishedInsights = readFileSync(new URL("../dist/insights.json", import.meta.url), "utf8");
+const publishedInspiration = readFileSync(new URL("../dist/inspiration.json", import.meta.url), "utf8");
 
 assert.equal(published, readFileSync(new URL("../data/events.json", import.meta.url), "utf8"));
 assert.equal(publishedInsights, readFileSync(new URL("../data/insights.json", import.meta.url), "utf8"));
+assert.equal(
+  publishedInspiration,
+  readFileSync(new URL("../data/inspiration.json", import.meta.url), "utf8"),
+);
+
 assert.match(html, /rel="stylesheet"/);
 assert.match(html, /即将开始/);
 assert.match(html, /已结束/);
@@ -29,6 +37,7 @@ assert.match(html, /内容标签/);
 assert.match(html, /活动特征总结/);
 assert.match(html, /初步观察/);
 assert.match(html, /id="insights"/);
+assert.match(html, /href="\/inspiration\/"/);
 assert.match(published, /"topics"/);
 assert.equal((html.match(/data-group="topic"/g) ?? []).length, 10);
 assert.doesNotMatch(html, /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
@@ -81,6 +90,84 @@ for (const [, raw] of schedules) {
   assert.ok(schedule.every((session) => "start" in session && "date" in session && "label" in session));
 }
 
+const inspirationDecoded = decode(inspirationHtml);
+assert.match(inspirationHtml, /产品社区与灵感模块观察/);
+assert.match(inspirationHtml, /最近变化/);
+assert.match(inspirationHtml, /跨产品模式/);
+assert.match(inspirationHtml, /href="\/"/);
+assert.ok(inspirationDecoded.includes(inspiration.disclaimer), "missing disclaimer text");
+assert.match(inspirationHtml, /每周一、周四/);
+assert.doesNotMatch(inspirationHtml, /youmind|优麦/i);
+assert.doesNotMatch(inspirationHtml, /[^@\s]+@[^@\s]+\.[^@\s]+/);
+
+for (const product of inspiration.products) {
+  assert.ok(inspirationHtml.includes(`id="${product.id}"`), `missing product id: ${product.id}`);
+  assert.ok(inspirationDecoded.includes(product.name), `missing product name: ${product.name}`);
+  assert.ok(inspirationDecoded.includes(product.placement), `missing placement: ${product.id}`);
+  assert.ok(inspirationDecoded.includes(product.content_types), `missing content_types: ${product.id}`);
+  assert.ok(inspirationDecoded.includes(product.content_source), `missing content_source: ${product.id}`);
+  assert.ok(inspirationDecoded.includes(product.organization), `missing organization: ${product.id}`);
+  assert.ok(inspirationDecoded.includes(product.interaction), `missing interaction: ${product.id}`);
+  assert.ok(inspirationDecoded.includes(product.conversion), `missing conversion: ${product.id}`);
+  if (product.recent_updates) {
+    assert.ok(inspirationDecoded.includes(product.recent_updates), `missing recent_updates: ${product.id}`);
+  }
+  if (product.status_note) {
+    assert.ok(inspirationDecoded.includes(product.status_note), `missing status_note: ${product.id}`);
+  }
+  if (product.evidence_note) {
+    assert.ok(inspirationDecoded.includes(product.evidence_note), `missing evidence_note: ${product.id}`);
+  }
+  if (product.notes) {
+    assert.ok(inspirationDecoded.includes(product.notes), `missing notes: ${product.id}`);
+  }
+  for (const module of product.modules) {
+    assert.ok(inspirationDecoded.includes(module.name), `missing module ${module.name} on ${product.id}`);
+    if (module.url) {
+      assert.ok(inspirationHtml.includes(module.url), `missing module url ${module.url}`);
+    }
+    if (module.status_note) {
+      assert.ok(inspirationDecoded.includes(module.status_note), `missing module status_note on ${product.id}`);
+    }
+  }
+  for (const source of product.sources) {
+    assert.ok(inspirationDecoded.includes(source.label), `missing source ${source.label}`);
+    assert.ok(inspirationHtml.includes(source.url), `missing source url ${source.url}`);
+  }
+  if (product.spotlight) {
+    for (const [key, value] of Object.entries(product.spotlight)) {
+      if (typeof value === "string") {
+        assert.ok(inspirationDecoded.includes(value), `missing spotlight.${key} on ${product.id}`);
+      } else if (key === "observations") {
+        for (const item of value) {
+          assert.ok(inspirationDecoded.includes(item), `missing observation on ${product.id}`);
+        }
+      } else if (key === "scoring_rules") {
+        for (const rule of value) {
+          assert.ok(inspirationDecoded.includes(rule.action), `missing scoring action on ${product.id}`);
+          assert.ok(inspirationDecoded.includes(rule.score), `missing scoring score on ${product.id}`);
+          assert.ok(inspirationDecoded.includes(rule.credit), `missing scoring credit on ${product.id}`);
+        }
+      }
+    }
+  }
+}
+
+for (const entry of inspiration.changelog) {
+  assert.ok(inspirationDecoded.includes(entry.summary), `missing changelog: ${entry.summary.slice(0, 40)}`);
+  if (entry.source_url) {
+    assert.ok(inspirationHtml.includes(entry.source_url), `missing changelog url: ${entry.source_url}`);
+  }
+}
+
+for (const pattern of inspiration.patterns) {
+  assert.ok(inspirationDecoded.includes(pattern.title), `missing pattern title: ${pattern.title}`);
+  assert.ok(inspirationDecoded.includes(pattern.summary), `missing pattern summary: ${pattern.id}`);
+}
+
+const productArticles = inspirationHtml.match(/<article\b[^>]*class="[^"]*product-card/g) ?? [];
+assert.equal(productArticles.length, inspiration.products.length);
+
 console.log(
-  `页面检查通过：${data.events.length} 场活动、${insights.sections.length} 节特征总结已写入 dist/index.html`,
+  `页面检查通过：${data.events.length} 场活动、${insights.sections.length} 节特征总结、${inspiration.products.length} 个灵感产品已写入 dist`,
 );

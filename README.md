@@ -18,9 +18,16 @@ npm run build
 npm run preview
 ```
 
-`npm run dev` 启动开发服务器。`npm run validate` 检查 `data/events.json` 和 `data/insights.json`。
+`npm run dev` 启动开发服务器。`npm run validate` 检查 `data/events.json`、`data/insights.json` 与 `data/inspiration.json`。
 
 技术栈是 [Astro](https://astro.build/)。页面在构建时从数据文件渲染成静态 HTML，筛选、搜索和「即将开始 / 已结束」的重新归类由一个小脚本在浏览器里完成。没有客户端框架。
+
+站点页面：
+
+| 路径 | 数据文件 | 说明 |
+| --- | --- | --- |
+| `/` | `data/events.json` + `data/insights.json` | 活动列表与活动特征总结 |
+| `/inspiration/` | `data/inspiration.json` | 产品社区 / 灵感 / 模板模块观察 |
 
 ## 页面行为
 
@@ -38,11 +45,20 @@ npm run preview
 - 页头「数据更新于」读的是数据文件根上的 `last_updated`，不是页面构建时刻。
 - 「活动特征总结」在页头下方、筛选和活动列表上方，按 `data/insights.json` 在构建时渲染。标为「初步观察」，并显示样本规模、日期范围和观察更新时间。要点里的 `event_ids` 链到对应活动卡片锚点。
 - 没有 JavaScript 时，列表仍在，分类和「x 天后 / 已结束」用的是构建时刻。打开 JavaScript 后会按访客当前时刻重算。
-- 部署产物里的 `/events.json` 和 `/insights.json` 是数据文件的副本，方便核对线上内容。可编辑的源头只有仓库里的 `data/events.json` 与 `data/insights.json`。
+- 部署产物里的 `/events.json`、`/insights.json` 和 `/inspiration.json` 是数据文件的副本，方便核对线上内容。可编辑的源头分别在仓库的 `data/` 目录。
+- 页头导航可在「活动列表」与「灵感观察」之间切换。
+
+### `/inspiration/` 页面行为
+
+- 顶部展示声明、`baseline_date`、更新节奏（每周一、周四）和 `last_updated`。
+- 「最近变化」按日期从新到旧列出全部 changelog，含完整摘要与来源链接。
+- 「跨产品模式」展示全部 patterns 的完整 summary，并链到例证产品。
+- 产品按 `groups` 分组；可用分组、状态和搜索筛选。每张卡片完整渲染模块链接、入口位置、内容类型、内容来源、组织方式、互动机制、转化路径、近期变化、证据、状态、核对日期、来源、备注和 spotlight（含评分表）；不截断、不省略字段。
+- 部署产物里的 `/inspiration.json` 是数据副本。后续更新**只替换** `data/inspiration.json`。
 
 ## 数据约定
 
-每日更新的机器人**只提交 `data/events.json`**（活动列表）。「活动特征总结」由人工或另外的流程更新 `data/insights.json`。改完跑 `npm run validate`，通过后再提交。GitHub Actions（`.github/workflows/check.yml`）和 Cloudflare Pages 的构建都会再查一次；校验失败时构建失败，线上会继续保留上一份成功的部署。
+每日更新的机器人**只提交 `data/events.json`**（活动列表）。「活动特征总结」由人工或另外的流程更新 `data/insights.json`。灵感观察页每周一、周四更新时**只提交 `data/inspiration.json`**。改完跑 `npm run validate`，通过后再提交。GitHub Actions（`.github/workflows/check.yml`）和 Cloudflare Pages 的构建都会再查一次；校验失败时构建失败，线上会继续保留上一份成功的部署。
 
 当前契约是 **schema v2**。不再使用 `urls`。
 
@@ -217,19 +233,40 @@ npm run preview
 | `replay_available` | 已有公开回放地址，必须带 `replay.url` |
 | `no_replay` | 已确认没有公开回放 |
 
+
+## 灵感观察数据（`data/inspiration.json`）
+
+人读契约见 [`data/inspiration.schema.md`](data/inspiration.schema.md)。实际校验在 `scripts/validate-inspiration.mjs`。后续更新只替换该 JSON，不要改页面代码。
+
+### 必满足规则
+
+1. UTF-8 JSON；顶层含 `schema_version`（整数 `>= 1`）、`timezone`（`Asia/Shanghai`）、`last_updated`（`+08:00` ISO）、`baseline_date`、`update_cadence`、`disclaimer`、`groups`、`products`、`changelog`、`patterns`。
+2. `baseline_date`、`first_seen`、`last_checked`、`changelog[].date` 均为 `YYYY-MM-DD`。不要改已发布的 `baseline_date`。
+3. `groups`、`products` 非空；`changelog`、`patterns` 为数组。
+4. `groups[].id`、`products[].id`、`patterns[].id` 各自唯一，匹配 `^[a-z0-9]+(?:-[a-z0-9]+)*$`。
+5. 每个 `products[].group_id` 必须存在于 `groups[]`；`changelog[].product_id` 与 `patterns[].product_ids` 必须存在于 `products[]`；`product_ids` 内部不重复。
+6. 非空 URL（`modules[].url`、`sources[].url`、`changelog[].source_url`）必须以 `https://` 开头；未知用空字符串。
+7. `evidence` 只能是 `已打开`、`部分打开`、`仅搜到`。
+8. 产品级与模块级 `status` 只能是 `active`、`unreachable`、`changed`。
+9. 每个产品的 `modules`、`sources` 非空；`modules[].name`、`modules[].kind`、`sources[].label` 非空；`kind` 为小写短标签。
+10. **安全**：整个文件文本（大小写不敏感）不得出现 `youmind` / `优麦`；任意字符串不得含邮箱地址。
+11. `changelog` 按 `date` 升序；新条目只追加。有变化时更新产品字段、`last_checked`，必要时改 `status` 并追加 changelog；同步改 `last_updated`。
+12. 只写公开页面可核对事实；不要写私人建议、邮箱、密码、注册信息；未知留空，不要猜测。
+
 ## 隐私
 
 数据必须可以公开。种子已经去掉个人报名信息，以后的提交也要保持这样。
 
-不要写入（`events.json` 与 `insights.json` 均适用）：
+不要写入（`events.json`、`insights.json` 与 `inspiration.json` 均适用）：
 
 - 邮箱地址、`mailto:`、密码、令牌、手机号
 - 谁报名了、谁决定不报名、会员库之类的私人去向
 - 具体报名步骤，或带有账号、密码、邮箱、token 的链接
+- 灵感数据中的 `YouMind` / `优麦` / `youmind`（大小写不敏感）
 
 可以写公开信息：活动页链接、价格、货币、以及「免费但需主办方审批」这种参与条件。回放如果只给报名者、没有公开地址，`channel` 写「仅向报名者提供」即可，不要写邮箱。
 
-`events.json` 校验会拒绝邮箱地址、敏感字段名（如 `email`、`password`、`token`）、英文 `password`、中文「密码」、HTML，以及带账号密码或敏感查询参数的 URL。`insights.json` 额外检查正文不含邮箱，且所有 `event_ids` 都能在 `events.json` 里找到。
+`events.json` 校验会拒绝邮箱地址、敏感字段名（如 `email`、`password`、`token`）、英文 `password`、中文「密码」、HTML，以及带账号密码或敏感查询参数的 URL。`insights.json` 额外检查正文不含邮箱，且所有 `event_ids` 都能在 `events.json` 里找到。`inspiration.json` 额外拒绝 `youmind` / `优麦`，以及邮箱地址。
 
 ## 部署到 Cloudflare Pages
 
